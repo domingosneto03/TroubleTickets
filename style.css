@@ -10,29 +10,37 @@ body {
     grid-row-start: 1;
     grid-row-end: 2;
 
-    justify-content: right;
+
     align-content: center;
     box-sizing: border-box;
     padding: 2em;
 
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto;
-    gap: 0.5em;
-
     background-color: mediumspringgreen;
+
+    display: flex;
+    justify-content: space-between;
 }
 
-#search_bar {
+#main_header h1 {
+    margin: 0;
+}
+
+#main_header #right_side {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0.5em;
+}
+
+#right_side #search_bar {
     grid-column: 1;
 }
 
-#login_button {
-    grid-column: 3;
+#right_side a {
+    grid-column: 2;
 }
 
-#main_header a {
-    grid-column: 2;
+#right_side #login_button {
+    grid-column: 3;
 }
 
 #side_bar {
