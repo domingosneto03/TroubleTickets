@@ -3,6 +3,8 @@
 
 body {
     display: grid;
+    padding: 0;
+    margin: 0;
     grid-template-columns: 5em auto;
     grid-template-rows: 6em auto 5em;
 }
@@ -26,20 +28,22 @@ body {
 
 #main_header h1 {
     margin: 0;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 2.7em;
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px black;
 }
 
 #main_header #right_side {
+    align-items: center;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
     gap: 0.5em;
 }
 
 #right_side #search_bar {
     grid-column: 1;
-}
-
-#right_side a {
-    grid-column: 2;
 }
 
 #right_side #login_button {
@@ -48,17 +52,29 @@ body {
 
 #side_bar {
     grid-column: 1;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    height: 100vh;
     margin: 0;
-    background-color: blueviolet;
+    background-color: #43464b;
     list-style-type: none;
     list-style-position: outside;
     padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
 }
 
 #side_bar li {
     padding-bottom: 0.5em;
+    justify-self: center;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+#side_bar li a {
+    text-decoration: none;
+    color: whitesmoke;
 }
 
 #main_footer {
@@ -71,4 +87,3 @@ body {
     flex-flow: row;
     justify-content: space-between;
 }
-
