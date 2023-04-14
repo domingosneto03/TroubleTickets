@@ -3,6 +3,7 @@
     <head>
         <title>template</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="ticket_listing_css.css">
     </head>
     <body>
         <header id="main_header">
@@ -11,14 +12,14 @@
                 <form action="" id="search_bar">
                     <input type="text" name="search_bar" placeholder="Search for anything!">
                 </form>
-                <a href="">notifications</a>
                 <form action="" id="login_button">
-                    <input type="button" value="Login"> <!-- changes to image of user when logged in -->
+                    <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
+                    are new notifications -->
                 </form>
             </article>
         </header>
         <ol id="side_bar">
-            <li><a href="template.html">home page</a></li>
+            <li><a href="template.html">&#9751 HOME</a></li>
             <li><a href="ticket_list.html">ticket list</a></li>
             <li>my tickets</li>
             <li>new ticket</li>
@@ -30,10 +31,10 @@
         <main>
             <article id="ticket_listing">
                 <h2>Ticket Listing</h2>
-                <a href="">
-                    <article id="new_ticket">
+                <a href="" id="new_ticket">
+                    <div>
                         <p>New ticket</p>
-                    </article>
+                    </div>
                 </a>
                 <article id="tickets">
                     <article>
