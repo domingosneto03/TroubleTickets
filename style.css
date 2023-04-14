@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
 body {
     display: grid;
     grid-template-columns: 5em auto;
@@ -69,41 +71,3 @@ body {
     justify-content: space-between;
 }
 
-main {
-    grid-column: 2;
-    grid-row: 2;
-    background-color: aquamarine;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-main #ticket_listing {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
-}
-
-main #ticket_listing h2 {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-main #ticket_listing #new_ticket {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row: 1;
-    height: 2em;
-    background-color: blueviolet;
-    border-radius: 10px;
-}
-
-main #ticket_listing #tickets {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 2;
-}
-
-main #ticket_listing #tickets article {
-    background-color: aqua;
-    border-radius: 8px;
-}
