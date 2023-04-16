@@ -164,7 +164,12 @@ body {
     font-weight: 400;
     font-size: 0.8rem;
     color: white;
-    height: 3em;
+    height: auto;
+}
+
+#main_footer p {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
 
 main {
