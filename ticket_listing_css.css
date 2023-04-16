@@ -1,21 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-main {
-    grid-column: 2;
-    grid-row: 2;
-    background-color: whitesmoke;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-
-main #ticket_listing {
+#ticket_listing {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
 }
 
-main #ticket_listing h2 {
+#ticket_listing h2 {
     margin-top: 20px;
     margin-bottom: 0%;
     grid-column: 1;
@@ -34,7 +26,7 @@ main #ticket_listing h2 {
     width: fit-content;
     height: fit-content;
     justify-self: right;
-    margin-top: 20px;
+    margin-top: 28px;
     margin-bottom: 0;
     text-decoration: none;
 }
@@ -42,7 +34,7 @@ main #ticket_listing h2 {
 #new_ticket div {
     height: fit-content;
     width: fit-content;
-    background-color: blueviolet;
+    background-color: #bb66cf;
     border-radius: 10px;
     align-items: center;
 }
@@ -64,13 +56,32 @@ main #ticket_listing h2 {
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row: 2;
-    margin-left: 0.3em;
-    margin-right: 0.3em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
     padding-top: 10px;
 }
 
 #tickets article {
     border-radius: 8px;
-    border: 2px solid mediumspringgreen;
+    border: 2px solid #bb66cf;
     margin-bottom: 2px;
+}
+
+#tickets article h4 {
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+#tickets article p {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
