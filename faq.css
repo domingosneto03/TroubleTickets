@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+main h2 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.7em;
+}
+
+main article {
+    font-family: 'Oxygen', sans-serif;
+    
+    border-top: 4px solid #bb66cf;
+}
+
+main article:last-child {
+    border-bottom: 4px solid #bb66cf;
+}
+
+main article h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+main article p {
+    font-weight: 400;
+    font-size: 1.3rem;
+    padding-left: 1.2rem;
+}
