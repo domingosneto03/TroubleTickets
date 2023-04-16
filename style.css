@@ -11,7 +11,8 @@ body {
     padding: 0;
     margin: 0;
     grid-template-columns: 6rem auto;
-    grid-template-rows: 4em auto 3em;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 
 #main_header {
@@ -19,6 +20,8 @@ body {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+
+    height: 4em;
 
     box-sizing: border-box;
     padding-left: 15px;
@@ -161,6 +164,7 @@ body {
     font-weight: 400;
     font-size: 0.8rem;
     color: white;
+    height: 3em;
 }
 
 main {
