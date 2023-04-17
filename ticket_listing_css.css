@@ -15,9 +15,6 @@
     width: fit-content;
     justify-self: left;
     height: auto;
-    font-family: 'Oxygen', sans-serif;
-    font-size: 1.7em;
-    font-weight: 700;
 }
 
 #new_ticket {
@@ -34,9 +31,13 @@
 #new_ticket div {
     height: fit-content;
     width: fit-content;
-    background-color: #bb66cf;
+    background-color: #43464b;
     border-radius: 10px;
     align-items: center;
+}
+
+#new_ticket div:hover {
+    background-color: #bb66cf;
 }
 
 #new_ticket div p {
@@ -61,13 +62,22 @@
     padding-top: 10px;
 }
 
-#tickets article {
-    border-radius: 8px;
-    border: 2px solid #bb66cf;
-    margin-bottom: 2px;
+#tickets a {
+    text-decoration: none;
 }
 
-#tickets article h4 {
+#tickets a article {
+    border-radius: 8px;
+    border: 2px solid black;
+    margin-bottom: 2px;
+    color: black;
+}
+
+#tickets a article:hover {
+    border-color: #bb66cf;
+}
+
+#tickets a article h4 {
     font-weight: 700;
     font-size: 30px;
     margin: 0;
@@ -76,7 +86,7 @@
     font-family: 'Oxygen', sans-serif;
 }
 
-#tickets article p {
+#tickets a article p {
     font-family: 'Cormorant', serif;
     font-weight: 400;
     font-size: 20px;

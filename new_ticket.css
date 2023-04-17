@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+main form {
+    font-family: 'Oxygen', sans-serif;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #bb66cf;
+    padding: 1em;
+    height: max-content;
+    border-radius: 10px;
+}
+
+#title {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+#ticket_title {
+    margin-left: 1em;
+    flex: 1;    
+}
+
+#text {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+}
+
+#ticket_text {
+    flex: 1;
+    margin-left: 1em;
+}
+
+#department label {
+    margin-right: 0.5em;
+}
+
+#tags p {
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#tags input {
+    margin-left: 0.4em;
+}
+
+#tags input:first-of-type {
+    margin-left: 0;
+}
+
+#thing {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+#tags {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#sub_button {
+    background-color: #bb66cf;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 3em;
+    font-size: 1.1em;
+    color: white;
+}
