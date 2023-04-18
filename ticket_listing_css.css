@@ -2,38 +2,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 #ticket_listing {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#top_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: end;
 }
 
 #ticket_listing h2 {
     margin-top: 20px;
     margin-bottom: 0%;
-    grid-column: 1;
-    grid-row: 1;
     width: fit-content;
     justify-self: left;
     height: auto;
 }
 
-#new_ticket {
-    grid-column: 3;
-    grid-row: 1;
+#buttons {
+    display: flex;
+    flex-direction: row;
     width: fit-content;
-    height: fit-content;
-    justify-self: right;
-    margin-top: 28px;
-    margin-bottom: 0;
+    height: 2.1rem;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 20px;
+    column-gap: 0.2rem;
+}
+
+#buttons * {
+    height: inherit;
+    width: 6rem;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    
+}
+
+#buttons input {
+    background-color: #43464b;
+    color: white;
+    border-radius: 10px;
+
+    margin: 0;
+}
+
+#buttons input:hover {
+    background-color: #bb66cf;
+    border-color: #bb66cf;
+}
+
+#new_ticket {
     text-decoration: none;
 }
 
 #new_ticket div {
-    height: fit-content;
-    width: fit-content;
+    height: inherit;
     background-color: #43464b;
     border-radius: 10px;
-    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    
 }
 
 #new_ticket div:hover {
@@ -41,15 +73,13 @@
 }
 
 #new_ticket div p {
-    padding-top: 0.6em;
-    padding-bottom: 0.6em;
-    padding-left: 1.6em;
-    padding-right: 1.6em;
-    justify-self: center;
+    height: min-content;
+    width: fit-content;
     margin: 0;
-    font-family: 'Oxygen', sans-serif;
-    font-size: 0.6em;
-    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-self: center;
+
     color: whitesmoke;
 }
 
