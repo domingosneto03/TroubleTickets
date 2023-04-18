@@ -78,6 +78,11 @@ body {
     border-radius: 10px;
 }
 
+#login_button input:hover {
+    background-color: #bb66cf;
+    color: white;
+}
+
 #side_bar {
     grid-column: 1;
     height: 100vh;
@@ -110,28 +115,6 @@ body {
 
 #side_bar a:hover {
     background-color: #bb66cf;
-}
-
-#toggler {
-    display: none;
-    padding-left: 20px;
-    padding-top: 20px;
-}
-
-#toggler_label {
-    display: block;
-    padding-left: 20px;
-    padding-top: 20px;
-    color: white;
-}
-
-#toggler_label::before {
-    content: "\2630";
-    
-}
-
-#toggler:checked ~ #toggler_label::before {
-    content: "\2715";
 }
 
 #main_footer {
