@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trouble Tickets</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sign.css">
-    <link rel="stylesheet" href="profile.css">
-</head>
-<body>
-    <header id="main_header">
-        <h1>Website Name</h1>
-        <div id="right_side">
-            <form id="search_bar">
-                <input type="text" name="search_bar" placeholder="Search for anything!">
-            </form>
-            <a href="">notifications</a> 
-            <a href="login.html">sign in</a>
-        </div>
-    </header>
-    <ol id="side_bar">
-        <li><a href="template.html">home page</a></li>
-        <li><a href=""></a>ticket list</li>
-        <li><a href=""></a>my tickets</li>
-        <li><a href=""></a>people</li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href=""></a>messages</li>
-        <li><a href=""></a>settings</li>
-    </ol>
-    <main>
-        <section id="register">
+<html>
+    <head>
+        <title>template</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="sign.css">
+    </head>
+    <body>
+        <header id="main_header">
+            <h1>Mango Tickets</h1>
+            <article id="right_side">
+                <form action="" id="search_bar">
+                    <input type="text" name="search_bar" placeholder="Search for anything!">
+                </form>
+                <a href="login.html">
+                  <form action="" id="login_button">
+                      <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there are new notifications -->
+                  </form>
+              </a> 
+            </article>
+        </header>
+        <aside id="side_bar">
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" id="toggler_label"></label>
+
+            <article>
+                <a href="template.html">HOME</a>
+                <a href="ticket_list.html">TICKETS</a>
+                <a href="">MY TICKETS</a>
+                <a href="">NEW TICKET</a>
+                <a href="faq.html">FAQ</a>
+                <a href="">MESSAGES</a>
+                <a href="">SETTINGS</a>
+            </article>
+            
+        </aside>
+        <main>
+          <section id="register">
             <h2>Register</h2>
             <form>
               <label>
-                Username <input type="text" name="username">
+                Username <input type="text" name="username" placeholder="Create an username">
               </label>
               <label>
-                E-mail <input type="email" name="email">
+                E-mail <input type="email" name="email" placeholder="Type your email">
               </label>
               <label>
-                Password <input type="password" name="password">
+                Password <input type="password" name="password" placeholder="Create your password">
+              </label>
+              <label>
+                Confirm Password <input type="password" name="password" placeholder="Confirm your password">
               </label>
               <button formaction="#" formmethod="post">Register</button>
             </form>
           </section>
-    </main>   
-    <footer id="main_footer">
-        <p>João Ribeiro, Xavier Santos, Domingos Neto</p>
-        <p>© 2023</p>
-    </footer>
-</body>
+        </main>
+        
+        <footer id="main_footer">
+            <p>João Ribeiro, Xavier Santos, Domingos Neto</p>
+            <p>&copy 2023</p>
+        </footer>
+    </body>
 </html>

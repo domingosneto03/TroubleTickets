@@ -1,53 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trouble Tickets</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sign.css">
-    <link rel="stylesheet" href="profile.css">
-</head>
-<body>
-    <header id="main_header">
-        <h1>Website Name</h1>
-        <div id="right_side">
-            <form id="search_bar">
-                <input type="text" name="search_bar" placeholder="Search for anything!">
-            </form>
-            <a href="">notifications</a> 
-            <a href="login.html">sign in</a>
-        </div>
-    </header>
-    <ol id="side_bar">
-        <li><a href="template.html">home page</a></li>
-        <li><a href=""></a>ticket list</li>
-        <li><a href=""></a>my tickets</li>
-        <li><a href=""></a>people</li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href=""></a>messages</li>
-        <li><a href=""></a>settings</li>
-    </ol>
-    <main>
-        <section id="login">
-            <h2>Login</h2>
-            <form>
-              <label>
-                Username <input type="text" name="username">
-              </label>
-              <label>
-                Password <input type="password" name="password">
-              </label>
-              <button formaction="#" formmethod="post">Login</button>
-            </form>
-            <p>Não tens conta? <a href="register.html">Regista-te aqui</a></p>
-          </section>
-    </main>
-    
-    <footer id="main_footer">
-        <p>João Ribeiro, Xavier Santos, Domingos Neto</p>
-        <p>© 2023</p>
-    </footer>
-</body>
+<html>
+    <head>
+        <title>template</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="sign.css">
+    </head>
+    <body>
+        <header id="main_header">
+            <h1>Mango Tickets</h1>
+            <article id="right_side">
+                <form action="" id="search_bar">
+                    <input type="text" name="search_bar" placeholder="Search for anything!">
+                </form>
+                <a href="login.html">
+                    <form action="" id="login_button">
+                        <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there are new notifications -->
+                    </form>
+                </a>        
+            </article>
+        </header>
+        <aside id="side_bar">
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" id="toggler_label"></label>
+
+            <article>
+                <a href="template.html">HOME</a>
+                <a href="ticket_list.html">TICKETS</a>
+                <a href="">MY TICKETS</a>
+                <a href="">NEW TICKET</a>
+                <a href="faq.html">FAQ</a>
+                <a href="">MESSAGES</a>
+                <a href="">SETTINGS</a>
+            </article>
+            
+        </aside>
+        <main>
+            <section id="login">
+                <h2>Login</h2>
+                <form>
+                    <label>
+                    Username <input type="text" name="username" placeholder="Type your username or email">
+                    </label>
+                    <label>
+                    Password <input type="password" name="password" placeholder="Type your password">
+                    </label>
+                    <button formaction="#" formmethod="post">Login</button>
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                </form>
+                </section>
+        </main>
+        
+        <footer id="main_footer">
+            <p>João Ribeiro, Xavier Santos, Domingos Neto</p>
+            <p>&copy 2023</p>
+        </footer>
+    </body>
 </html>

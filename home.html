@@ -3,7 +3,8 @@
     <head>
         <title>template</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="profile.css">
+        <link rel="stylesheet" href="home.css">
+
     </head>
     <body>
         <header id="main_header">
@@ -12,10 +13,11 @@
                 <form action="" id="search_bar">
                     <input type="text" name="search_bar" placeholder="Search for anything!">
                 </form>
-                <form action="" id="login_button">
-                    <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
-                    are new notifications -->
-                </form>
+                <a href="login.html">
+                    <form action="" id="login_button">
+                        <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there are new notifications -->
+                    </form>
+                </a>  
             </article>
         </header>
         <aside id="side_bar">
@@ -34,24 +36,13 @@
             
         </aside>
         <main>
-            <aside id="profile">
-                <div id="image">
-                   <img src="components/perfil.png" alt="profile image">
-                </div>
-                <div>
-                    <p>Username<p>
-                    <p>something@example.com<p>
-                </div>
+            <img src="components/background2.jpg" alt="background">
+            <section id="phrase">
+                <h2>A Simpler Way of Trouble Ticketing</h2>
+                <p>Etiam mattis convallis orci eu malesuada. Donec odio ex, facilisis ac blandit vel, placerat ut lorem.</p>
                 <a href="">
-                    <button formaction="#" formmethod="post">Edit Profile</button>
-                </a>  
-            </aside>
-            <section id="info">
-                <div>
-                    <p>ganha noções</p> 
-                </div>
-            </section>
-            <section id="charts">
+                    <button formaction="#" formmethod="post">Visit more</button>
+                </a>
             </section>
         </main>
         
