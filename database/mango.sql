@@ -4,6 +4,7 @@ DROP TABLE ticket_history;
 DROP TABLE ticket_hash;
 DROP TABLE hashtag;
 DROP TABLE ticket;
+DROP TABLE admin;
 DROP TABLE agent;
 DROP TABLE client;
 DROP TABLE user;
