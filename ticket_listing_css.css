@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+#ticket_listing {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+#ticket_listing h2 {
+    margin-top: 20px;
+    margin-bottom: 0%;
+    grid-column: 1;
+    grid-row: 1;
+    width: fit-content;
+    justify-self: left;
+    height: auto;
+}
+
+#new_ticket {
+    grid-column: 3;
+    grid-row: 1;
+    width: fit-content;
+    height: fit-content;
+    justify-self: right;
+    margin-top: 28px;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+#new_ticket div {
+    height: fit-content;
+    width: fit-content;
+    background-color: #43464b;
+    border-radius: 10px;
+    align-items: center;
+}
+
+#new_ticket div:hover {
+    background-color: #bb66cf;
+}
+
+#new_ticket div p {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    padding-left: 1.6em;
+    padding-right: 1.6em;
+    justify-self: center;
+    margin: 0;
+    font-family: 'Oxygen', sans-serif;
+    font-size: 0.6em;
+    font-weight: 700;
+    color: whitesmoke;
+}
+
+#tickets {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 2;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    padding-top: 10px;
+}
+
+#tickets a {
+    text-decoration: none;
+}
+
+#tickets a article {
+    border-radius: 8px;
+    border: 2px solid black;
+    margin-bottom: 2px;
+    color: black;
+}
+
+#tickets a article:hover {
+    border-color: #bb66cf;
+}
+
+#tickets a article h4 {
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+#tickets a article p {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}

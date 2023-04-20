@@ -2,10 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
+    font-size: 1em;
     display: grid;
     padding: 0;
     margin: 0;
-    grid-template-columns: 3.4rem auto;
+
+
+    grid-template-columns: 4rem auto;
+
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
 }
@@ -86,7 +90,9 @@ body {
     grid-column: 1;
     height: 100vh;
     margin: 0;
-    width: 3.4rem;
+
+    width: 4rem;
+
     background-color: #43464b;
     display: flex;
     flex-direction: column;
@@ -99,7 +105,10 @@ body {
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
     color: whitesmoke;
-    width: inherit;
+
+
+    width: 4rem;
+
     padding: 0;
     text-decoration: none;
     margin-bottom: 2em;

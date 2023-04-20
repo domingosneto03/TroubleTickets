@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+main h3 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+main p {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#top p {
+    height: fit-content;
+    margin: 0;
+    padding-top: 1.6em;
+}
+
+#text {
+    text-align: justify;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0;
+}
+
+#info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #43464b;
+    font-size: 0.8em;
+}
+
+#info a {
+    text-decoration: none;
+    color: black;
+}
