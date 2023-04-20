@@ -10,10 +10,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: end;
 }
 
-#ticket_listing h2 {
+#top_bar h2 {
     margin-top: 20px;
     margin-bottom: 0%;
     width: fit-content;
@@ -21,75 +20,56 @@
     height: auto;
 }
 
-#buttons {
+#new_ticket {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #43464b;
+    height: fit-content;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    margin-top: 1.3rem;
+}
+
+#new_ticket:hover {
+    background-color: #bb66cf;
+}
+
+#tickets_main {
+    height: 34rem;
     display: flex;
     flex-direction: row;
-    width: fit-content;
-    height: 2.1rem;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-top: 20px;
-    column-gap: 0.2rem;
 }
 
-#buttons * {
-    height: inherit;
-    width: 6rem;
-    font-family: 'Oxygen', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    
-}
+#filters {
+    width: 8rem;
+    max-width: 5cm;
+    border: none;
+    border-left: 4px solid #43464b;
+    padding: 10px;
+    padding-right: 0%;
+    margin-top: 10px;
 
-#buttons input {
-    background-color: #43464b;
-    color: white;
-    border-radius: 10px;
-
-    margin: 0;
-}
-
-#buttons input:hover {
-    background-color: #bb66cf;
-    border-color: #bb66cf;
-}
-
-#new_ticket {
-    text-decoration: none;
-}
-
-#new_ticket div {
-    height: inherit;
-    background-color: #43464b;
-    border-radius: 10px;
     display: flex;
-    justify-content: space-around;
-    align-content: center;
-    
+    flex-direction: column;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
 }
 
-#new_ticket div:hover {
-    background-color: #bb66cf;
-}
-
-#new_ticket div p {
-    height: min-content;
-    width: fit-content;
-    margin: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    justify-self: center;
-
-    color: whitesmoke;
+#filters :not(label) {
+    margin-bottom: 1rem;
 }
 
 #tickets {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 2;
+    flex: 1;
     margin-left: 0.5em;
     margin-right: 0.5em;
     padding-top: 10px;
+    overflow-y: scroll;
 }
 
 #tickets a {
