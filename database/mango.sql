@@ -13,7 +13,7 @@ DROP TABLE user;
 CREATE TABLE user (
     id INTEGER PRIMARY KEY,
     username VARCHAR UNIQUE,
-    password VARCHAR,
+    password VARCHAR UNIQUE,
     email VARCHAR UNIQUE
 );
 
