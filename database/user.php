@@ -8,4 +8,9 @@ function get_user($username) {
     return $stmt->fetch();
 }
 
+function create_user($username, $email, $password) {
+    $db = getDatabaseConnection();
+    $stmt = $db-> prepare("INSERT INTO user ")
+}
+
 ?>
