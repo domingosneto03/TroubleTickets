@@ -1,3 +1,4 @@
+DROP TABLE faq;
 DROP TABLE agent_department;
 DROP TABLE department;
 DROP TABLE ticket_history;
@@ -62,4 +63,10 @@ CREATE TABLE department (
 CREATE TABLE agent_department (
     id_agent INTEGER REFERENCES agent,
     id_department INTEGER REFERENCES department
+);
+
+CREATE TABLE faq (
+    id INTEGER PRIMARY KEY.
+    question VARCHAR UNIQUE,
+    answer VARCHAR UNIQUE
 );
