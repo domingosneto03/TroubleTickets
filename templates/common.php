@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<?php
+
+function output_header($title) { ?>
+    <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>template</title>
+        <title><?=$title ?></title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="home.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -35,52 +38,48 @@
                 
             </article>
         </header>
-        <aside id="side_bar">
-            <a href="template.html">
-                <span class="material-symbols-outlined">
-                    home
-                </span>
-            </a>
-            <a href="ticket_list.html">
-                <span class="material-symbols-outlined">
-                    credit_card
-                </span>
-            </a>
-            <a href="new_ticket.html">
-                <span class="material-symbols-outlined">
-                    add_card
-                </span>
-            </a>
-            <a href="faq.html">
-                <span class="material-symbols-outlined">
-                    help_center
-                </span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined">
-                    mail
-                </span>
-            </a>
-            <a href="">
-                <span class="material-symbols-outlined">
-                    settings
-                </span>
-            </a>
-        </aside>
-        <main>
-            <img src="components/background2.jpg" alt="background">
-            <section id="phrase">
-                <h2>A Simpler Way of Trouble Ticketing</h2>
-                <p>Etiam mattis convallis orci eu malesuada. Donec odio ex, facilisis ac blandit vel, placerat ut lorem.</p>
-                <a href="">
-                    <button formaction="#" formmethod="post">Visit more</button>
-                </a>
-            </section>
-        </main>
-        
-        <footer id="main_footer">
+<?php } 
+
+function output_sidebar() { ?>
+    <aside id="side_bar">
+        <a href="template.html">
+            <span class="material-symbols-outlined">
+                home
+            </span>
+        </a>
+        <a href="ticket_list.html">
+            <span class="material-symbols-outlined">
+                credit_card
+            </span>
+        </a>
+        <a href="new_ticket.html">
+            <span class="material-symbols-outlined">
+                add_card
+            </span>
+        </a>
+        <a href="faq.html">
+            <span class="material-symbols-outlined">
+                help_center
+            </span>
+        </a>
+        <a href="">
+            <span class="material-symbols-outlined">
+                mail
+            </span>
+        </a>
+        <a href="">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+        </a>
+    </aside>
+<?php } 
+
+function output_footer() { ?>
+    <footer id="main_footer">
             <p>João Ribeiro, Xavier Santos, Domingos Neto @ FEUP</p>
             <p>&copy 2023</p>
         </footer>
     </body>
 </html>
+<?php } ?>
