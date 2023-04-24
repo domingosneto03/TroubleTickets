@@ -1,8 +1,6 @@
-<?php
-
-function output_header($title) { ?>
+<?php function output_header($session, $title) { ?>
     <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,18 +27,15 @@ function output_header($title) { ?>
                     <input type="text" name="search_bar" placeholder="Search for anything!">
                 <a href="login.html"></a>
                 </form>
-                <a href="login.html">
-                    <form action="" id="login_button">
-                        <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
-                    are new notifications -->
-                    </form>  
-                </a>
-                
+                <?php 
+                if ($session->isLoggedIn()) drawLogoutSection($session);
+                else drawLoginSection();
+                ?>
             </article>
         </header>
-<?php } 
+<?php } ?>
 
-function output_sidebar() { ?>
+<?php function output_sidebar() { ?>
     <aside id="side_bar">
         <a href="template.html">
             <span class="material-symbols-outlined">
@@ -73,9 +68,9 @@ function output_sidebar() { ?>
             </span>
         </a>
     </aside>
-<?php } 
+<?php } ?>
 
-function output_footer() { ?>
+<?php function output_footer() { ?>
     <footer id="main_footer">
             <p>João Ribeiro, Xavier Santos, Domingos Neto @ FEUP</p>
             <p>&copy 2023</p>
@@ -83,3 +78,17 @@ function output_footer() { ?>
     </body>
 </html>
 <?php } ?>
+
+<?php function drawLogoutSection(Session $session) { ?>
+    <form action="../actions/action_logout.php" method="post" class="logout">
+        <a href="profile.php"><?=$session->getUsername()?></a>
+        <button type="submit">Logout</button> 
+    </form>
+<?php } ?>
+
+<?php function drawLoginSection() { ?>
+    <a href="login.php">
+        <button>Login</button>
+    </a>
+<?php } ?>
+    

@@ -11,62 +11,62 @@ DROP TABLE client;
 DROP TABLE user;
 
 CREATE TABLE user (
-    id INTEGER PRIMARY KEY,
+    userId INTEGER PRIMARY KEY,
     username VARCHAR UNIQUE,
-    password VARCHAR,
+    password VARCHAR UNIQUE,
     email VARCHAR UNIQUE
 );
 
 CREATE TABLE client (
-    id INTEGER PRIMARY KEY REFERENCES user
+    clientId INTEGER PRIMARY KEY REFERENCES user
 );
 
 CREATE TABLE agent (
-    id INTEGER PRIMARY KEY REFERENCES user
+    agentId INTEGER PRIMARY KEY REFERENCES user
 );
 
 CREATE TABLE admin (
-    id INTEGER PRIMARY KEY REFERENCES user
+    adminId INTEGER PRIMARY KEY REFERENCES user
 );
 
 CREATE TABLE ticket (
-    id INTEGER PRIMARY KEY,
+    ticketId INTEGER PRIMARY KEY,
     status VARCHAR,
     assigned INTEGER REFERENCES agent,
-    id_client INTEGER REFERENCES client,
+    clientId INTEGER REFERENCES client,
     priority VARCHAR
 );
 
 CREATE TABLE hashtag (
-    id INTEGER PRIMARY KEY,
+    hashtagId INTEGER PRIMARY KEY,
     name VARCHAR UNIQUE
 );
 
 CREATE TABLE ticket_hash (
-    id_ticket INTEGER REFERENCES ticket,
-    id_hashtag INTEGER REFERENCES hashtag
+    ticketId INTEGER REFERENCES ticket,
+    hashtagId INTEGER REFERENCES hashtag
 );
 
 CREATE TABLE ticket_history (
-    id INTEGER PRIMARY KEY REFERENCES ticket,
+    ticketId INTEGER PRIMARY KEY REFERENCES ticket,
     type_of_edit VARCHAR,
     date INTEGER,
-    id_agent INTEGER REFERENCES agent,
+    agentId INTEGER REFERENCES agent,
     old_value VARCHAR
 );
 
 CREATE TABLE department (
-    id INTEGER PRIMARY KEY,
+    departmentId INTEGER PRIMARY KEY,
     name VARCHAR
 );
 
 CREATE TABLE agent_department (
-    id_agent INTEGER REFERENCES agent,
-    id_department INTEGER REFERENCES department
+    agentId INTEGER REFERENCES agent,
+    departmentId INTEGER REFERENCES department
 );
 
 CREATE TABLE faq (
-    id INTEGER PRIMARY KEY.
+    faqId INTEGER PRIMARY KEY,
     question VARCHAR UNIQUE,
     answer VARCHAR UNIQUE
 );
