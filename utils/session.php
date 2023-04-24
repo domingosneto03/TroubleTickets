@@ -29,7 +29,7 @@ class Session {
         $_SESSION['id'] = $id;
     }
 
-    public function setUserName(string $username) {
+    public function setUsername(string $username) {
         $_SESSION['username'] = $username;
     }
 

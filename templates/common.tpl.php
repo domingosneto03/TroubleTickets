@@ -1,3 +1,9 @@
+<?php 
+    declare(strict_types = 1);
+
+    require_once(__DIR__ . "/../utils/session.php");
+?>
+
 <?php function output_header($session, $title) { ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -17,6 +23,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+        <script src="javascript/script.js" defer></script>
     </head>
     <body>
         <header id="main_header">
