@@ -22,41 +22,43 @@ class User {
     }
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
-        $stmt = $db->prepare('
-            SELECT id, username, email
+        $stmt = $db->prepare("
+            SELECT userId, username, password, email
             FROM user
             WHERE lower(username) = ?
-        ');
-        $stmt->execute(array($username));
+        ");
+        $stmt->execute(array(strtolower($username)));
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
             return new User(
-                $user['id'],
+                $user['userId'],
                 $user['username'],
                 $user['email']
             );
         } else return null; 
     }
 
-    static function getUser(PDO $db, int $id) : User {
+    static function getUser(PDO $db, string $username) : ?User {
         $stmt = $db->prepare('
             SELECT userId, username, email
             FROM user
-            WHERE userId = ?
+            WHERE username = ?
         ');
-        $stmt->execute(array($id));
+        $stmt->execute(array($username));
         $user = $stmt->fetch();
 
-        return new User(
-            $user['userId'],
-            $user['username'],
-            $user['email']
-        );
+        if ($user) {
+            return new User(
+                $user['userId'],
+                $user['username'],
+                $user['email']
+            );
+        } else return null;
     }
 
     static function register($db, $username, $email, $password) {
-        $stmt = $db->prepare("INSERT into user VALUES (?, ?, ?)");
+        $stmt = $db->prepare("INSERT into user (username, password, email) VALUES (?, ?, ?)");
         $options = ['cost' => 12];
         $stmt->execute(array(
             $username,
@@ -66,22 +68,8 @@ class User {
     }
 
     function delete($db) {
-        $stmt = $db->prepare("DELETE FROM user WHERE id = ?");
+        $stmt = $db->prepare("DELETE FROM user WHERE userId = ?");
         $stmt->execute(array($this->id));
     }
 }
-
-function edit_user($new_username, $new_email, $new_password) {
-    $db = getDatabaseConnection();
-    $stmt = $db->prepare("UPDATE user SET username = ?, password = ?, email = ?");
-    $options = ['cost' => 12];
-    $stmt->execute(array(
-        $new_username,
-        password_hash($new_password, PASSWORD_DEFAULT, $options),
-        $new_email
-    ));
-}
-
-
-
 ?>
