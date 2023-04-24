@@ -35,8 +35,7 @@ body {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 1.8em;
-    /* text-shadow: 2px 2px black; */
-    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+    text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black,
              1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
 }
 
@@ -52,6 +51,10 @@ body {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 15px;
+}
+
+#profile_pic {
+    border-radius: 10px;
 }
 
 #search_bar {
@@ -72,9 +75,16 @@ body {
     background-color: whitesmoke;
 }
 
+#search_bar input:focus {
+    outline: none;
+}
+
 #login_button input {
     height: 32px;
+    border: 1px solid black;
     border-radius: 10px;
+    /* display: none;*/
+    /* acionar quando estiver logged in, mudar display de #profile_pic */
 }
 
 #login_button input:hover {
@@ -147,7 +157,7 @@ main {
     padding-bottom: 0.5em;
 }
 
-main h2:first-of-type {
+.main_title {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 1.7em;

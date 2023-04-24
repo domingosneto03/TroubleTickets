@@ -16,7 +16,7 @@
     </head>
     <body>
         <header id="main_header">
-            <h1><a href="template.html">Mango Tickets</a></h1>
+            <h1><a href="ticket_list.html">Mango Tickets</a></h1>
             <article id="right_side">
                 <form action="" id="search_bar">
                     <span class="material-symbols-outlined">search</span>
@@ -29,11 +29,6 @@
             </article>
         </header>
         <aside id="side_bar">
-            <a href="template.html">
-                <span class="material-symbols-outlined">
-                    home
-                </span>
-            </a>
             <a href="ticket_list.html">
                 <span class="material-symbols-outlined">
                     credit_card
@@ -62,12 +57,12 @@
         </aside>
         <main>
 
-            <div id="top">
+            <div class="focused_ticket_top">
                 <h3>Need a new printer</h3>
-                <p>Due date: 12/2/2023</p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
+                <p>Deadline: 12/2/2023</p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
             </div>
             
-            <p id="text">aesent eu leo vitae orci feugiat varius non sed augue. Class aptent taciti sociosqu ad litora
+            <p class="focused_ticket_text">aesent eu leo vitae orci feugiat varius non sed augue. Class aptent taciti sociosqu ad litora
                  torquent per conubia nostra, per inceptos himenaeos. In et maximus nibh. Vestibulum sollicitudin
                   eros at mi cursus, eget pulvinar velit tincidunt. Etiam ac neque in tellus tincidunt egestas. 
                   Duis et arcu et metus condimentum mattis non sit amet sem. In sollicitudin fermentum rhoncus. 
@@ -76,10 +71,14 @@
                  metus metus faucibus magna, in rutrum felis odio ut odio. Sed risus quam, interdum ut fringi
             </p>
 
-            <div id="info">
-                <p>Ticket created by:&nbsp;<a href="">Jorge</a></p>
-                <p>on 5/2/2023</p>
-                <p id="agent">Agent responsible:&nbsp;<a href="">Frederico</a></p> <!-- incluir link para a página do Frederico -->
+            <p class="focused_ticket_tags"><a href="">#tech</a> <a href="">#printer</a></p> <!-- links to the ticket list
+            filtered by the selected tag -->
+
+            <div class="focused_ticket_info">
+                <p>Ticket created by <a href="">Jorge</a> on 5/2/2021</p>
+                <p>Status: Assigned to agent <a href="">Frederico</a></p> <!-- 
+                    use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
+                 -->
             </div>
             
         </main>

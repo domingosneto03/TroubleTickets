@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+main {
+    height: 100%;
+}
+
 #ticket_listing {
     display: flex;
     flex-direction: column;
@@ -59,7 +63,20 @@
     flex-direction: column;
 
     font-family: 'Oxygen', sans-serif;
-    font-weight: 400;
+    font-weight: 700;
+}
+
+#filters input, #filters select {
+    border-radius: 10px;
+}
+
+#filters input[type=submit]{
+    background-color: #bb66cf;
+    color: white;
+}
+
+#filters input[value="Tracked tickets"] {
+    /* display: none; change if user is agent_admin */
 }
 
 #filters :not(label) {
@@ -68,37 +85,59 @@
 
 #tickets {
     flex: 1;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    padding-left: 0;
+    padding-right: 0.2em;
     padding-top: 10px;
     overflow-y: scroll;
+    border: none;
+    border-bottom: 1px solid #43464b;
 }
 
-#tickets a {
+.ticket {
     text-decoration: none;
 }
 
-#tickets a article {
+.ticket article {
     border-radius: 8px;
     border: 2px solid black;
     margin-bottom: 2px;
     color: black;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 6rem auto auto auto 4rem;
+    grid-template-rows: 4rem 2rem 1.5rem 1.5rem;
 }
 
-#tickets a article:hover {
+
+.ticket article:hover {
     border-color: #bb66cf;
 }
 
-#tickets a article h4 {
+.ticket_user_img {
+    width: 6rem;
+    height: 6rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    border-radius: 10px;
+}
+
+.ticket_title {
     font-weight: 700;
     font-size: 30px;
     margin: 0;
     padding-top: 10px;
     padding-left: 10px;
     font-family: 'Oxygen', sans-serif;
+
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row: 1;
 }
 
-#tickets a article p {
+.ticket_text {
     font-family: 'Cormorant', serif;
     font-weight: 400;
     font-size: 20px;
@@ -106,4 +145,57 @@
     padding-top: 8px;
     padding-left: 10px;
     padding-bottom: 10px;
+
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row: 2;
+}
+
+.ticket_deadline {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.ticket_date {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.ticket_user {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.ticket_tags {
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 6;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+.ticket_department {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.ticket_status {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.ticket_agent {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img) {
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Oxygen', sans-serif;
 }
