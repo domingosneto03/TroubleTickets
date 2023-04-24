@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ticket_info</title>
+        <title>template</title>
         <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="CSS/ticket_info.css">
+        <link rel="stylesheet" href="CSS/sign.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -16,19 +16,26 @@
     </head>
     <body>
         <header id="main_header">
-            <h1><a href="ticket_list.html">Mango Tickets</a></h1>
+            <h1><a href="template.html">Mango Tickets</a></h1>
             <article id="right_side">
                 <form action="" id="search_bar">
                     <span class="material-symbols-outlined">search</span>
                     <input type="text" name="search_bar" placeholder="Search for anything!">
                 </form>
-                <form action="" id="login_button">
-                    <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
-                    are new notifications -->
-                </form>
+                <a href="login.html">
+                  <form action="" id="login_button">
+                      <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
+                  are new notifications -->
+                  </form>  
+              </a>
             </article>
         </header>
         <aside id="side_bar">
+            <a href="template.html">
+                <span class="material-symbols-outlined">
+                    home
+                </span>
+            </a>
             <a href="ticket_list.html">
                 <span class="material-symbols-outlined">
                     credit_card
@@ -56,31 +63,24 @@
             </a>
         </aside>
         <main>
-
-            <div class="focused_ticket_top">
-                <h3>Need a new printer</h3>
-                <p>Deadline: 12/2/2023</p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
-            </div>
-            
-            <p class="focused_ticket_text">aesent eu leo vitae orci feugiat varius non sed augue. Class aptent taciti sociosqu ad litora
-                 torquent per conubia nostra, per inceptos himenaeos. In et maximus nibh. Vestibulum sollicitudin
-                  eros at mi cursus, eget pulvinar velit tincidunt. Etiam ac neque in tellus tincidunt egestas. 
-                  Duis et arcu et metus condimentum mattis non sit amet sem. In sollicitudin fermentum rhoncus. 
-                  Morbi tellus purus, mollis dignissim augue ac, interdum mattis eros. Donec posuere diam ac condimentum 
-                  semper. Integer facilisis, urna in scelerisque maximus,
-                 metus metus faucibus magna, in rutrum felis odio ut odio. Sed risus quam, interdum ut fringi
-            </p>
-
-            <p class="focused_ticket_tags"><a href="">#tech</a> <a href="">#printer</a></p> <!-- links to the ticket list
-            filtered by the selected tag -->
-
-            <div class="focused_ticket_info">
-                <p>Ticket created by <a href="">Jorge</a> on 5/2/2021</p>
-                <p>Status: Assigned to agent <a href="">Frederico</a></p> <!-- 
-                    use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
-                 -->
-            </div>
-            
+            <section id="register">
+                <h2>Register</h2>
+                <form>
+                    <label>
+                    Username <input type="text" name="username" placeholder="Create an username">
+                    </label>
+                    <label>
+                    E-mail <input type="email" name="email" placeholder="Type your email">
+                    </label>
+                    <label>
+                    Password <input type="password" name="password" placeholder="Create your password">
+                    </label>
+                    <label>
+                    Confirm Password <input type="password" name="password" placeholder="Confirm your password">
+                    </label>
+                    <button formaction="#" formmethod="post">Register</button>
+                </form>
+            </section>
         </main>
         
         <footer id="main_footer">
