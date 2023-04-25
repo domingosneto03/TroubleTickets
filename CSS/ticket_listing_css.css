@@ -86,11 +86,18 @@ main {
     border-bottom: 1px solid #43464b;
 }
 
-.ticket {
+.ticket a {
     text-decoration: none;
+    color: black;
+    height: fit-content;
 }
 
-.ticket article {
+.ticket a:hover {
+    color: #424242;
+    text-decoration: underline;
+}
+
+.ticket {
     border-radius: 8px;
     border: 2px solid black;
     margin-bottom: 2px;
@@ -99,12 +106,7 @@ main {
 
     display: grid;
     grid-template-columns: 6rem auto auto auto 4rem;
-    grid-template-rows: 4rem 2rem 1.5rem 1.5rem;
-}
-
-
-.ticket article:hover {
-    border-color: #bb66cf;
+    grid-template-rows: 3rem 3rem 1.5rem 1.5rem;
 }
 
 .ticket_user_img {
@@ -114,6 +116,12 @@ main {
     grid-row-start: 1;
     grid-row-end: 2;
 
+    border-radius: 3rem;
+}
+
+.ticket_user_img img {
+    width: 6rem;
+    height: 6rem;
     border-radius: 3rem;
 }
 
@@ -130,23 +138,38 @@ main {
     grid-row: 1;
 }
 
+.ticket_title h4 {
+    margin: 0;
+}
+
 .ticket_text {
     font-family: 'Cormorant', serif;
     font-weight: 400;
     font-size: 20px;
     margin: 0;
+    height: fit-content;
     padding-top: 8px;
     padding-left: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 
     grid-column-start: 2;
     grid-column-end: 6;
     grid-row: 2;
 }
 
+.ticket_text p {
+    margin: 0;
+}
+
 .ticket_deadline {
     grid-column: 5;
     grid-row: 1;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+    width: fit-content;
 }
 
 .ticket_date {
@@ -168,6 +191,8 @@ main {
     font-weight: 400;
     font-size: 13px;
     padding-left: 10px;
+
+    margin: 0;
 }
 
 .ticket_department {
@@ -183,6 +208,18 @@ main {
 .ticket_agent {
     grid-column: 4;
     grid-row: 4;
+}
+
+.ticket_department, .ticket_agent, .ticket_status, .ticket_date, .ticket_user {
+    margin: 0;
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.ticket_agent p, .ticket_user p {
+    margin: 0;
 }
 
 .ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img, .ticket_destroyer) {
