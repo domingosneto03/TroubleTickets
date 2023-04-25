@@ -185,10 +185,25 @@ main {
     grid-row: 4;
 }
 
-.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img) {
+.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img, .ticket_destroyer) {
     font-weight: 700;
     font-size: 13px;
     margin: 0;
     padding: 10px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.ticket_destroyer {
+    grid-column: 5;
+    grid-row: 4;
+    display: inline-block;
+    background-color: red;
+    border-color: red;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0;
+    padding: 2px;
     font-family: 'Oxygen', sans-serif;
 }

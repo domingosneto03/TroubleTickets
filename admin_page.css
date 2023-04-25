@@ -19,30 +19,98 @@ main {
 
 #agent_list {
     grid-column: 1;
-    background-color: aqua;
-    width: inherit;
-    height: inherit;
     margin-right: 0.5rem;
 }
 
 #client_list {
     grid-column: 2;
-    background-color: aqua;
+    margin-left: 0.5rem;
+}
+
+#client_list, #agent_list {
+    border-radius: 10px;
+    border: 2px solid black;
     width: inherit;
     height: inherit;
-    margin-left: 0.5rem;
+}
+
+#agent_list p, #client_list p {
+    text-align: center;
+}
+
+#agent_list div, #client_list div {
+    overflow-y: auto;
+}
+
+.client_list_item, .agent_list_item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-rows: 2.6rem 2.6rem;
+    grid-template-columns: 5rem 1fr 1fr;
+    margin: 5px;
+}
+
+.client_list_item a, .agent_list_item a {
+    text-decoration: none;
+    color: black;
+}
+
+.client_list_item:first-of-type, .agent_list_item:first-of-type {
+    margin-top: 0;
+}
+
+.client_list_item_img, .agent_list_item_img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.client_list_item_img img, .agent_list_item_img img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+}
+
+.agent_promoter, .admin_promoter, .client_demoter{
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #272727;
+    color: white;
+}
+
+.agent_promoter:hover, .admin_promoter:hover, .client_demoter:hover {
+    background-color: #424242;
 }
 
 #management_right_side {
     margin-left: 0.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #manage_departments_button, #manage_statuses_button {
     text-align: center;
-    background-color: #b5b2b2bf;
+    background-color: #272727;
     border-radius: 10px;
     text-decoration: none;
     color: white;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+}
+
+#manage_departments_button:hover, #manage_statuses_button:hover {
+    background-color: #424242;
+}
+
+#manage_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
