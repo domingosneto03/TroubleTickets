@@ -1,9 +1,18 @@
 <?php
+declare(strict_types = 1);
 
-require_once(__DIR__ . "/templates/common.php");
+require_once(__DIR__ . "/templates/common.tpl.php");
+require_once(__DIR__ . "/utils/session.php");
 
-output_header("Mango tickets - a simpler way of trouble ticketing");
-output_sidebar(); ?>
+$session = new Session();
+$title = "Mango tickets - a simpler way of trouble ticketing";
+
+output_header($session, $title);
+foreach ($session->getMessages() as $message) {
+    echo $message['type'] . " " . $message['text'];
+}
+output_sidebar(); 
+?>
 
 <main>
     <img src="components/background2.jpg" alt="background">
