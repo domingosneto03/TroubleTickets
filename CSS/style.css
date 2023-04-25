@@ -47,6 +47,11 @@ body {
     color: #bb66cf;
 }
 
+#logo {
+    height: 3em;
+    width: auto;
+}
+
 #right_side {
     display: flex;
     align-self: center;
