@@ -10,7 +10,7 @@ body {
     grid-template-columns: 3.4rem auto;
 
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 #main_header {
@@ -44,7 +44,7 @@ body {
 
 #main_header h1 a {
     text-decoration: none;
-    color: #bb66cf;
+    color: #570353;
 }
 
 #right_side {
@@ -91,7 +91,7 @@ body {
 }
 
 #login_button input:hover {
-    background-color: #bb66cf;
+    background-color: #570353;
     color: white;
 }
 
@@ -166,4 +166,5 @@ main {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 1.7em;
+    margin-bottom: 0;
 }

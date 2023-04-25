@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 main {
-    height: 100%;
-}
-
-#ticket_listing {
     display: flex;
     flex-direction: column;
 }
@@ -16,14 +12,6 @@ main {
     justify-content: space-between;
     border: none;
     border-bottom: 2px solid #43464b;
-}
-
-#top_bar h2 {
-    margin-top: 20px;
-    margin-bottom: 0%;
-    width: fit-content;
-    justify-self: left;
-    height: auto;
 }
 
 #new_ticket {
@@ -41,16 +29,20 @@ main {
 }
 
 #new_ticket:hover {
-    background-color: #bb66cf;
+    background-color: #570353;
 }
 
 #tickets_main {
-    height: 34rem;
-    display: flex;
-    flex-direction: row;
+    /* flex: 1; */
+    /* display: flex;
+    flex-direction: row; */
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
 }
 
 #filters {
+    height: inherit;
     width: 8rem;
     max-width: 5cm;
     border: none;
@@ -76,7 +68,8 @@ main {
 }
 
 #filters input[value="Tracked tickets"] {
-    /* display: none; change if user is agent_admin */
+    display: none; 
+    /*change if user is agent_admin */
 }
 
 #filters :not(label) {
@@ -84,11 +77,11 @@ main {
 }
 
 #tickets {
-    flex: 1;
+    height: 100%;
+    overflow-y: auto;
     padding-left: 0;
     padding-right: 0.2em;
     padding-top: 10px;
-    overflow-y: scroll;
     border: none;
     border-bottom: 1px solid #43464b;
 }
@@ -121,7 +114,7 @@ main {
     grid-row-start: 1;
     grid-row-end: 2;
 
-    border-radius: 10px;
+    border-radius: 3rem;
 }
 
 .ticket_title {

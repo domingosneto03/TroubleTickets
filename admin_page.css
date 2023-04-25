@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#management_main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    margin: 0;
+    padding: 10px;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+}
+
+#agent_list {
+    grid-column: 1;
+    background-color: aqua;
+    width: inherit;
+    height: inherit;
+    margin-right: 0.5rem;
+}
+
+#client_list {
+    grid-column: 2;
+    background-color: aqua;
+    width: inherit;
+    height: inherit;
+    margin-left: 0.5rem;
+}
+
+#management_right_side {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#manage_departments_button, #manage_statuses_button {
+    text-align: center;
+    background-color: #b5b2b2bf;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>new_ticket</title>
+        <title>admin_management</title>
         <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="CSS/new_ticket.css">
+        <link rel="stylesheet" href="admin_page.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -27,6 +27,7 @@
                     <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
                     are new notifications -->
                 </form>
+                <img src="" alt="" id="profile_pic"> <!-- user's profile pic -->
             </article>
         </header>
         <aside id="side_bar">
@@ -57,48 +58,44 @@
             </a>
             <a href="admin_page.html">
                 <span class="material-symbols-outlined">
-                    manage_accounts <!-- should only appear for admins -->
+                    manage_accounts
                 </span>
             </a>
         </aside>
         <main>
-            <h2 class="main_title">New Ticket</h2>
-            <form action="">
-                <div id="title">
-                    <label for="ticket_title" id="title_label">Ticket title:</label>
-                    <input type="text" name="" id="ticket_title" required>
+            <h2 class="main_title">Administrator Management</h2>
+
+            <div id="management_main">
+                <div id="agent_list">
+                    <!-- lista de agentes, dá para fazer scroll, iupi iupi -->
                 </div>
-                <div id="text">
-                    <label for="ticket_text" id="text_label">Ticket description:</label>
-                    <textarea name="" id="ticket_text" cols="30" rows="10" required></textarea>
+                <div id="client_list">
+                    <!-- a mesma cena mas para clientes -->
                 </div>
-                <div id="thing">
-                    <div id="department">
-                        <label for="departments">Department:</label>
-                        <select name="" id="departments">
-                            <option value="a">A</option>
-                            <option value="b">B</option>
-                            <option value="c">C</option>
-                        </select>
-                    </div>
-                    <div id="priority">
-                        <label for="priorities">Priority:</label>
-                        <select name="" id="priorities">
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-                    </div>
-                    <div id="tags">
-                        <p>Choose tags:</p>
-                        <input type="checkbox" name="tech" id="">Tech
-                        <input type="checkbox" name="auto" id="">Auto
-                        <input type="checkbox" name="health" id="">Health
+
+                <div id="management_right_side">
+                    <a href="" id="manage_departments_button">
+                        <div>
+                            <p>Manage Departments</p>
+                        </div>
+                    </a>
+                    <a href="" id="manage_statuses_button">
+                        <div>
+                            <p>Manage ticket status</p>
+                        </div>
+                    </a>
+
+                    <div id="statistics">
+                        <p>New users in the last week: 8000</p>
+                        <p>New users in the last month: 9089</p>
+                        <p>New tickets in the last week: 6126</p>
+                        <p>New tickets in the last month: 78001</p>
+                        <p>Tickets closed in the last week: 102783</p>
+                        <p>Tickets closed in the last month: 12873123</p>
                     </div>
                 </div>
-                <input type="submit" value="Create Ticket" id="sub_button">
-            </form>
-                
+            </div>
+            
         </main>
         
         <footer id="main_footer">
