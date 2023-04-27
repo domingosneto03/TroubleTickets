@@ -56,7 +56,18 @@
             </a>
         </aside>
         <main>
-            <h2 class="main_title">FAQs</h2>
+            <div class="top_bar">
+                <h2 class="main_title">FAQs</h2>
+                <button id="new_faq">New FAQ</button><!-- só aparece a agents/admins -->
+            </div>
+            <!-- aparece quando se carrega no botão new_faq com JS -->
+            <form action="" id="new_faq_window">
+                <label for="">Question:</label>
+                <input type="text" name="faq_question" id="faq_question">
+                <label for="">Answer:</label>
+                <textarea name="faq_answer" id="faq_answer" cols="30" rows="3"></textarea>
+                <input type="submit" value="Publish">
+            </form>
             <article>
                 <h3>What is this website for?</h3>
                 <p>I have no idea.</p>

@@ -4,6 +4,8 @@
 main {
     display: flex;
     flex-direction: column;
+
+    background-color: whitesmoke;
 }
 
 #top_bar {
@@ -11,7 +13,7 @@ main {
     flex-direction: row;
     justify-content: space-between;
     border: none;
-    border-bottom: 2px solid #43464b;
+    border-bottom: 2px solid #272727;
 }
 
 #new_ticket {
@@ -22,10 +24,9 @@ main {
     padding-right: 0.5rem;
     background-color: #43464b;
     height: fit-content;
-    border-radius: 10px;
+    border-radius: 3px;
     text-decoration: none;
     color: white;
-    margin-top: 1.3rem;
 }
 
 #new_ticket:hover {
@@ -59,7 +60,7 @@ main {
 }
 
 #filters input, #filters select {
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 #filters input[type=submit]{
@@ -68,7 +69,7 @@ main {
 }
 
 #filters input[value="Tracked tickets"] {
-    display: none; 
+    /* display: none;  */
     /*change if user is agent_admin */
 }
 
@@ -98,88 +99,82 @@ main {
 }
 
 .ticket {
-    border-radius: 8px;
-    border: 2px solid black;
+    border-radius: 3px;
+    border: 1px solid white;
     margin-bottom: 2px;
     color: black;
     padding: 10px;
 
     display: grid;
-    grid-template-columns: 6rem auto auto auto 4rem;
-    grid-template-rows: 3rem 3rem 1.5rem 1.5rem;
+    grid-template-columns: 4rem auto;
+    grid-template-rows: auto auto;
+
+    background-color: white;
+}
+
+.ticket:hover {
+    border-color: #424242;
 }
 
 .ticket_user_img {
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
     grid-column: 1;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
 
-    border-radius: 3rem;
+    border-radius: 4px;
 }
 
 .ticket_user_img img {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 3rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4px;
+}
+
+.ticket_info_bottom, .ticket_info_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.ticket_info_top {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ticket_info_top div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .ticket_title {
     font-weight: 700;
     font-size: 30px;
     margin: 0;
-    padding-top: 10px;
-    padding-left: 10px;
     font-family: 'Oxygen', sans-serif;
-
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row: 1;
 }
 
 .ticket_title h4 {
     margin: 0;
 }
 
-.ticket_text {
-    font-family: 'Cormorant', serif;
-    font-weight: 400;
-    font-size: 20px;
-    margin: 0;
-    height: fit-content;
-    padding-top: 8px;
-    padding-left: 10px;
-    margin-bottom: 10px;
-
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row: 2;
-}
-
-.ticket_text p {
-    margin: 0;
-}
-
 .ticket_deadline {
-    grid-column: 5;
-    grid-row: 1;
-
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
     font-size: 1rem;
-
+    margin: 0;
+    height: fit-content;
     width: fit-content;
 }
 
-.ticket_date {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-.ticket_user {
-    grid-column: 1;
-    grid-row: 3;
+.ticket_info_bottom {
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .ticket_tags {
@@ -191,8 +186,11 @@ main {
     font-weight: 400;
     font-size: 13px;
     padding-left: 10px;
-
+    font-style: italic;
     margin: 0;
+
+    height: fit-content;
+    width: fit-content;
 }
 
 .ticket_department {
@@ -236,7 +234,7 @@ main {
     display: inline-block;
     background-color: red;
     border-color: red;
-    border-radius: 10px;
+    border-radius: 3px;
     color: white;
     font-weight: 700;
     font-size: 13px;

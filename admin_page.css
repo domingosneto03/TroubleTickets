@@ -11,7 +11,6 @@ main {
     display: grid;
     grid-template-columns: 1.5fr 1.5fr 1fr;
     margin: 0;
-    padding: 10px;
 
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
@@ -19,20 +18,25 @@ main {
 
 #agent_list {
     grid-column: 1;
-    margin-right: 0.5rem;
+    margin-right: 0.2rem;
 }
 
 #client_list {
     grid-column: 2;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
 }
 
 #client_list, #agent_list {
-    border-radius: 10px;
+    border-radius: 3px;
     border: 2px solid black;
     width: inherit;
     height: inherit;
 }
+
+/* #agent_list p:first-child, #client_list p:first-child {
+    margin: 0;
+    height: 10%;
+} */
 
 #agent_list p, #client_list p {
     text-align: center;
@@ -44,11 +48,11 @@ main {
 
 .client_list_item, .agent_list_item {
     border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-
+    border-radius: 3px;
+    padding: 5px;
+    padding-right: 0;
     display: grid;
-    grid-template-rows: 2.6rem 2.6rem;
+    grid-template-rows: 2.5rem 2.5rem;
     grid-template-columns: 5rem 1fr 1fr;
     margin: 5px;
 }
@@ -65,7 +69,7 @@ main {
 .client_list_item_img, .agent_list_item_img {
     width: 5rem;
     height: 5rem;
-    border-radius: 2.5rem;
+    border-radius: 3px;
     grid-column: 1;
     grid-row-start: 1;
     grid-row-end: 3;
@@ -74,17 +78,24 @@ main {
 .client_list_item_img img, .agent_list_item_img img {
     width: 5rem;
     height: 5rem;
-    border-radius: 2.5rem;
+    border-radius: 3px;
 }
 
-.agent_promoter, .admin_promoter, .client_demoter{
+.agent_list_item .admin_promoter {
+    column-span: all;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.agent_promoter, .admin_promoter {
     margin: 5px;
-    border-radius: 10px;
+    margin-bottom: 0;
+    border-radius: 3px;
     background-color: #272727;
     color: white;
 }
 
-.agent_promoter:hover, .admin_promoter:hover, .client_demoter:hover {
+.agent_promoter:hover, .admin_promoter:hover {
     background-color: #424242;
 }
 
@@ -98,7 +109,7 @@ main {
 #manage_departments_button, #manage_statuses_button {
     text-align: center;
     background-color: #272727;
-    border-radius: 10px;
+    border-radius: 3px;
     text-decoration: none;
     color: white;
     padding-top: 1.3rem;

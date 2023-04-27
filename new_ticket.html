@@ -64,8 +64,13 @@
                 </div>
                 <div id="text">
                     <label for="ticket_text" id="text_label">Ticket description:</label>
-                    <textarea name="" id="ticket_text" cols="30" rows="10" required></textarea>
+                    <!-- tags go as #tag in the text box, boa sorte para implementar essa merda Ribeiro -->
+                    <!-- depois o sql convém ter uma secção de texto composta pelas tags separadas por vírgulas para
+                    as poder mostrar depois no ticket -->
+                    <textarea name="" id="ticket_text" cols="30" rows="20" required></textarea>
                 </div>
+                <label for="ticket_file_upload">Add files/images:</label>
+                <input type="file" name="ticket_file_upload" id="ticket_file_upload">
                 <div id="thing">
                     <div id="department">
                         <label for="departments">Department:</label>
@@ -82,12 +87,6 @@
                             <option value="medium">Medium</option>
                             <option value="high">High</option>
                         </select>
-                    </div>
-                    <div id="tags">
-                        <p>Choose tags:</p>
-                        <input type="checkbox" name="tech" id="">Tech
-                        <input type="checkbox" name="auto" id="">Auto
-                        <input type="checkbox" name="health" id="">Health
                     </div>
                 </div>
                 <input type="submit" value="Create Ticket" id="sub_button">

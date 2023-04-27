@@ -36,7 +36,18 @@ main a {
     margin: 0;
     margin-top: 1.6rem;
     height: fit-content;
-    margin-bottom: 0.7rem;
+
+}
+
+.focused_ticket_top div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.focused_ticket_top div * {
+    margin: 0;
+    height: fit-content;
 }
 
 .focused_ticket_text {
@@ -56,4 +67,37 @@ main a {
 .focused_ticket_tags {
     margin-top: 0.4rem;
     margin-bottom: 0;
+    font-style: italic;
+}
+
+.focused_ticket_comments {
+    border: none;
+    border-top: 2px solid black;
+}
+
+.focused_ticket_comments h4 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.focused_ticket_comment {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.focused_ticket_comment_poster {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.focused_ticket_comment_text {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin: 0;
 }
