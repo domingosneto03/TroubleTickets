@@ -30,9 +30,6 @@
         <header id="main_header">
             <a href="template.html"><img src="/images/logo.png" id="logo"></a>
             <article id="right_side">
-                <form action="" id="search_bar">
-                    <span class="material-symbols-outlined">search</span>
-                    <input type="text" name="search_bar" placeholder="Search for anything!">
                 <a href="login.html"></a>
                 </form>
                 <?php 
@@ -60,7 +57,7 @@
                 add_card
             </span>
         </a>
-        <a href="faq.html">
+        <a href="faq.php">
             <span class="material-symbols-outlined">
                 help_center
             </span>
