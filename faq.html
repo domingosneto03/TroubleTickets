@@ -11,10 +11,6 @@
         <header id="main_header">
             <h1><a href="ticket_list.html">Mango Tickets</a></h1>
             <article id="right_side">
-                <form action="" id="search_bar">
-                    <span class="material-symbols-outlined">search</span>
-                    <input type="text" name="search_bar" placeholder="Search for anything!">
-                </form>
                 <form action="" id="login_button">
                     <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
                     are new notifications -->
@@ -58,7 +54,9 @@
         <main>
             <div class="top_bar">
                 <h2 class="main_title">FAQs</h2>
-                <button id="new_faq">New FAQ</button><!-- só aparece a agents/admins -->
+                <button class="top_bar_button">
+                    New FAQ
+                </button>
             </div>
             <!-- aparece quando se carrega no botão new_faq com JS -->
             <form action="" id="new_faq_window">
@@ -67,6 +65,7 @@
                 <label for="">Answer:</label>
                 <textarea name="faq_answer" id="faq_answer" cols="30" rows="3"></textarea>
                 <input type="submit" value="Publish">
+                <input type="button" value="Cancel">
             </form>
             <article>
                 <h3>What is this website for?</h3>

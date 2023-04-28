@@ -20,34 +20,32 @@ main {
 
 main a {
     text-decoration: none;
-    color: black;
+    color: #000;
 }
 
-.focused_ticket_top {
+.top_bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
     border: none;
-    border-bottom: 2px solid #43464b;
+    border-bottom: 2px solid #333;
 }
 
-.focused_ticket_top * {
+.top_bar * {
     margin: 0;
-    margin-top: 1.6rem;
-    height: fit-content;
-
+    height: inherit;
 }
 
-.focused_ticket_top div {
+.top_bar div {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.focused_ticket_top div * {
+.top_bar div * {
     margin: 0;
-    height: fit-content;
+
 }
 
 .focused_ticket_text {
@@ -60,7 +58,7 @@ main a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    color: #43464b;
+    color: #333;
     font-size: 0.8em;
 }
 
@@ -72,7 +70,7 @@ main a {
 
 .focused_ticket_comments {
     border: none;
-    border-top: 2px solid black;
+    border-top: 2px solid #000;
 }
 
 .focused_ticket_comments h4 {
@@ -100,4 +98,20 @@ main a {
     font-weight: 400;
     font-size: 1.3rem;
     margin: 0;
+}
+
+.top_bar_button {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #333;
+    height: inherit;
+    border-radius: 3px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: space-around;
 }

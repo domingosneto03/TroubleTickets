@@ -11,10 +11,7 @@
         <header id="main_header">
             <h1><a href="ticket_list.html">Mango Tickets</a></h1>
             <article id="right_side">
-                <form action="" id="search_bar">
-                    <span class="material-symbols-outlined">search</span>
-                    <input type="text" name="search_bar" placeholder="Search for anything!">
-                </form>
+                
                 <form action="" id="login_button">
                     <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
                     are new notifications -->
@@ -56,13 +53,17 @@
             </a>
         </aside>
         <main>
-            <div id="top_bar">
+            <div class="top_bar">
                 <h2 class="main_title">Tickets</h2>
-                <a href="new_ticket.html" id="new_ticket">
-                    <div>
-                        <p>New Ticket</p>
-                    </div>
-                </a>
+                <div>
+                    <form action="" id="search_bar">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" name="search_bar" placeholder="Search for anything!">
+                    </form>
+                    <a href="new_ticket.html" class="top_bar_button">
+                        New Ticket
+                    </a>
+                </div>
             </div>
             
             <div id="tickets_main">
@@ -206,41 +207,47 @@
                         <!-- <button class="ticket_destroyer">Delete</button> -->
                     </article>
                 </article>
-                <form id="filters">
-                    <input type="button" value="My tickets">
-                    <input type="button" value="Tracked tickets"> <!-- enables if user is agent/admin -->
-                    <label for="orderer">Sort:</label>
-                    <select name="" id="orderer">
-                        <option value="htl_priority">High-Low Priority</option>
-                        <option value="lth_priority">Low-High Priority</option>
-                        <option value="most_recent">Newest</option>
-                        <option value="least_recent">Oldest</option>
-                        <option value="ending_soon">Ending Sooner</option>
-                    </select>
-                    <label for="sel_priority">Priority:</label>
-                    <select name="" id="sel_priority">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                    <label for="sel_department">Department:</label>
-                    <select name="" id="sel_department">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                    </select>
-                    <label for="sel_tags">Tags:</label>
-                    <select name="" id="sel_tags">
-                        <option value="tech">Tech</option>
-                        <option value="auto">Auto</option>
-                        <option value="health">Health</option>
-                    </select>
-                    <label for="sel_date_start">From:</label>
-                    <input type="date" name="" id="sel_date_start">
-                    <label for="sel_date_end">To:</label>
-                    <input type="date" name="" id="sel_date_end">
-                    <input type="submit" value="Apply" id="submit_sort">
-                </form>
+                <article id="outer_filters">
+                    <label for="my_tickets_button" class="filter_checker">My tickets</label>
+                    <input type="checkbox" name="my_tickets" id="my_tickets_button">
+                    <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
+                    <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
+                    <form id="filters">
+                        <label for="orderer">Sort:</label>
+                        <select name="" id="orderer">
+                            <option value="htl_priority">High-Low Priority</option>
+                            <option value="lth_priority">Low-High Priority</option>
+                            <option value="most_recent">Newest</option>
+                            <option value="least_recent">Oldest</option>
+                            <option value="ending_soon">Ending Sooner</option>
+                        </select>
+                        <label for="sel_priority">Priority:</label>
+                        <select name="" id="sel_priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <label for="sel_department">Department:</label>
+                        <select name="" id="sel_department">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                        <label for="sel_tags">Tags:</label>
+                        <select name="" id="sel_tags">
+                            <option value="tech">Tech</option>
+                            <option value="auto">Auto</option>
+                            <option value="health">Health</option>
+                        </select>
+                        <label for="sel_date_start">From:</label>
+                        <input type="date" name="" id="sel_date_start">
+                        <label for="sel_date_end">To:</label>
+                        <input type="date" name="" id="sel_date_end">
+                        <input type="submit" value="Apply" id="submit_sort">
+                    </form>
+                </article>
+                
+                
             </div>
         </main>
         

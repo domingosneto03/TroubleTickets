@@ -5,7 +5,7 @@ main form {
     font-family: 'Oxygen', sans-serif;
     display: flex;
     flex-direction: column;
-    border: 2px solid #272727;
+    border: 2px solid #191919;
     padding: 1em;
     height: max-content;
     border-radius: 3px;

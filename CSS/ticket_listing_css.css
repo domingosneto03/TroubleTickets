@@ -5,32 +5,40 @@ main {
     display: flex;
     flex-direction: column;
 
-    background-color: whitesmoke;
+    background-color: #e6e6e6;
 }
 
-#top_bar {
+.top_bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border: none;
-    border-bottom: 2px solid #272727;
+    border-bottom: 2px solid #191919;
 }
 
-#new_ticket {
+.top_bar_button {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    background-color: #43464b;
-    height: fit-content;
+    background-color: #333;
+    height: inherit;
     border-radius: 3px;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
     color: white;
+    justify-content: space-around;
 }
 
-#new_ticket:hover {
+.top_bar_button:hover {
     background-color: #570353;
+}
+
+.top_bar div {
+    display: flex;
+    flex-direction: row;
 }
 
 #tickets_main {
@@ -47,10 +55,8 @@ main {
     width: 8rem;
     max-width: 5cm;
     border: none;
-    border-left: 4px solid #43464b;
-    padding: 10px;
+    padding: 0.2rem;
     padding-right: 0%;
-    margin-top: 10px;
 
     display: flex;
     flex-direction: column;
@@ -63,14 +69,44 @@ main {
     border-radius: 3px;
 }
 
-#filters input[type=submit]{
-    background-color: #bb66cf;
-    color: white;
+#my_tickets_button, #tracked_tickets_button {
+    display: none;
 }
 
-#filters input[value="Tracked tickets"] {
-    /* display: none;  */
-    /*change if user is agent_admin */
+#outer_filters {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-left: 2px solid #333;
+}
+
+.filter_checker:first-of-type {
+    margin-top: 0.2rem;
+}
+
+.filter_checker {
+    background-color: #191919;
+    margin-bottom: 0.2rem;
+    border-radius: 3px;
+    color: white;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    text-align: center;
+
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.filter_checker:hover {
+    background-color: #333;
+}
+
+#filters input[type=submit]{
+    background-color: #570353;
+    color: white;
 }
 
 #filters :not(label) {
@@ -81,20 +117,20 @@ main {
     height: 100%;
     overflow-y: auto;
     padding-left: 0;
-    padding-right: 0.2em;
-    padding-top: 10px;
+    padding-right: 0.2rem;
+    padding-top: 0.2rem;
     border: none;
-    border-bottom: 1px solid #43464b;
+    border-bottom: 1px solid #333;
 }
 
 .ticket a {
     text-decoration: none;
-    color: black;
+    color: #000;
     height: fit-content;
 }
 
 .ticket a:hover {
-    color: #424242;
+    color: #333;
     text-decoration: underline;
 }
 
@@ -102,7 +138,7 @@ main {
     border-radius: 3px;
     border: 1px solid white;
     margin-bottom: 2px;
-    color: black;
+    color: #000;
     padding: 10px;
 
     display: grid;
@@ -113,7 +149,7 @@ main {
 }
 
 .ticket:hover {
-    border-color: #424242;
+    border-color: #333;
 }
 
 .ticket_user_img {

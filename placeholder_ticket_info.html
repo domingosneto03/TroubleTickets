@@ -11,10 +11,6 @@
         <header id="main_header">
             <h1><a href="ticket_list.html">Mango Tickets</a></h1>
             <article id="right_side">
-                <form action="" id="search_bar">
-                    <span class="material-symbols-outlined">search</span>
-                    <input type="text" name="search_bar" placeholder="Search for anything!">
-                </form>
                 <form action="" id="login_button">
                     <input type="button" value="Login"> <!-- changes to image of user when logged in, with red dot if there
                     are new notifications -->
@@ -57,12 +53,14 @@
         </aside>
         <main>
 
-            <div class="focused_ticket_top">
+            <div class="top_bar">
                 <h3>Need a new printer</h3>
                 <div>
                     <p>Deadline: 12/2/2023</p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
-                    <button class="ticket_editor">Edit</button> <!-- PHP: only visible to the user who created the ticket -->
+                    <a href="" class="top_bar_button">
+                        Edit Ticket
+                    </a> <!-- PHP: only visible to the user who created the ticket -->
                     <!-- takes the user to the new_ticket.html but with the fields already filled with the ticket's info -->
                     <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
                     <!-- not really sure how to do this -->
