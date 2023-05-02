@@ -22,8 +22,8 @@ body {
     height: max-content;
 
     box-sizing: border-box;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     padding-top: 7px;
     padding-bottom: 7px;
     background-color: #e6e6e6;
@@ -89,16 +89,21 @@ body {
     align-items: center;
 }
 
-#search_bar input {
+#search_bar_id {
     border: none;
     height: inherit;
     padding: 0;
     margin: 0;
     background-color: #e6e6e6;
+    width: 0;
+    transition-property: width;
+    transition-duration: 0.5s;
+
 }
 
-#search_bar input:focus {
+#search_bar_id:focus {
     outline: none;
+    width: 8rem;
 }
 
 #login_button input {
