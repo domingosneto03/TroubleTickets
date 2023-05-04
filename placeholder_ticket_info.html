@@ -84,10 +84,29 @@
                 <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
             </div>
 
-            <p class="focused_ticket_tags">
-                <a href="" class="ticket_tag">#tech</a>
-                <a href="" class="ticket_tag">#printer</a>
-            </p> <!-- links to the ticket list filtered by the selected tag -->
+            <div class="outer_tags">
+                <label for="edit_tags">Edit tags</label>
+                <input type="checkbox" name="edit_tags" id="edit_tags">
+                <div class="focused_ticket_tags">
+                    <div>
+                        <a href="" class="ticket_tag">#tech</a>
+                        <!-- <button>X</button> -->
+                    </div>
+                    <div>
+                        <a href="" class="ticket_tag">#printer</a>
+                        <!-- <button>X</button> -->
+                    </div>
+                    
+                    <input name="tags" list="tag_list">
+                    <datalist id="tag_list">
+                        <option value="asjhfkash">hora</option>
+                        <option value="llkik">llkik</option>
+                        <option value="llkia">llkia</option>
+                    </datalist>
+                    <button id="tag_adder">Add tag</button>
+                </div> <!-- links to the ticket list filtered by the selected tag -->
+            </div>
+            
 
             <div class="focused_ticket_info">
                 <p>Ticket created by <a href="">Jorge</a> on 5/2/2021</p>
