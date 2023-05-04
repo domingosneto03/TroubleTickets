@@ -5,13 +5,14 @@ main form {
     font-family: 'Oxygen', sans-serif;
     display: flex;
     flex-direction: column;
-    border: 2px solid #bb66cf;
+    border: 2px solid #191919;
     padding: 1em;
     height: max-content;
-    border-radius: 10px;
+    border-radius: 3px;
     max-width: 20cm;
     margin-left: auto;
     margin-right: auto;
+    align-self: center;
 }
 
 #title {
@@ -65,10 +66,29 @@ main form {
 }
 
 #sub_button {
-    background-color: #bb66cf;
-    border-radius: 10px;
+    background-color: #570353;
+    border-radius: 3px;
     font-weight: 700;
     height: 3em;
     font-size: 1.1em;
     color: white;
+}
+
+#sub_button:hover {
+    background-color: #681c64;
+}
+
+.cancel_ticket {
+    text-decoration: none;
+    color: white;
+    background-color: #808080;
+    height: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
 }

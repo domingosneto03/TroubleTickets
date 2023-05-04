@@ -35,7 +35,7 @@ main img {
 }
 
 #phrase button:hover {
-    color:black;
+    color:#000;
     background-color: rgb(225, 225, 225);
     border-color: rgb(60, 79, 72);
     opacity: 40%;

@@ -2,62 +2,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 main {
-    height: 100%;
-}
-
-#ticket_listing {
     display: flex;
     flex-direction: column;
+
+    background-color: #e6e6e6;
 }
 
-#top_bar {
+.top_bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border: none;
-    border-bottom: 2px solid #43464b;
+    border-bottom: 2px solid #191919;
 }
 
-#top_bar h2 {
-    margin-top: 20px;
-    margin-bottom: 0%;
-    width: fit-content;
-    justify-self: left;
-    height: auto;
-}
-
-#new_ticket {
+.top_bar_button {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    background-color: #43464b;
-    height: fit-content;
-    border-radius: 10px;
+    background-color: #333;
+    height: inherit;
+    border-radius: 3px;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
     color: white;
-    margin-top: 1.3rem;
+    justify-content: space-around;
 }
 
-#new_ticket:hover {
-    background-color: #bb66cf;
+.top_bar_button:hover {
+    background-color: #570353;
 }
 
-#tickets_main {
-    height: 34rem;
+.top_bar div {
     display: flex;
     flex-direction: row;
 }
 
+#tickets_main {
+    /* flex: 1; */
+    /* display: flex;
+    flex-direction: row; */
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
 #filters {
+    height: inherit;
     width: 8rem;
     max-width: 5cm;
     border: none;
-    border-left: 4px solid #43464b;
-    padding: 10px;
+    padding: 0.2rem;
     padding-right: 0%;
-    margin-top: 10px;
 
     display: flex;
     flex-direction: column;
@@ -67,16 +66,47 @@ main {
 }
 
 #filters input, #filters select {
-    border-radius: 10px;
+    border-radius: 3px;
+}
+
+#my_tickets_button, #tracked_tickets_button {
+    display: none;
+}
+
+#outer_filters {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-left: 2px solid #333;
+}
+
+.filter_checker:first-of-type {
+    margin-top: 0.2rem;
+}
+
+.filter_checker {
+    background-color: #191919;
+    margin-bottom: 0.2rem;
+    border-radius: 3px;
+    color: white;
+
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    text-align: center;
+
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+.filter_checker:hover {
+    background-color: #333;
 }
 
 #filters input[type=submit]{
-    background-color: #bb66cf;
+    background-color: #570353;
     color: white;
-}
-
-#filters input[value="Tracked tickets"] {
-    /* display: none; change if user is agent_admin */
 }
 
 #filters :not(label) {
@@ -84,86 +114,103 @@ main {
 }
 
 #tickets {
-    flex: 1;
+    height: 100%;
+    overflow-y: auto;
     padding-left: 0;
-    padding-right: 0.2em;
-    padding-top: 10px;
-    overflow-y: scroll;
+    padding-right: 0.2rem;
+    padding-top: 0.2rem;
     border: none;
-    border-bottom: 1px solid #43464b;
+    border-bottom: 1px solid #333;
+}
+
+.ticket a {
+    text-decoration: none;
+    color: #000;
+    height: fit-content;
+}
+
+.ticket a:hover {
+    color: #333;
+    text-decoration: underline;
 }
 
 .ticket {
-    text-decoration: none;
-}
-
-.ticket article {
-    border-radius: 8px;
-    border: 2px solid black;
+    border-radius: 3px;
+    border: 1px solid white;
     margin-bottom: 2px;
-    color: black;
+    color: #000;
     padding: 10px;
 
     display: grid;
-    grid-template-columns: 6rem auto auto auto 4rem;
-    grid-template-rows: 4rem 2rem 1.5rem 1.5rem;
+    grid-template-columns: 4rem auto;
+    grid-template-rows: auto auto;
+
+    background-color: white;
 }
 
-
-.ticket article:hover {
-    border-color: #bb66cf;
+.ticket:hover {
+    border-color: #333;
 }
 
 .ticket_user_img {
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
     grid-column: 1;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
 
-    border-radius: 10px;
+    border-radius: 4px;
+}
+
+.ticket_user_img img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4px;
+}
+
+.ticket_info_bottom, .ticket_info_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.ticket_info_top {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ticket_info_top div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .ticket_title {
     font-weight: 700;
     font-size: 30px;
     margin: 0;
-    padding-top: 10px;
-    padding-left: 10px;
     font-family: 'Oxygen', sans-serif;
-
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row: 1;
 }
 
-.ticket_text {
-    font-family: 'Cormorant', serif;
-    font-weight: 400;
-    font-size: 20px;
+.ticket_title h4 {
     margin: 0;
-    padding-top: 8px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row: 2;
 }
 
 .ticket_deadline {
-    grid-column: 5;
-    grid-row: 1;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
 }
 
-.ticket_date {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-.ticket_user {
-    grid-column: 1;
-    grid-row: 3;
+.ticket_info_bottom {
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .ticket_tags {
@@ -175,6 +222,11 @@ main {
     font-weight: 400;
     font-size: 13px;
     padding-left: 10px;
+    font-style: italic;
+    margin: 0;
+
+    height: fit-content;
+    width: fit-content;
 }
 
 .ticket_department {
@@ -192,10 +244,37 @@ main {
     grid-row: 4;
 }
 
-.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img) {
+.ticket_department, .ticket_agent, .ticket_status, .ticket_date, .ticket_user {
+    margin: 0;
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.ticket_agent p, .ticket_user p {
+    margin: 0;
+}
+
+.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img, .ticket_destroyer) {
     font-weight: 700;
     font-size: 13px;
     margin: 0;
     padding: 10px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.ticket_destroyer {
+    grid-column: 5;
+    grid-row: 4;
+    display: inline-block;
+    background-color: red;
+    border-color: red;
+    border-radius: 3px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0;
+    padding: 2px;
     font-family: 'Oxygen', sans-serif;
 }

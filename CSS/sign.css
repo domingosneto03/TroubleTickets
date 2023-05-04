@@ -5,7 +5,7 @@
     width: 30%;
     margin: 2em auto;
     padding: 1em;
-    border: 2px solid #bb66cf;
+    border: 2px solid #570353;
     border-radius: 1em;
     background-color: rgb(239, 239, 239);
 }
@@ -27,7 +27,7 @@
 
 #login button, #register button {
     border-radius: 15px;
-    border: 1px solid #bb66cf;
+    border: 1px solid #570353;
     width: 10em;
     height: 2em;
     margin-top: 1em;
@@ -35,7 +35,7 @@
 
 #login button:hover, #register button:hover {
     color: white;
-    background-color: #bb66cf;
+    background-color: #570353;
 }
 
 #login p {

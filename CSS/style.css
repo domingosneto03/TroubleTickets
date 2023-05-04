@@ -10,7 +10,7 @@ body {
     grid-template-columns: 3.4rem auto;
 
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 #main_header {
@@ -22,11 +22,11 @@ body {
     height: max-content;
 
     box-sizing: border-box;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     padding-top: 7px;
     padding-bottom: 7px;
-    background-color: whitesmoke;
+    background-color: #e6e6e6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,13 +38,13 @@ body {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 1.8em;
-    text-shadow: 1px 0 black, -1px 0 black, 0 1px black, 0 -1px black,
-             1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+             1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 #main_header h1 a {
     text-decoration: none;
-    color: #bb66cf;
+    color: #570353;
 }
 
 #logo {
@@ -61,42 +61,66 @@ body {
     font-size: 15px;
 }
 
+#right_side a {
+    text-decoration: none;
+    color: #000;
+}
+
 #profile_pic {
-    border-radius: 10px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+}
+
+#username {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+#profile_pic, #username {
+    display: none;
+    /* toggle with Login button */
 }
 
 #search_bar {
     margin: 0;
     margin-right: 0.5em;
     padding: 0;
-    height: 32px;
+    height: inherit;
     display: flex;
     align-items: center;
 }
 
-#search_bar input {
+#search_bar_id {
     border: none;
-    border-bottom: solid 2px black;
-    height: 28.8px;
+    height: inherit;
     padding: 0;
     margin: 0;
-    background-color: whitesmoke;
+    background-color: #e6e6e6;
+    width: 0;
+    transition-property: width;
+    transition-duration: 0.5s;
+
 }
 
-#search_bar input:focus {
+#search_bar_id:focus {
     outline: none;
+    width: 8rem;
 }
 
 #login_button input {
     height: 32px;
-    border: 1px solid black;
-    border-radius: 10px;
-    /* display: none;*/
+    border: 1px solid #000;
+    border-radius: 3px;
+    /* display: none; */
     /* acionar quando estiver logged in, mudar display de #profile_pic */
 }
 
 #login_button input:hover {
-    background-color: #bb66cf;
+    background-color: #570353;
     color: white;
 }
 
@@ -107,7 +131,7 @@ body {
 
     width: 3.4rem;
 
-    background-color: #272727;
+    background-color: #191919;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,7 +143,7 @@ body {
 #side_bar a {
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
-    color: whitesmoke;
+    color: #e6e6e6;
     width: inherit;
     padding: 0;
     text-decoration: none;
@@ -133,7 +157,7 @@ body {
 }
 
 #side_bar a:hover {
-    background-color: #424242;
+    background-color: #333;
 }
 
 #main_footer {
@@ -160,15 +184,19 @@ body {
 main {
     grid-column: 2;
     grid-row: 2;
-    background-color: whitesmoke;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    background-color: #e6e6e6;
+    padding: 0.4rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
 }
 
 .main_title {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 1.7em;
+    margin: 0;
+}
+
+.top_bar {
+    padding-bottom: 0.1rem;
 }
