@@ -70,3 +70,6 @@ CREATE TABLE faq (
     question VARCHAR UNIQUE,
     answer VARCHAR UNIQUE
 );
+
+INSERT into faq (question, answer) VALUES ("What is this website for?", "Anything");
+INSERT into faq (question, answer) VALUES ("Who is this website for?", "Nothing");

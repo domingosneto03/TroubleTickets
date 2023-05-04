@@ -12,6 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?=$title ?></title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/home.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -27,11 +28,8 @@
     </head>
     <body>
         <header id="main_header">
-            <h1><a href="template.html">Mango Tickets</a></h1>
+            <a href="template.html"><img src="/images/logo.png" id="logo"></a>
             <article id="right_side">
-                <form action="" id="search_bar">
-                    <span class="material-symbols-outlined">search</span>
-                    <input type="text" name="search_bar" placeholder="Search for anything!">
                 <a href="login.html"></a>
                 </form>
                 <?php 
@@ -59,7 +57,7 @@
                 add_card
             </span>
         </a>
-        <a href="faq.html">
+        <a href="faq.php">
             <span class="material-symbols-outlined">
                 help_center
             </span>
