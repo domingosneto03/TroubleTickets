@@ -11,6 +11,8 @@ body {
 
     grid-template-rows: auto 1fr auto;
     height: 100vh;
+
+    max-width: 100vw;
 }
 
 #main_header {

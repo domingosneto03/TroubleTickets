@@ -41,6 +41,7 @@ main a {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    align-items: center;
 }
 
 .top_bar div * {
@@ -77,6 +78,8 @@ main a {
     border-radius: 3px;
     padding-left: 0.3rem;
     padding-right: 0.3rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -90,7 +93,7 @@ main a {
     display: none;
 }
 
-#edit_tags:checked ~ .focused_ticket_tags div button, #edit_tags:checked ~ .focused_ticket_tags input, #edit_tags ~ .focused_ticket_tags #tag_adder {
+#edit_tags:checked ~ .focused_ticket_tags div button, #edit_tags:checked ~ .focused_ticket_tags input, #edit_tags:checked ~ .focused_ticket_tags #tag_adder {
     display: block;
 }
 
@@ -143,11 +146,12 @@ main a {
 .focused_ticket_comment {
     background-color: white;
     border-radius: 3px;
+    padding: 0.4rem;
 }
 
 .focused_ticket_comment_poster {
     font-family: 'Oxygen', sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 1rem;
     margin: 0;
 }
@@ -157,6 +161,15 @@ main a {
     font-weight: 400;
     font-size: 1.3rem;
     margin: 0;
+    padding-left: 1rem;
+}
+
+.focused_ticket_comment_date {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #b3b3b3;
+    margin: 0;
 }
 
 .top_bar_button {
@@ -165,6 +178,8 @@ main a {
     font-size: 0.6rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
     background-color: #333;
     height: inherit;
     border-radius: 3px;
@@ -173,4 +188,79 @@ main a {
     flex-direction: column;
     color: white;
     justify-content: space-around;
+}
+
+.focused_ticket_docs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.focused_ticket_doc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #b3b3b3;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 3px;
+}
+
+.focused_ticket_doc_name {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+}
+
+.focused_ticket_doc_button {
+    height: fit-content;
+    background-color: #333;
+    color: white;
+    border-radius: 3px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.comment_maker {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    align-items: center;
+    margin-bottom: 0.2rem;
+}
+
+.comment_maker label {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+#comment_maker_input {
+    flex: 1;
+}
+
+.comment_maker input[type="submit"]{
+    background-color: #333;
+    color: white;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 3px;
+}
+
+
+.focused_ticket_comment_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -115,20 +115,30 @@
                  -->
             </div>
             
+            <div class="focused_ticket_docs">
+                <!-- lista de docs -->
+                <div class="focused_ticket_doc">
+                    <p class="focused_ticket_doc_name">filename.docx</p>
+                    <button class="focused_ticket_doc_button">Download</button>
+                </div>
+            </div>
+
             <div class="focused_ticket_comments">
-                <h4>Comments</h4>
+                <h4>Discussion</h4>
                 <!-- comments go from newest at the top to oldest at the bottom -->
 
                 <form action="" class="comment_maker">
-                    <label for="comment_maker_input">Comment: </label>
+                    <label for="comment_maker_input">Add a comment: </label>
                     <input type="text" name="comment_maker_input" id="comment_maker_input">
                     <input type="submit" value="Post">
                 </form>
 
                 <article class="focused_ticket_comment">
-                    <h5 class="focused_ticket_comment_poster">Adalberto</h5>
+                    <div class="focused_ticket_comment_top">
+                        <h5 class="focused_ticket_comment_poster">Adalberto</h5>
+                        <p class="focused_ticket_comment_date">insert date and time here</p>   
+                    </div>
                     <p class="focused_ticket_comment_text">i love html so much &lt;333333 </p>
-                    <p class="focused_ticket_comment_date">insert date and time here</p>
                 </article>
             </div>
         </main>

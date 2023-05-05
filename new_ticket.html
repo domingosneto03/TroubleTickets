@@ -52,7 +52,7 @@
             <form action="">
                 <div id="title">
                     <label for="ticket_title" id="title_label">Ticket title:</label>
-                    <input type="text" name="" id="ticket_title" required>
+                    <input type="text" name="" id="ticket_title" required maxlength="55">
                 </div>
                 <div id="text">
                     <label for="ticket_text" id="text_label">Ticket description:</label>
@@ -62,7 +62,7 @@
                     <textarea name="" id="ticket_text" cols="30" rows="20" required></textarea>
                 </div>
                 <label for="ticket_file_upload">Add files/images:</label>
-                <input type="file" name="ticket_file_upload" id="ticket_file_upload">
+                <input type="file" name="ticket_file_upload" id="ticket_file_upload" multiple>
                 <div id="thing">
                     <div id="department">
                         <label for="departments">Department:</label>
