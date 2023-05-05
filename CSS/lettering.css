@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
+
+.faq_faq {
+    font-family: 'Oxygen', sans-serif;
+}
+
+.faq_faq h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.faq_faq p {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.top_bar_button {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    text-decoration: none;
+}
+
+#new_faq_window label {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+}
+
+#new_faq_window div > input[type="submit"] {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+}
+
+#new_faq_window div > input[type="button"] {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+}
+
+#main_header h1 {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.8em;
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+             1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+#main_header h1 a {
+    text-decoration: none;
+}
+
+#right_side {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#right_side a {
+    text-decoration: none;
+}
+
+#username {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+#side_bar a {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+#side_bar a span {
+    font-size: 2em;
+}
+
+#main_footer {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.main_title {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    font-size: 1.7em;
+}
+

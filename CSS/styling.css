@@ -1,0 +1,117 @@
+.faq_faq {
+    border-top: 3px solid #570353;
+}
+
+.faq_faq:last-child {
+    border-bottom: 3px solid #570353;
+}
+
+.top_bar {
+    border: none;
+    border-bottom: 2px solid #191919;
+}
+
+.top_bar_button {
+    background-color: #191919;
+    border-radius: 3px;
+    color: white;
+}
+
+.top_bar_button:hover {
+    background-color: #333;
+}
+
+#new_faq_window {
+    background-color: #e6e6e6;
+    border-radius: 3px;
+    border: 2px solid #000;
+}
+
+#new_faq_window textarea {
+    border-radius: 3px;
+}
+
+#new_faq_window input[type="text"] {
+    border-radius: 3px;
+}
+
+#new_faq_window div > input[type="submit"] {
+    background-color: #191919;
+    color: white;
+    border-radius: 3px;
+}
+
+#new_faq_window div > input[type="submit"]:hover {
+    background-color: #333;
+}
+
+#new_faq_window div > input[type="button"] {
+    background-color: #f00;
+    color: white;
+    border-radius: 3px;
+}
+
+#new_faq_window div > input[type="button"]:hover {
+    background-color: #ff1a1a;
+}
+
+#main_header {
+    background-color: #e6e6e6;
+}
+
+#main_header h1 a {
+    color: #570353;
+}
+
+#right_side a {
+    color: #000;
+}
+
+#profile_pic {
+    border-radius: 1rem;
+}
+
+#search_bar_id {
+    border: none;
+    background-color: #e6e6e6;
+    transition-property: width;
+    transition-duration: 0.5s;
+}
+
+#search_bar_id:focus {
+    outline: none;
+}
+
+#login_button input {
+    border: 1px solid #000;
+    border-radius: 3px;
+    /* display: none; */
+    /* acionar quando estiver logged in, mudar display de #profile_pic */
+}
+
+#login_button input:hover {
+    background-color: #570353;
+    color: white;
+}
+
+#side_bar {
+    background-color: #191919;
+}
+
+#side_bar a {
+    color: #e6e6e6;
+}
+
+#side_bar a:hover {
+    background-color: #333;
+}
+
+#main_footer {
+    background-color: #570353; /*#eb8503*/
+    color: white;
+}
+
+main {
+    background-color: #e6e6e6;
+}
+
