@@ -12,7 +12,7 @@ class User {
         $this->email = $email;
     }
 
-    function save($db) {
+    function save(PDO $db) {
         $stmt = $db->prepare('
             UPDATE user SET username = ?, email = ?
             WHERE userId = ?'
@@ -57,7 +57,7 @@ class User {
         } else return null;
     }
 
-    static function register($db, $username, $email, $password) {
+    static function register(PDO $db, string $username, string $email, string $password) {
         $stmt = $db->prepare("INSERT into user (username, password, email) VALUES (?, ?, ?)");
         $options = ['cost' => 12];
         $stmt->execute(array(
@@ -67,7 +67,7 @@ class User {
         ));
     }
 
-    function delete($db) {
+    function delete(PDO $db) {
         $stmt = $db->prepare("DELETE FROM user WHERE userId = ?");
         $stmt->execute(array($this->id));
     }

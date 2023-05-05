@@ -1,23 +1,24 @@
 <?php
-require_once(__DIR__ . "/../database/connection.php");
-require_once(__DIR__ . "/../database/user.class.php");
-require_once(__DIR__ . "/../utils/session.php");
-$session = new Session();
+    require_once(__DIR__ . "/../utils/session.php");
+    $session = new Session();
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$email = $_POST['email'];
+    require_once(__DIR__ . "/../database/connection.php");
+    require_once(__DIR__ . "/../database/user.class.php");
 
-$db = getDatabaseConnection();
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
 
-$user = User::getUser($db, $username);
+    $db = getDatabaseConnection();
 
-if ($user) {
-    $session->addMessage('error', 'username already exists!');
-} else {
-    User::register($db, $username, $email, $password);
-    $session->addMessage('success', 'Successfully registered!');
-}
+    $user = User::getUser($db, $username);
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+    if ($user) {
+        $session->addMessage('error', 'username already exists!');
+    } else {
+        User::register($db, $username, $email, $password);
+        $session->addMessage('success', 'Successfully registered!');
+    }
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
