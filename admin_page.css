@@ -1,127 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-main {
-    display: flex;
-    flex-direction: column;
-}
 
-#management_main {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1.5fr 1.5fr 1fr;
-    margin: 0;
 
-    font-family: 'Oxygen', sans-serif;
-    font-weight: 700;
-}
 
-#agent_list {
-    grid-column: 1;
-    margin-right: 0.2rem;
-}
 
-#client_list {
-    grid-column: 2;
-    margin-left: 0.2rem;
-}
 
-#client_list, #agent_list {
-    border-radius: 3px;
-    border: 2px solid #000;
-    width: inherit;
-    height: inherit;
-}
 
-/* #agent_list p:first-child, #client_list p:first-child {
-    margin: 0;
-    height: 10%;
-} */
 
-#agent_list p, #client_list p {
-    text-align: center;
-}
 
-#agent_list div, #client_list div {
-    overflow-y: auto;
-}
 
-.client_list_item, .agent_list_item {
-    border: 1px solid #000;
-    border-radius: 3px;
-    padding: 5px;
-    padding-right: 0;
-    display: grid;
-    grid-template-rows: 2.5rem 2.5rem;
-    grid-template-columns: 5rem 1fr 1fr;
-    margin: 5px;
-}
 
-.client_list_item a, .agent_list_item a {
-    text-decoration: none;
-    color: #000;
-}
 
-.client_list_item:first-of-type, .agent_list_item:first-of-type {
-    margin-top: 0;
-}
 
-.client_list_item_img, .agent_list_item_img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 3px;
-    grid-column: 1;
-    grid-row-start: 1;
-    grid-row-end: 3;
-}
 
-.client_list_item_img img, .agent_list_item_img img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 3px;
-}
 
-.agent_list_item .admin_promoter {
-    column-span: all;
-    grid-column-start: 2;
-    grid-column-end: 4;
-}
 
-.agent_promoter, .admin_promoter {
-    margin: 5px;
-    margin-bottom: 0;
-    border-radius: 3px;
-    background-color: #191919;
-    color: white;
-}
 
-.agent_promoter:hover, .admin_promoter:hover {
-    background-color: #333;
-}
 
-#management_right_side {
-    margin-left: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
-#manage_departments_button, #manage_statuses_button {
-    text-align: center;
-    background-color: #191919;
-    border-radius: 3px;
-    text-decoration: none;
-    color: white;
-    padding-top: 1.3rem;
-    padding-bottom: 1.3rem;
-}
 
-#manage_departments_button:hover, #manage_statuses_button:hover {
-    background-color: #333;
-}
 
-#manage_buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

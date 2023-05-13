@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>admin_management</title>
-        <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="admin_page.css">
+        <link rel="stylesheet" href="CSS/lettering.css">
+        <link rel="stylesheet" href="CSS/positioning.css">
+        <link rel="stylesheet" href="CSS/styling.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     </head>
@@ -47,9 +48,11 @@
                 </span>
             </a>
         </aside>
-        <main>
-            <h2 class="main_title">Administrator Management</h2>
-
+        <main id="admin_main">
+            <div class="top_bar">
+                <h2 class="main_title">Administrator Management</h2>
+            </div>
+            
             <div id="management_main">
                 <div id="agent_list">
                     <!-- lista de agentes, dá para fazer scroll, iupi iupi -->
@@ -153,12 +156,46 @@
 
                 <div id="management_right_side">
                     <div id="manage_buttons">
-                        <a href="" id="manage_departments_button">
-                            Manage Departments
-                        </a>
-                        <a href="" id="manage_statuses_button">
-                            Manage Ticket Status
-                        </a>
+                        <label for="manage_departments_button">Manage Departments</label>
+                        <input type="checkbox" name="manage_departments_button" id="manage_departments_button">
+                        <div>
+                            <p>Departments</p>
+                            <ul class="department_list_admin">
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                                <li class="department_list_admin_item">Tech</li>
+                                <li class="department_list_admin_item">War crimes</li>
+                            </ul>
+                            <form action="">
+                                <label for="add_department">Add department</label>
+                                <input type="text" name="add_department" id="add_department" maxlength="15">
+                                <input type="submit" value="Add">
+                            </form>
+                        </div>
+
+                        <label for="manage_statuses_button">Create New Status</label>
+                        <input type="checkbox" name="manage_statuses_button" id="manage_statuses_button">
+                        <div>
+                            <p>Statuses</p>
+                            <ul class="status_list_admin">
+                                <li class="status_list_admin_item">Open</li>
+                                <li class="status_list_admin_item">Assigned</li>
+                                <li class="status_list_admin_item">Closed</li>
+                            </ul>
+                            <form action="">
+                                <label for="add_status">Add status</label>
+                                <input type="text" name="add_status" id="add_status" maxlength="15">
+                                <input type="submit" value="Add status">
+                            </form>
+                        </div>
                     </div>
                     <div id="statistics">
                         <p>New users in the last week: 8000</p>

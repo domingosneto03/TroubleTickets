@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>template</title>
+        <title>profile page</title>
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="stylesheet" href="CSS/profile.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -48,30 +48,33 @@
             </a>
         </aside>
         <main>
-            <aside id="profile">
-                <div id="image">
-                   <img src="components/perfil.png" alt="profile image">
+            <article id="profile_main">
+                <img src="images/burgir.jfif" alt="profile image" id="profile_picture">
+
+                <div id="profile_user">
+                    <p>Username</p>
+                    <p>Role</p>
+                    <p>something@example.com</p>
                 </div>
-                <div>
-                    <p>Username<p>
-                    <p>something@example.com<p>
+
+                <div id="bio">
+                    <p>
+                        bio goes here asjdhak whekajhsdkja wueaksnf qlajsdab karjlk ly iuluyskadhawuyge a
+                        asldjak wyk haskjdjhhuawoooooooooooooooopasj agsdjagsdçwaj lha wkhgeak
+
+                        asjldhawkelawkqoi
+                    </p>
                 </div>
-                <a href="">
-                    <button formaction="#" formmethod="post">Edit Profile</button>
+                
+                <a href="" id="profile_editor_button">
+                    Edit profile
                 </a>
+
                 <!-- choose which of these to display using php magic -->
                 <!-- these options only appear to Admins visiting the page -->
                 <button class="admin_promoter">Promote to Admin</button>
                 <button class="agent_promoter">Promote to Agent</button>
-                <button class="client_demoter">Demote to Client</button>
-            </aside>
-            <section id="info">
-                <div>
-                    <p>ganha noções</p> 
-                </div>
-            </section>
-            <section id="charts">
-            </section>
+            </article>
         </main>
         
         <footer id="main_footer">

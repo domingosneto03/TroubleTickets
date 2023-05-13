@@ -1,0 +1,788 @@
+.faq_faq h3 {
+    padding-left: 1rem;
+}
+
+.faq_faq p {
+    padding-left: 1.2rem;
+}
+
+.top_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#new_faq_window {
+    margin: 0.5rem 0;
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+#new_faq_window div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+
+#new_faq_window textarea {
+    resize: none;
+}
+
+#new_faq_window div > input[type="submit"] {
+    width: 7.5rem;
+    padding: 0.4rem 0;
+}
+
+#new_faq_window div > input[type="button"] {
+    width: 7.5rem;
+    padding: 0.4rem 0;
+}
+
+#new_faq_window div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+body {
+    display: grid;
+    padding: 0;
+    margin: 0;
+
+
+    grid-template-columns: 3.4rem auto;
+
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+
+    max-width: 100vw;
+}
+
+#main_header {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    height: max-content;
+
+    box-sizing: border-box;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main_header h1 {
+    margin: 0;
+    align-self: center;
+}
+
+#logo {
+    height: 3em;
+    width: auto;
+}
+
+#right_side {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+
+#profile_pic {
+    width: 2rem;
+    height: 2rem;
+}
+
+#username {
+    margin: 0;
+    margin-left: 0.5rem;
+}
+
+#profile_pic, #username {
+    display: none;
+    /* toggle with Login button */
+}
+
+#search_bar {
+    margin: 0;
+    margin-right: 0.5em;
+    padding: 0;
+    height: inherit;
+    display: flex;
+    align-items: center;
+}
+
+#search_bar_id {
+    height: inherit;
+    padding: 0;
+    margin: 0;
+    width: 0;
+}
+
+#search_bar_id:focus {
+    width: 8rem;
+}
+
+#login_button input {
+    height: 32px;
+}
+
+#side_bar {
+    grid-column: 1;
+    height: 100vh;
+    margin: 0;
+
+    width: 3.4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+    position: fixed; 
+}
+
+#side_bar a {
+    width: inherit;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#side_bar a span {
+    display: flex;
+}
+
+#main_footer {
+    grid-row: 3;
+    grid-column: 2;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    height: auto;
+}
+
+#main_footer p {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+main {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0.4rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+
+.main_title {
+    margin: 0;
+}
+
+#new_ticket_form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    height: max-content;
+    max-width: 20cm;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+#title {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+#ticket_title {
+    margin-left: 1em;
+    flex: 1;    
+}
+
+#text {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1em;
+}
+
+#ticket_text {
+    flex: 1;
+    margin-left: 1em;
+}
+
+#department label {
+    margin-right: 0.5em;
+}
+
+#tags p {
+    margin-right: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#tags input {
+    margin-left: 0.4em;
+}
+
+#tags input:first-of-type {
+    margin-left: 0;
+}
+
+#thing {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+#tags {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#sub_button {
+    height: 3em;
+}
+
+.cancel_ticket {
+    height: 2rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#profile_main {
+    width: 30rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_editor_button {
+    padding: 0.3rem 0;
+    width: 10rem;
+    margin: 0 auto 0.2rem;
+}
+
+#profile_user p {
+    margin: 0.5rem 0 0;
+}
+
+#bio p {
+    width: 25rem;
+    margin: 0.7rem auto;
+}
+
+#profile_picture {
+    width: 10rem;
+    height: 10rem;
+    align-self: center;
+}
+
+.admin_promoter, .agent_promoter {
+    width: 10rem;
+    padding: 0.3rem 0;
+    margin: 0 auto 0.2rem;
+}
+
+#login, #register {
+    width: 30%;
+    margin: 2em auto;
+    padding: 1em;
+}
+
+#login label, #register label {
+    display: block;
+    padding: 0.5em;
+    width: fit-content;
+    margin: auto;
+}
+
+#login button, #register button {
+    width: 10em;
+    height: 2em;
+    margin-top: 1em;
+}
+
+#login p {
+    margin: 20px;
+}
+
+#login input, #register input{
+    display: block;
+    margin: 1em auto;
+    width: 16em;
+}
+
+#ticket_info_main {
+    display: flex;
+    flex-direction: column;
+}
+
+.top_bar_info * {
+    margin: 0;
+    height: inherit;
+}
+
+.top_bar_info div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.top_bar_info div * {
+    margin: 0;
+}
+
+.focused_ticket_text {
+    padding: 0.7rem;
+    margin: 0;
+}
+
+.focused_ticket_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.outer_tags {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.outer_tags label {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.focused_ticket_tags {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
+.focused_ticket_tags div {
+    width: fit-content;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 0.3rem;
+}
+
+.focused_ticket_comments h4 {
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.focused_ticket_comment {
+    padding: 0.4rem;
+}
+
+.focused_ticket_comment_poster {
+    margin: 0;
+}
+
+.focused_ticket_comment_text {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.top_bar_button {
+    padding: 0.4rem 0.5rem;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.focused_ticket_docs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.focused_ticket_doc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.focused_ticket_doc_name {
+    margin: 0;
+}
+
+.focused_ticket_doc_button {
+    height: fit-content;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.comment_maker {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    align-items: center;
+    margin-bottom: 0.2rem;
+}
+
+#comment_maker_input {
+    flex: 1;
+}
+
+.comment_maker input[type="submit"]{
+    padding: 0.4rem 0.5rem;
+}
+
+.focused_ticket_comment_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_bar_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#edit_ticket {
+    padding: 0.3rem 0.4rem;
+}
+
+#ticket_list_main {
+    display: flex;
+    flex-direction: column;
+}
+
+.top_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* .top_bar_button {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
+
+.top_bar div {
+    display: flex;
+    flex-direction: row;
+}
+
+#tickets_main {
+    /* flex: 1; */
+    /* display: flex;
+    flex-direction: row; */
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+#filters {
+    height: inherit;
+    width: 8rem;
+    max-width: 5cm;
+    padding: 0.2rem;
+    padding-right: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+#outer_filters {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter_checker:first-of-type {
+    margin-top: 0.2rem;
+}
+
+.filter_checker {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin-left: 0.2rem;
+}
+
+#filters :not(label) {
+    margin-bottom: 1rem;
+}
+
+#tickets {
+    height: 100%;
+    overflow-y: auto;
+    padding-left: 0;
+    padding-right: 0.2rem;
+    padding-top: 0.2rem;
+}
+
+.ticket a {
+    height: fit-content;
+}
+
+.ticket {
+    margin-bottom: 2px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 4rem auto;
+    grid-template-rows: auto auto;
+}
+
+.ticket_user_img {
+    width: 4rem;
+    height: 4rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.ticket_user_img img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.ticket_info_bottom, .ticket_info_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+    padding-left: 0.5rem;
+    align-items: center;
+}
+
+.ticket_info_top {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ticket_info_top div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ticket_title {
+    margin: 0;
+}
+
+.ticket_title h4 {
+    margin: 0;
+}
+
+.ticket_deadline {
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+.ticket_info_bottom {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.ticket_tags {
+    grid-row: 3;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    padding-left: 10px;
+    margin: 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+.ticket_department {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.ticket_status {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.ticket_agent {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.ticket_department, .ticket_agent, .ticket_status, .ticket_date, .ticket_user {
+    margin: 0;
+}
+
+.ticket_agent p, .ticket_user p {
+    margin: 0;
+}
+
+.ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img, .ticket_destroyer) {
+    margin: 0;
+    padding: 10px;
+}
+
+.ticket_destroyer {
+    grid-column: 5;
+    grid-row: 4;
+    display: inline-block;
+    margin: 0;
+    padding: 2px;
+}
+
+#admin_main {
+    display: flex;
+    flex-direction: column;
+}
+
+#management_main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.3fr 1.3fr 1fr;
+    margin: 0;
+}
+
+#agent_list {
+    grid-column: 1;
+    margin-right: 0.2rem;
+}
+
+#client_list {
+    grid-column: 2;
+    margin-left: 0.2rem;
+}
+
+#client_list, #agent_list {
+    width: inherit;
+    height: fit-content;
+}
+
+#agent_list div, #client_list div {
+    overflow-y: auto;
+}
+
+.client_list_item, .agent_list_item {
+    padding: 5px;
+    padding-right: 0;
+    display: grid;
+    grid-template-rows: 2.5rem 2.5rem;
+    grid-template-columns: 5rem 1fr 1fr;
+    margin: 5px;
+}
+
+.client_list_item:first-of-type, .agent_list_item:first-of-type {
+    margin-top: 0;
+}
+
+.client_list_item_img, .agent_list_item_img {
+    width: 5rem;
+    height: 5rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.client_list_item_img img, .agent_list_item_img img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.agent_list_item .admin_promoter {
+    column-span: all;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.agent_promoter, .admin_promoter {
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+#management_right_side {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#manage_buttons label {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+}
+
+#manage_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+#manage_buttons div {
+    height: fit-content;
+}
+
+#manage_departments_button:checked + div, #manage_statuses_button:checked + div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#manage_buttons div form {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    padding: 0 0.2rem 0.2rem;
+}
+
+#manage_buttons div form * {
+    height: fit-content;
+}
+
+#manage_buttons div form label {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+}
+
+#manage_buttons div form input[type="text"] {
+    flex: 1;
+}
+
+.department_list_admin, .status_list_admin {
+    max-height: 5rem;
+    overflow-y: auto;
+    padding: 0 0.5rem;
+    margin: 0.5rem 0;
+}
+
+#manage_buttons div p {
+    margin: 0;
+    padding: 0.2rem 0.4rem;
+}
