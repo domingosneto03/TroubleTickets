@@ -2,8 +2,9 @@
 <html>
     <head>
         <title>new_ticket</title>
-        <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="CSS/new_ticket.css">
+        <link rel="stylesheet" href="CSS/lettering.css">
+        <link rel="stylesheet" href="CSS/positioning.css">
+        <link rel="stylesheet" href="CSS/styling.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     </head>
@@ -48,8 +49,11 @@
             </a>
         </aside>
         <main>
-            <h2 class="main_title">New Ticket</h2>
-            <form action="">
+            <div class="top_bar">
+                <h2 class="main_title">New Ticket</h2>
+            </div>
+
+            <form action="" id="new_ticket_form">
                 <div id="title">
                     <label for="ticket_title" id="title_label">Ticket title:</label>
                     <input type="text" name="" id="ticket_title" required maxlength="55">
