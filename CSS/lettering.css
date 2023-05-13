@@ -227,13 +227,6 @@
     font-size: 0.8rem;
 }
 
-.top_bar_button {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: 700;
-    font-size: 0.6rem;
-    text-decoration: none;
-}
-
 .focused_ticket_doc_name {
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
@@ -259,13 +252,6 @@
 }
 
 #edit_ticket {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: 700;
-    font-size: 0.6rem;
-    text-decoration: none;
-}
-
-.top_bar_button {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;

@@ -12,12 +12,6 @@
     justify-content: space-between;
 }
 
-.top_bar_button {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    height: inherit;
-}
-
 #new_faq_window {
     margin: 0.5rem 0;
     padding: 0.4rem;
@@ -415,10 +409,7 @@ main {
 }
 
 .top_bar_button {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
+    padding: 0.4rem 0.5rem;
     height: inherit;
     display: flex;
     flex-direction: column;
@@ -497,14 +488,14 @@ main {
     justify-content: space-between;
 }
 
-.top_bar_button {
+/* .top_bar_button {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
+} */
 
 .top_bar div {
     display: flex;
