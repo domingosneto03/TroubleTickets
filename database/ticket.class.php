@@ -94,6 +94,22 @@
             $stmt->execute(array(Ticket::$next_id, "CREATION", time(), $assigned, NULL));
         }
 
+        static function get_tags(PDO $db, int $id) {
+            $stmt = $db->prepare(
+                'SELECT h.name
+                FROM hashtag h JOIN ticket_hash th JOIN ticket t
+                ON th.ticketID=t.ticketID AND th.hashtagID=h.hashtagID
+                WHERE t.ticketID=?'
+            );
+
+            $stmt->execute(array($id));
+            $tags = [];
+            while($tag = $stmt->fetch()) {
+                $tags = $tag;
+            }
+            return $tags;
+        }
+
     }
 
 
