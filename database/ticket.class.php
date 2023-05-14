@@ -75,11 +75,12 @@
             return $tickets;
         }
 
-        static function create_ticket(PDO $db, string $title, string $body, string $status, string $assigned, string $clientId, string $priority, string $department, int $deadline) {
+        static function create_ticket(PDO $db, string $title, string $body, int $clientId, string $priority, string $department, int $deadline) {
             $stmt = $db->prepare('
-                INSERT into ticket (title, body, status, assigned, clientId, priority, deadline)
-                VALUES (? ? ? ? ? ? ?)');
-            $stmt->execute(array($title, $body, $status, $assigned, $clientId, $priority, $deadline));
+                INSERT into ticket (title, body, clientId, priority, deadline)
+                VALUES (? ? ? ? ?)
+            ');
+            $stmt->execute(array($title, $body, $clientId, $priority, $deadline));
             
             $stmt = $db->prepare('
                 SELECT last_insert_rowid()
@@ -93,9 +94,9 @@
             $stmt->execute(array(Ticket::$next_id, $department));
 
             $stmt = $db->prepare('
-                INSERT into ticket_history (ticketId, type_of_edit, date, agentId, old_value)
-                VALUES (? ? ? ? ?)');
-            $stmt->execute(array(Ticket::$next_id, "CREATION", time(), $assigned, NULL));
+                INSERT into ticket_history (ticketId, type_of_edit, date, old_value)
+                VALUES (? ? ? ?)');
+            $stmt->execute(array(Ticket::$next_id, "CREATION", time(), NULL));
         }
 
         function add_Hashtag(PDO $db, int $ticketId) {
@@ -157,6 +158,17 @@
             $stmt->execute(array($this->id));
             $date = $stmt->fetch();
             return $date['date'];
+        }
+
+        public function getDepartment(PDO $db) : string {
+            $stmt = $db->prepare('
+                SELECT name
+                FROM department
+                WHERE departmentId = ?
+            ');
+            $stmt->execute(array($this->department));
+            $department = $stmt->fetch();
+            return $department['name'];
         }
 
         public function getComments(PDO $db) : array {

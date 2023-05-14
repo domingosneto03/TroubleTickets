@@ -1,23 +1,33 @@
 <?php
+    declare(strict_types = 1);
+    require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/ticket.class.php");
     require_once(__DIR__ . "/hashtag.tpl.php");
+
+    $db = getDatabaseConnection();
 ?>
 
-<?php function output_ticket_card(Ticket $ticket) { ?>
-    <a href='<?= "/ticket.php?id=" . $ticket->id ?>' class="ticket">
-        <article>
-            <h4 class="ticket_title"><?= $ticket->title ?></h4>
-            <img src="Group 1.png" alt="florzinha uau" class="ticket_user_img">
-            <p class="ticket_text"><?= $ticket->body ?></p>
-            <p class="ticket_date">25/6/2022</p>
-            <p class="ticket_user"><?= $ticket->clientId ?></p>
-            <p class="ticket_agent"><?= $ticket->assigned ?></p>
+<?php function output_ticket_card(Ticket $ticket) {
+    global $db; ?>
+    <article class="ticket">
+        <a href="" class="ticket_user_img"><img src="Group 1.png" alt="florzinha uau"></a>
+        <div class="ticket_info_top">
+            <div>
+                <a href="<?= "/ticket.php?id=" . $ticket->id ?>" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
+                <p class="ticket_tags"><?php foreach ($ticket->getHashtags($db) as $tag) { 
+                    echo "#" . $tag->name . " "; } ?></p>
+            </div>
+            <p class="ticket_deadline"><?= date("d-m-Y", $ticket->deadline) ?></p>
+        </div>
+        <div class="ticket_info_bottom">
+            <a href="" class="ticket_user"><p><?= $ticket->getClientName($db) ?></p></a>
+            <p class="ticket_date"><?=  $ticket->getCreationDate($db) ?></p>
+            <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             <p class="ticket_status"><?= $ticket->status ?></p>
-            <p class="ticket_deadline">2/7/2022</p>
-            <p class="ticket_tags"> #tech #printer</p>
-            <p class="ticket_department"><?= $ticket->department ?></p>
-        </article>
-    </a>
+            <a href="" class="ticket_agent"><p><?= $ticket->getAgentName($db) ?></p></a>
+        </div>
+        <!-- <button class="ticket_destroyer">Delete</button> -->
+    </article>
 <?php } ?>
 
 
