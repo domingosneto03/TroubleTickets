@@ -15,7 +15,7 @@
     output_header($session, $title);
     output_sidebar();
 
-    output_ticket_list($tickets);
+    output_ticket_list($session, $tickets);
 
     output_footer();
 

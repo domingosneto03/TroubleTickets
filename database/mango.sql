@@ -38,7 +38,8 @@ CREATE TABLE ticket (
     status VARCHAR,
     assigned INTEGER REFERENCES agent,
     clientId INTEGER REFERENCES client,
-    priority VARCHAR
+    priority VARCHAR,
+    deadline INTEGER
 );
 
 CREATE TABLE hashtag (
@@ -78,6 +79,14 @@ CREATE TABLE faq (
     faqId INTEGER PRIMARY KEY,
     question VARCHAR UNIQUE,
     answer VARCHAR UNIQUE
+);
+
+CREATE TABLE comment (
+    commentId INTEGER PRIMARY KEY,
+    body VARCHAR,
+    date INTEGER,
+    userId INTEGER REFERENCES user,
+    ticketId INTEGER REFERENCES ticket
 );
 
 -- 20 users
@@ -143,26 +152,26 @@ INSERT INTO admin (adminId) VALUES (18);
 INSERT INTO admin (adminId) VALUES (20);
 
 -- 20 tickets
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "OPEN", 4, 6, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "OPEN", 10, 18, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "OPEN", 2, 14, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "OPEN", 6, 8, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Can't print", "I'm having trouble printing from my computer", "OPEN", 12, 7, "low");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("New hire setup", "I need a new employee's computer set up with the necessary software and accounts", "OPEN", 14, 2, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Website not loading", "I'm unable to access the company website from my computer", "OPEN", 8, 13, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Password reset", "I've forgotten my password and need it reset", "OPEN", 16, 4, "low");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need access to shared drive", "I need access to a shared drive to retrieve some files", "OPEN", 18, 11, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "OPEN", 20, 17, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need software update", "I need a software update to fix some bugs and improve performance", "OPEN", 16, 1, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Can't access company portal", "I'm unable to access the company portal to submit my timesheet", "OPEN", 6, 20, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need new monitor", "My monitor is old and malfunctioning, I need a new one", "OPEN", 2, 10, "low");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Printer not working", "I'm unable to print from my computer, even after restarting", "OPEN", 8, 12, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need help with Excel", "I need assistance with a complex Excel formula for my project", "OPEN", 10, 15, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need access to new project folder", "I need access to a new project folder to store my files", "OPEN", 4, 9, "low");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Computer virus", "I think my computer has a virus and needs to be scanned", "OPEN", 12, 5, "high");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need new headphones", "My headphones are broken and I need a new pair", "OPEN", 18, 16, "low");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "OPEN", 14, 19, "medium");
-INSERT INTO ticket (title, body, status, assigned, clientId, priority) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "OPEN", 20, 3, "medium");
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "OPEN", 4, 6, "high", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "OPEN", 10, 18, "medium", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "OPEN", 2, 14, "high", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "OPEN", 6, 8, "medium", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't print", "I'm having trouble printing from my computer", "OPEN", 12, 7, "low", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("New hire setup", "I need a new employee's computer set up with the necessary software and accounts", "OPEN", 14, 2, "high", 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Website not loading", "I'm unable to access the company website from my computer", "OPEN", 8, 13, "medium", 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Password reset", "I've forgotten my password and need it reset", "OPEN", 16, 4, "low", 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to shared drive", "I need access to a shared drive to retrieve some files", "OPEN", 18, 11, "high", 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "OPEN", 20, 17, "high", 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software update", "I need a software update to fix some bugs and improve performance", "OPEN", 16, 1, "medium", 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access company portal", "I'm unable to access the company portal to submit my timesheet", "OPEN", 6, 20, "high", 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new monitor", "My monitor is old and malfunctioning, I need a new one", "OPEN", 2, 10, "low", 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Printer not working", "I'm unable to print from my computer, even after restarting", "OPEN", 8, 12, "medium", 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with Excel", "I need assistance with a complex Excel formula for my project", "OPEN", 10, 15, "high", 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to new project folder", "I need access to a new project folder to store my files", "OPEN", 4, 9, "low", 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer virus", "I think my computer has a virus and needs to be scanned", "OPEN", 12, 5, "high", 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new headphones", "My headphones are broken and I need a new pair", "OPEN", 18, 16, "low", 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "OPEN", 14, 19, "medium", 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "OPEN", 20, 3, "medium", 1684450800);
 
 -- 5 departments
 INSERT INTO department (name) VALUES ("Web");

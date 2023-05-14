@@ -10,10 +10,11 @@
         public int $clientId;
         public string $priority;
         public int $department;
+        public int $deadline;
 
         static int $next_id = 0;
 
-        public function __construct(int $id, string $title, string $body, ?string $status, int $assigned, int $clientId, string $priority, int $department) {
+        public function __construct(int $id, string $title, string $body, ?string $status, int $assigned, int $clientId, string $priority, int $department, int $deadline) {
             $this->id = $id;
             $this->title = $title;
             $this->body = $body;
@@ -22,11 +23,12 @@
             $this->clientId = $clientId;
             $this->priority = $priority;
             $this->department = $department;
+            $this->deadline = $deadline;
         }
 
         static function getTicket(PDO $db, int $id) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
@@ -43,13 +45,14 @@
                 $ticket['assigned'],
                 $ticket['clientId'],
                 $ticket['priority'],
-                $ticket['department']
+                $ticket['department'],
+                $ticket['deadline']
             );
         }
 
         static function getTickets(PDO $db) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
@@ -65,17 +68,18 @@
                     $ticket['assigned'],
                     $ticket['clientId'],
                     $ticket['priority'],
-                    $ticket['department'] 
+                    $ticket['department'],
+                    $ticket['deadline'] 
                 );
             }
             return $tickets;
         }
 
-        static function create_ticket(PDO $db, string $title, string $body, string $status, string $assigned, string $clientId, string $priority, string $department) {
+        static function create_ticket(PDO $db, string $title, string $body, string $status, string $assigned, string $clientId, string $priority, string $department, int $deadline) {
             $stmt = $db->prepare('
-                INSERT into ticket (title, body, status, assigned, clientId, priority)
-                VALUES (? ? ? ? ? ?)');
-            $stmt->execute(array($title, $body, $status, $assigned, $clientId, $priority));
+                INSERT into ticket (title, body, status, assigned, clientId, priority, deadline)
+                VALUES (? ? ? ? ? ? ?)');
+            $stmt->execute(array($title, $body, $status, $assigned, $clientId, $priority, $deadline));
             
             $stmt = $db->prepare('
                 SELECT last_insert_rowid()
@@ -94,20 +98,85 @@
             $stmt->execute(array(Ticket::$next_id, "CREATION", time(), $assigned, NULL));
         }
 
-        static function get_tags(PDO $db, int $id) {
-            $stmt = $db->prepare(
-                'SELECT h.name
-                FROM hashtag h JOIN ticket_hash th JOIN ticket t
-                ON th.ticketID=t.ticketID AND th.hashtagID=h.hashtagID
-                WHERE t.ticketID=?'
-            );
+        function add_Hashtag(PDO $db, int $ticketId) {
+            $stmt = $db->prepare('
+                INSERT into ticket_hash (ticketId, hashtagId)
+                VALUES (? ?)
+            ');
+            $stmt->execute(array($ticketId, $this->id));
+        }
 
-            $stmt->execute(array($id));
+        public function getHashtags(PDO $db) {
+            $stmt = $db->prepare('
+                SELECT hashtag.hashtagId, name
+                FROM hashtag
+                JOIN ticket_hash
+                ON hashtag.hashtagId = ticket_hash.hashtagId
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($this->id));
             $tags = [];
-            while($tag = $stmt->fetch()) {
-                $tags = $tag;
+            while ($tag = $stmt->fetch()) {
+                $tags[] = new Hashtag(
+                    $tag['hashtagId'],
+                    $tag['name']
+                );
             }
             return $tags;
+        }
+
+        public function getClientName(PDO $db) : string {
+            $stmt = $db->prepare('
+                SELECT username
+                FROM user
+                WHERE userId = ?
+            ');
+            $stmt->execute(array($this->clientId));
+            $client = $stmt->fetch();
+            return $client['username'];
+        }
+
+        public function getAgentName(PDO $db) : string {
+            $stmt = $db->prepare('
+                SELECT username
+                FROM user
+                WHERE userId = ?
+            ');
+            $stmt->execute(array($this->assigned));
+            $agent = $stmt->fetch();
+            return $agent['username'];
+        }
+
+        public function getCreationDate(PDO $db) {
+            $stmt = $db->prepare('
+                SELECT date
+                FROM ticket_history
+                WHERE ticketId = ?
+                AND type_of_edit = "CREATION"
+            ');
+            $stmt->execute(array($this->id));
+            $date = $stmt->fetch();
+            return $date['date'];
+        }
+
+        public function getComments(PDO $db) : array {
+            $stmt = $db->prepare('
+                SELECT *
+                FROM comment
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($this->id));
+            $comments = [];
+            while ($comment = $stmt->fetch()) {
+                $comments[] = new Comment(
+                    $comment['commentId'],
+                    $comment['body'],
+                    $comment['date'],
+                    $comment['ticketId'],
+                    $comment['userId']
+                );
+            }
+            return $comments;
         }
 
     }

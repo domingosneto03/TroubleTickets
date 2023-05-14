@@ -42,3 +42,46 @@ function output_login_form() { ?>
         </section>
     </main>
 <?php } ?>
+
+<?php function output_new_ticket_form($id) { ?>
+    <main>
+        <h2 class="main_title">New Ticket</h2>
+        <form action="">
+            <div id="title">
+                <label for="ticket_title" id="title_label">Ticket title:</label>
+                <input type="text" name="" id="ticket_title" required>
+            </div>
+            <div id="text">
+                <label for="ticket_text" id="text_label">Ticket description:</label>
+                <!-- tags go as #tag in the text box, boa sorte para implementar essa merda Ribeiro -->
+                <!-- depois o sql convém ter uma secção de texto composta pelas tags separadas por vírgulas para
+                as poder mostrar depois no ticket -->
+                <textarea name="" id="ticket_text" cols="30" rows="20" required></textarea>
+            </div>
+            <label for="ticket_file_upload">Add files/images:</label>
+            <input type="file" name="ticket_file_upload" id="ticket_file_upload">
+            <div id="thing">
+                <div id="department">
+                    <label for="departments">Department:</label>
+                    <select name="" id="departments">
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                    </select>
+                </div>
+                <div id="priority">
+                    <label for="priorities">Priority:</label>
+                    <select name="" id="priorities">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+            </div>
+            <input type="submit" value="Create Ticket" id="sub_button">
+            <a href="ticket_list.html" class="cancel_ticket">Cancel</a>
+        </form>
+    </main>
+
+
+<?php } ?>

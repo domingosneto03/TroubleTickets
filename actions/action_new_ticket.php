@@ -12,11 +12,11 @@
     $clientId = $_POST['clientId'];
     $priority = $_POST['priority'];
     $department = $_POST['department'];
+    $deadline = $_POST['deadline'];
 
     $db = getDatabaseConnection();
 
-    Ticket::create_ticket($db, $title, $body, $status, $assigned, $lcientId, $priority, $department);
+    Ticket::create_ticket($db, $title, $body, $status, $assigned, $lcientId, $priority, $department, $deadline);
 
-    header('Location: /ticket_list.php')
-
+    header('Location: /ticket_list.php');
 ?>
