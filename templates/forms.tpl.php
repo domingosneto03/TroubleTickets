@@ -45,11 +45,14 @@ function output_login_form() { ?>
 
 <?php function output_new_ticket_form($id) { ?>
     <main>
-        <h2 class="main_title">New Ticket</h2>
-        <form action="">
+        <div class="top_bar">
+            <h2 class="main_title">New Ticket</h2>
+        </div>
+
+        <form action="" id="new_ticket_form">
             <div id="title">
                 <label for="ticket_title" id="title_label">Ticket title:</label>
-                <input type="text" name="" id="ticket_title" required>
+                <input type="text" name="" id="ticket_title" required maxlength="55">
             </div>
             <div id="text">
                 <label for="ticket_text" id="text_label">Ticket description:</label>

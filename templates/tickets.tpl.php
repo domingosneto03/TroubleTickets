@@ -18,7 +18,7 @@
             <p class="ticket_department"><?= $ticket->department ?></p>
         </article>
     </a>
-<?php } ?> -->
+<?php } ?>
 
 <?php function output_ticket_card(Ticket $ticket) { ?>
     <article class="ticket">
@@ -44,32 +44,39 @@
 <?php } ?>
 
 <?php function output_ticket_list($session, $tickets) { ?>
-    <main>
-        <article id="ticket_listing">
-            <div id="top_bar">
-                <h2 class="main_title">Tickets</h2>
-                <a href="new_ticket.php" id="new_ticket">
-                    <div>
-                        <p>New Ticket</p>
-                    </div>
+    <main id="ticket_list_main">
+        <div class="top_bar">
+            <h2 class="main_title">Tickets</h2>
+            <div>
+                <form action="" id="search_bar">
+                    <label for="search_bar_id" class="material-symbols-outlined">search</label>
+                    <input type="text" name="search_bar" id="search_bar_id" placeholder="Search here">
+                </form>
+                <a href="new_ticket.php" class="top_bar_button">
+                    New Ticket
                 </a>
             </div>
-            
-            <div id="tickets_main">
-                <article id="tickets">
-                <?php foreach ($tickets as $ticket) {
-                    output_ticket_card($ticket);
-                } ?>
-                </article>
+        </div>
+        
+        <div id="tickets_main">
+            <article id="tickets">
+            <?php foreach ($tickets as $ticket) {
+                output_ticket_card($ticket);
+            } ?>
+            </article>
+            <article id="outer_filters">
+                <label for="my_tickets_button" class="filter_checker">My tickets</label>
+                <input type="checkbox" name="my_tickets" id="my_tickets_button">
+                <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
+                <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
                 <form id="filters">
-                    <input type="button" value="My tickets">
-                    <input type="button" value="Tracked tickets"> <!-- enables if user is agent/admin -->
                     <label for="orderer">Sort:</label>
                     <select name="" id="orderer">
                         <option value="htl_priority">High-Low Priority</option>
                         <option value="lth_priority">Low-High Priority</option>
                         <option value="most_recent">Newest</option>
                         <option value="least_recent">Oldest</option>
+                        <option value="ending_soon">Ending Sooner</option>
                     </select>
                     <label for="sel_priority">Priority:</label>
                     <select name="" id="sel_priority">
@@ -95,9 +102,9 @@
                     <input type="date" name="" id="sel_date_end">
                     <input type="submit" value="Apply" id="submit_sort">
                 </form>
-            </div>  
-    </article>
-</main>
+            </article>
+        </div>
+    </main>
 <?php } ?>
 
 <?php function output_full_ticket($session, $ticket) { ?>
