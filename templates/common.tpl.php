@@ -13,7 +13,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?=$title ?></title>
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/styling.css">
+        <link rel="stylesheet" href="CSS/positioning.css">
+        <link rel="stylesheet" href="CSS/lettering.css">
         <link rel="stylesheet" href="CSS/home.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
