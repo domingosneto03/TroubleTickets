@@ -26,7 +26,7 @@
         <article id="ticket_listing">
             <div id="top_bar">
                 <h2 class="main_title">Tickets</h2>
-                <a href="new_ticket.html" id="new_ticket">
+                <a href="new_ticket.php" id="new_ticket">
                     <div>
                         <p>New Ticket</p>
                     </div>

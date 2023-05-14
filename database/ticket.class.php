@@ -28,7 +28,7 @@
 
         static function getTicket(PDO $db, int $id) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
@@ -52,7 +52,7 @@
 
         static function getTickets(PDO $db) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
@@ -108,7 +108,7 @@
 
         public function getHashtags(PDO $db) {
             $stmt = $db->prepare('
-                SELECT hashtagId, name
+                SELECT hashtag.hashtagId, name
                 FROM hashtag
                 JOIN ticket_hash
                 ON hashtag.hashtagId = ticket_hash.hashtagId

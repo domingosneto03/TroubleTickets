@@ -81,7 +81,6 @@ function output_login_form() { ?>
             <input type="submit" value="Create Ticket" id="sub_button">
             <a href="ticket_list.html" class="cancel_ticket">Cancel</a>
         </form>
-            
     </main>
 
 
