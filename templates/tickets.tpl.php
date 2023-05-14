@@ -1,10 +1,10 @@
 <?php
     require_once(__DIR__ . "/../database/ticket.class.php");
+    require_once(__DIR__ . "/hashtag.tpl.php");
 ?>
 
-
 <?php function output_ticket_card(Ticket $ticket) { ?>
-    <a href="placeholder_ticket_info.html" class="ticket">
+    <a href='<?= "/ticket.php?id=" . $ticket->id ?>' class="ticket">
         <article>
             <h4 class="ticket_title"><?= $ticket->title ?></h4>
             <img src="Group 1.png" alt="florzinha uau" class="ticket_user_img">
@@ -21,7 +21,7 @@
 <?php } ?>
 
 
-<?php function output_ticket_list($tickets) { ?>
+<?php function output_ticket_list($session, $tickets) { ?>
     <main>
         <article id="ticket_listing">
             <div id="top_bar">
@@ -35,9 +35,9 @@
             
             <div id="tickets_main">
                 <article id="tickets">
-    <?php foreach ($tickets as $ticket) {
-        output_ticket_card($ticket);
-    } ?>
+                <?php foreach ($tickets as $ticket) {
+                    output_ticket_card($ticket);
+                } ?>
                 </article>
                 <form id="filters">
                     <input type="button" value="My tickets">
@@ -76,4 +76,52 @@
             </div>  
     </article>
 </main>
+<?php } ?>
+
+<?php function output_full_ticket($session, $ticket) { ?>
+    <?php $db = getDatabaseConnection(); ?>
+    <main>
+        <div class="top_bar">
+            <h3><?= $ticket->title ?></h3>
+            <div>
+                <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
+
+                <?php if ($ticket->clientId === $session->getId()) { ?>
+                <a href=<?= "/new_ticket.php?id=" . $_GET['id']; ?> class="top_bar_button">
+                    Edit Ticket
+                </a>
+                <?php } ?> <!-- PHP: only visible to the user who created the ticket -->
+                <!-- takes the user to the new_ticket.html but with the fields already filled with the ticket's info -->
+                <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
+                <!-- not really sure how to do this -->
+            </div>
+        </div>
+        
+        <p class="focused_ticket_text"><?= $ticket->body ?></p>
+
+        <div class="focused_ticket_docs">
+            <!-- i don't really know how to show the files but it's whatever, not necessary, 
+            will probably do this later -->
+        </div>
+
+        <div class="focused_ticket_images">
+            <!-- append images here with php magic -->
+            <!-- <a href="" target="_blank" class="focused_ticket_image" rel="noopener noreferrer"><img src="" alt=""></a> -->
+            <!-- clicking on an image opens it in another tab, might have to juggle the html to show just the picture or smth -->
+            <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
+        </div>
+
+        <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
+        
+        <div class="focused_ticket_info">
+            <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?></p>
+            <p>Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
+                use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
+                -->
+        </div>
+        
+        <?php output_comment_section($ticket->getComments($db)); ?>
+    </main>
+
+
 <?php } ?>

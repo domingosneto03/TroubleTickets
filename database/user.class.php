@@ -71,5 +71,24 @@ class User {
         $stmt = $db->prepare("DELETE FROM user WHERE userId = ?");
         $stmt->execute(array($this->id));
     }
-}
-?>
+
+    function isAgent(PDO $db) : bool {
+        $stmt = $db->prepare('
+            SELECT *
+            FROM agent
+            WHERE agentId = ?
+        ');
+        $stmt->execute(array($this->id));
+        return $stmt->fetch() !== false;
+    }
+
+    function isAdmin(PDO $db) : bool {
+        $stmt = $db->prepare('
+            SELECT *
+            FROM admin
+            WHERE adminId = ?
+        ');
+        $stmt->execute(array($this->id));
+        return $stmt->fetch() !== false;
+    }
+} ?>

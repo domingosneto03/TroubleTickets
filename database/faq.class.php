@@ -46,7 +46,14 @@ class FAQ {
         return $faqs;
     }
 
-
+    static function createFaq(PDO $db, string $question, string $answer) {
+        $stmt = $db->prepare('
+            INSERT INTO faq (question, answer)
+            VALUES (?, ?)
+        ');
+        $stmt->execute(array($question, $answer));
+        return $db->lastInsertId();
+    }
 }
 
 
