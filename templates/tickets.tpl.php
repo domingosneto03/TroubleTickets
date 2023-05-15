@@ -110,47 +110,47 @@
 <?php function output_full_ticket($session, $ticket) { ?>
     <?php $db = getDatabaseConnection(); ?>
     <main>
-        <div class="top_bar">
-            <h3><?= $ticket->title ?></h3>
-            <div>
-                <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
+        <div id="ticket_info_main">
+            <div class="top_bar_info">
+                <h3><?= $ticket->title ?></h3>
+                <div>
+                    <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
-                <?php if ($ticket->clientId === $session->getId()) { ?>
-                <a href=<?= "/new_ticket.php?id=" . $_GET['id']; ?> class="top_bar_button">
-                    Edit Ticket
-                </a>
-                <?php } ?> <!-- PHP: only visible to the user who created the ticket -->
-                <!-- takes the user to the new_ticket.html but with the fields already filled with the ticket's info -->
-                <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
-                <!-- not really sure how to do this -->
+                    <?php if ($ticket->clientId === $session->getId()) { ?>
+                    <a href=<?= "/new_ticket.php?id=" . $_GET['id']; ?> id="edit_ticket">
+                        Edit Ticket
+                    </a>
+                    <?php } ?> <!-- PHP: only visible to the user who created the ticket -->
+                    <!-- takes the user to the new_ticket.html but with the fields already filled with the ticket's info -->
+                    <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
+                    <!-- not really sure how to do this -->
+                </div>
             </div>
-        </div>
-        
-        <p class="focused_ticket_text"><?= $ticket->body ?></p>
 
-        <div class="focused_ticket_docs">
-            <!-- i don't really know how to show the files but it's whatever, not necessary, 
-            will probably do this later -->
-        </div>
+            <p class="focused_ticket_text"><?= $ticket->body ?></p>
 
-        <div class="focused_ticket_images">
-            <!-- append images here with php magic -->
-            <!-- <a href="" target="_blank" class="focused_ticket_image" rel="noopener noreferrer"><img src="" alt=""></a> -->
-            <!-- clicking on an image opens it in another tab, might have to juggle the html to show just the picture or smth -->
-            <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
-        </div>
+            <div class="focused_ticket_images">
+                <!-- append images here with php magic -->
+                <!-- <a href="" target="_blank" class="focused_ticket_image" rel="noopener noreferrer"><img src="" alt=""></a> -->
+                <!-- clicking on an image opens it in another tab, might have to juggle the html to show just the picture or smth -->
+                <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
+            </div>
 
-        <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
-        
-        <div class="focused_ticket_info">
-            <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?></p>
-            <p>Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
-                use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
-                -->
+            <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
+
+            <div class="focused_ticket_info">
+                <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?></p>
+                <p>Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
+                    use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
+                    -->
+            </div>
+
+            <div class="focused_ticket_docs">
+                <!-- vão aqui os docs -->
+            </div>
+
+            <?php output_comment_section($ticket->getComments($db)); ?>
         </div>
-        
-        <?php output_comment_section($ticket->getComments($db)); ?>
     </main>
-
 
 <?php } ?>
