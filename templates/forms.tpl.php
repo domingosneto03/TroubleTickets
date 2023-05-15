@@ -1,5 +1,11 @@
-<?php
-function output_login_form() { ?>
+<?php 
+    declare(strict_types = 1);
+    require_once(__DIR__ . "/../database/connection.php");
+    require_once(__DIR__ . "/../database/department.class.php");
+    $db = getDatabaseConnection();
+?>
+
+<?php function output_login_form() { ?>
     <main>
         <section id="login">
             <h2>Login</h2>
@@ -43,10 +49,11 @@ function output_login_form() { ?>
     </main>
 <?php } ?>
 
-<?php function output_new_ticket_form($id) { ?>
+<?php function output_new_ticket_form() {
+    global $db; ?>
     <main>
         <h2 class="main_title">New Ticket</h2>
-        <form action="../actions/action_new_ticket.php" method="post">
+        <form action="../actions/action_new_ticket.php" method="post" enctype="multipart/form-data">
             <div id="title">
                 <label for="ticket_title" id="title_label">Ticket title:</label>
                 <input type="text" name="title" id="ticket_title" required>
@@ -59,14 +66,14 @@ function output_login_form() { ?>
                 <textarea name="body" id="ticket_text" cols="30" rows="20" required></textarea>
             </div>
             <label for="ticket_file_upload">Add files/images:</label>
-            <input type="file" name="ticket_file_upload" id="ticket_file_upload">
+            <input type="file" name="file[]" id="ticket_file_upload" multiple>
             <div id="thing">
                 <div id="department">
                     <label for="departments">Department:</label>
                     <select name="department" id="departments">
-                        <option value="a">A</option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
+                        <?php foreach (Department::getAllDepartments($db) as $department) { ?>
+                        <option value="<?= $department->id ?>"><?= $department->name ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div id="priority">

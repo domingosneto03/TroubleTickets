@@ -7,9 +7,9 @@
 
     $title = $_POST['title'];
     $body = $_POST['body'];
-    $clientId = $_SESSION['id'];
+    $clientId = (int)$_SESSION['id'];
     $priority = $_POST['priority'];
-    $department = $_POST['department'];
+    $department = (int)$_POST['department'];
     $deadline = time();
 
     $db = getDatabaseConnection();

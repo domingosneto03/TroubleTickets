@@ -786,3 +786,15 @@ main {
     margin: 0;
     padding: 0.2rem 0.4rem;
 }
+
+.image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}

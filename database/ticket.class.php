@@ -6,7 +6,7 @@
         public string $title;
         public string $body;
         public string $status = "open";
-        public int $assigned;
+        public ?int $assigned;
         public int $clientId;
         public string $priority;
         public int $department;
@@ -14,11 +14,12 @@
 
         static int $next_id = 0;
 
-        public function __construct(int $id, string $title, string $body, ?string $status, int $assigned, int $clientId, string $priority, int $department, int $deadline) {
+        public function __construct(int $id, string $title, string $body, ?string $status, ?int $assigned, int $clientId, string $priority, int $department, int $deadline) {
             $this->id = $id;
             $this->title = $title;
             $this->body = $body;
-            $this->status = $status;
+            isset($status) ? $this->status = $status : null;
+            is_null($assigned) ? $this->assigned = $assigned : null;
             $this->assigned = $assigned;
             $this->clientId = $clientId;
             $this->priority = $priority;
@@ -75,27 +76,45 @@
             return $tickets;
         }
 
-        static function create_ticket(PDO $db, string $title, string $body, int $clientId, string $priority, string $department, int $deadline) {
+        static function create_ticket(PDO $db, string $title, string $body, int $clientId, string $priority, int $department, int $deadline) {
             $stmt = $db->prepare('
                 INSERT into ticket (title, body, clientId, priority, deadline)
-                VALUES (? ? ? ? ?)
+                VALUES (?, ?, ?, ?, ?)
             ');
             $stmt->execute(array($title, $body, $clientId, $priority, $deadline));
             
-            $stmt = $db->prepare('
-                SELECT last_insert_rowid()
-            ');
-            $stmt->execute();
-            Ticket::$next_id = $stmt->fetch();
+            Ticket::$next_id = (int)$db->lastInsertId();
+
+            $targetDir = __DIR__ . "/../uploads/" . Ticket::$next_id . "/";
+
+            $totalFiles = count($_FILES['file']['name']);
+            for ($i = 0; $i < $totalFiles; $i++) {
+                $filename = $_FILES['file']['name'][$i];
+                $targetFilePath = $targetDir . $filename;
+                $dbFilePath = "uploads/" . Ticket::$next_id . "/" . $filename;
+                $fileTmpPath = $_FILES['file']['tmp_name'][$i];
+
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0777, true);
+                }
+
+                if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
+                    $stmt = $db->prepare('
+                        INSERT into ticket_file (ticketId, filepath)
+                        VALUES (?, ?)
+                    ');
+                    $stmt->execute(array(Ticket::$next_id, $dbFilePath));
+                }
+            }
 
             $stmt = $db->prepare('
                 INSERT into ticket_department (ticketId, departmentId)
-                VALUE (? ?)');
+                VALUES (?, ?)');
             $stmt->execute(array(Ticket::$next_id, $department));
 
             $stmt = $db->prepare('
                 INSERT into ticket_history (ticketId, type_of_edit, date, old_value)
-                VALUES (? ? ? ?)');
+                VALUES (?, ?, ?, ?)');
             $stmt->execute(array(Ticket::$next_id, "CREATION", time(), NULL));
         }
 
@@ -137,7 +156,7 @@
             return $client['username'];
         }
 
-        public function getAgentName(PDO $db) : string {
+        public function getAgentName(PDO $db) : ?string {
             $stmt = $db->prepare('
                 SELECT username
                 FROM user
@@ -145,7 +164,10 @@
             ');
             $stmt->execute(array($this->assigned));
             $agent = $stmt->fetch();
-            return $agent['username'];
+            if ($agent)
+                return $agent['username'];
+            else
+                return null;
         }
 
         public function getCreationDate(PDO $db) {
@@ -191,6 +213,20 @@
             return $comments;
         }
 
+        public function getFiles(PDO $db) : ?array {
+            $stmt = $db->prepare('
+                SELECT filepath
+                FROM ticket_file
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($this->id));
+            $files = [];
+            while ($file = $stmt->fetch()) {
+                $files[] = $file['filepath'];
+            }
+            return $files;
+        }
+ 
     }
 
 

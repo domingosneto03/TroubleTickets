@@ -2,6 +2,7 @@
     declare(strict_types = 1);
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/ticket.class.php");
+    require_once(__DIR__ . "/comments.tpl.php");
     require_once(__DIR__ . "/hashtag.tpl.php");
 
     $db = getDatabaseConnection();
@@ -14,17 +15,20 @@
         <div class="ticket_info_top">
             <div>
                 <a href="<?= "/ticket.php?id=" . $ticket->id ?>" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
-                <p class="ticket_tags"><?php foreach ($ticket->getHashtags($db) as $tag) { 
-                    echo "#" . $tag->name . " "; } ?></p>
             </div>
-            <p class="ticket_deadline"><?= date("d-m-Y", $ticket->deadline) ?></p>
+            <p class="ticket_deadline">Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p>
         </div>
         <div class="ticket_info_bottom">
             <a href="" class="ticket_user"><p><?= $ticket->getClientName($db) ?></p></a>
-            <p class="ticket_date"><?=  $ticket->getCreationDate($db) ?></p>
+            <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->getCreationDate($db)) ?></p>
             <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             <p class="ticket_status"><?= $ticket->status ?></p>
-            <a href="" class="ticket_agent"><p><?= $ticket->getAgentName($db) ?></p></a>
+            <?php $agent = $ticket->getAgentName($db); ?>
+            <?php if (is_null($agent)) { ?>
+                <p class="ticket_agent">Not assigned</p>
+            <?php } else { ?>
+                <a href="" class="ticket_agent"><p><?= $agent ?></p></a>
+            <?php } ?>
         </div>
         <!-- <button class="ticket_destroyer">Delete</button> -->
     </article>
@@ -115,17 +119,26 @@
         </div>
 
         <div class="focused_ticket_images">
+            <div class="thumbnail-container">
+                <?php foreach ($ticket->getFiles($db) as $file) { ?>
+                    <img id="ticket_image" src="<?= $file ?>" class="ticket_image thumbnail">
+                <?php } ?>
             <!-- append images here with php magic -->
             <!-- <a href="" target="_blank" class="focused_ticket_image" rel="noopener noreferrer"><img src="" alt=""></a> -->
             <!-- clicking on an image opens it in another tab, might have to juggle the html to show just the picture or smth -->
             <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
+            </div>
+            <div class="image-overlay" id="imageOverlay">
+                <span id="closeButton" class="close-button">&times;</span>
+                <img src="" class="expanded-image" id="expandedImage">
+            </div>
         </div>
 
         <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
         
         <div class="focused_ticket_info">
-            <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?></p>
-            <p>Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
+            <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?> </p>
+            <p> Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
                 use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
                 -->
         </div>

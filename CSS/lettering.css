@@ -341,3 +341,7 @@
 .department_list_admin_item, .status_list_admin_item {
     font-weight: 400;
 }
+
+.close-button {
+    font-size: 40px;
+}

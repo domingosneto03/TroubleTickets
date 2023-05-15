@@ -1,4 +1,4 @@
-<?php require_once(__DIR__ . "/../database/comments.class.php"); ?>
+<?php require_once(__DIR__ . "/../database/comment.class.php"); ?>
 
 <?php function output_comment($comment) { ?>
     <article class="focused_ticket_comment">
