@@ -58,7 +58,10 @@ class User {
     }
 
     static function register(PDO $db, string $username, string $email, string $password) {
-        $stmt = $db->prepare("INSERT into user (username, password, email) VALUES (?, ?, ?)");
+        $stmt = $db->prepare('
+            INSERT into user (username, password, email) 
+            VALUES (?, ?, ?)
+        ');
         $options = ['cost' => 12];
         $stmt->execute(array(
             $username,

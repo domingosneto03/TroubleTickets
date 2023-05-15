@@ -1,5 +1,11 @@
-<?php
-function output_login_form() { ?>
+<?php 
+    declare(strict_types = 1);
+    require_once(__DIR__ . "/../database/connection.php");
+    require_once(__DIR__ . "/../database/department.class.php");
+    $db = getDatabaseConnection();
+?>
+
+<?php function output_login_form() { ?>
     <main>
         <section id="login">
             <h2>Login</h2>
@@ -43,38 +49,39 @@ function output_login_form() { ?>
     </main>
 <?php } ?>
 
-<?php function output_new_ticket_form($id) { ?>
+<?php function output_new_ticket_form() {
+    global $db; ?>
     <main>
         <div class="top_bar">
             <h2 class="main_title">New Ticket</h2>
         </div>
 
-        <form action="" id="new_ticket_form">
+        <form action="../actions/action_new_ticket.php" method="post" id="new_ticket_form" enctype="multipart/form-data">
             <div id="title">
                 <label for="ticket_title" id="title_label">Ticket title:</label>
-                <input type="text" name="" id="ticket_title" required maxlength="55">
+                <input type="text" name="title" id="ticket_title" required maxlength="55">
             </div>
             <div id="text">
                 <label for="ticket_text" id="text_label">Ticket description:</label>
                 <!-- tags go as #tag in the text box, boa sorte para implementar essa merda Ribeiro -->
                 <!-- depois o sql convém ter uma secção de texto composta pelas tags separadas por vírgulas para
                 as poder mostrar depois no ticket -->
-                <textarea name="" id="ticket_text" cols="30" rows="20" required></textarea>
+                <textarea name="body" id="ticket_text" cols="30" rows="20" required></textarea>
             </div>
             <label for="ticket_file_upload">Add files/images:</label>
-            <input type="file" name="ticket_file_upload" id="ticket_file_upload">
+            <input type="file" name="file[]" id="ticket_file_upload" multiple>
             <div id="thing">
                 <div id="department">
                     <label for="departments">Department:</label>
-                    <select name="" id="departments">
-                        <option value="a">A</option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
+                    <select name="department" id="departments">
+                        <?php foreach (Department::getAllDepartments($db) as $department) { ?>
+                        <option value="<?= $department->id ?>"><?= $department->name ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div id="priority">
                     <label for="priorities">Priority:</label>
-                    <select name="" id="priorities">
+                    <select name="priority" id="priorities">
                         <option value="low">Low</option>
                         <option value="medium">Medium</option>
                         <option value="high">High</option>

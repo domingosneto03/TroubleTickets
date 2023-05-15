@@ -28,6 +28,31 @@ function validatePassword() {
     }
 }
 
+function expandImage(element) {
+    var src = element.getAttribute('src');
+    document.getElementById('expandedImage').setAttribute('src', src);
+    document.getElementById('imageOverlay').style.display = 'block';
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeImageOverlay();
+        } 
+    });
+}
+
+function closeImageOverlay() {
+    document.getElementById('imageOverlay').style.display = 'none';
+}
+
+var elements = document.getElementsByClassName("ticket_image");
+for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', function () {
+        expandImage(this);
+    });
+}
+document.getElementById('closeButton').addEventListener('click', closeImageOverlay);
+
+/*
 document.getElementById("username").addEventListener("input", validateUsername);
 document.getElementById("password").addEventListener("input", validatePassword);
-document.getElementById("confirmPassword").addEventListener("input", validatePassword);
+document.getElementById("confirmPassword").addEventListener("input", validatePassword);*/

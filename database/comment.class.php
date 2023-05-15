@@ -16,7 +16,7 @@
             $this->userId = $userId;
         }
 
-        static function getComment(PDO $db, int $id) {
+        static function getComment(PDO $db, int $id) : Comment {
             $stmt = $db->prepare('
                 SELECT *
                 FROM comment
@@ -34,7 +34,7 @@
             );
         }
 
-        static function getComments(PDO $db, int $ticketId) {
+        static function getComments(PDO $db, int $ticketId) : array {
             $stmt = $db->prepare('
                 SELECT *
                 FROM comment

@@ -7,16 +7,14 @@
 
     $title = $_POST['title'];
     $body = $_POST['body'];
-    $status = $_POST['status'];
-    $assigned = $_POST['assigned'];
-    $clientId = $_POST['clientId'];
+    $clientId = (int)$_SESSION['id'];
     $priority = $_POST['priority'];
-    $department = $_POST['department'];
-    $deadline = $_POST['deadline'];
+    $department = (int)$_POST['department'];
+    $deadline = time();
 
     $db = getDatabaseConnection();
 
-    Ticket::create_ticket($db, $title, $body, $status, $assigned, $lcientId, $priority, $department, $deadline);
+    Ticket::create_ticket($db, $title, $body, $clientId, $priority, $department, $deadline);
 
     header('Location: /ticket_list.php');
 ?>

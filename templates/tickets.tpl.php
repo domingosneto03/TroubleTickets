@@ -1,23 +1,37 @@
 <?php
+    declare(strict_types = 1);
+    require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/ticket.class.php");
+    require_once(__DIR__ . "/comments.tpl.php");
     require_once(__DIR__ . "/hashtag.tpl.php");
+
+    $db = getDatabaseConnection();
 ?>
 
-<?php function output_ticket_card(Ticket $ticket) { ?>
-    <a href='<?= "/ticket.php?id=" . $ticket->id ?>' class="ticket">
-        <article>
-            <h4 class="ticket_title"><?= $ticket->title ?></h4>
-            <img src="Group 1.png" alt="florzinha uau" class="ticket_user_img">
-            <p class="ticket_text"><?= $ticket->body ?></p>
-            <p class="ticket_date">25/6/2022</p>
-            <p class="ticket_user"><?= $ticket->clientId ?></p>
-            <p class="ticket_agent"><?= $ticket->assigned ?></p>
+<?php function output_ticket_card(Ticket $ticket) {
+    global $db; ?>
+    <article class="ticket">
+        <a href="" class="ticket_user_img"><img src="Group 1.png" alt="florzinha uau"></a>
+        <div class="ticket_info_top">
+            <div>
+                <a href="<?= "/ticket.php?id=" . $ticket->id ?>" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
+            </div>
+            <p class="ticket_deadline">Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p>
+        </div>
+        <div class="ticket_info_bottom">
+            <a href="" class="ticket_user"><p><?= $ticket->getClientName($db) ?></p></a>
+            <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->getCreationDate($db)) ?></p>
+            <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             <p class="ticket_status"><?= $ticket->status ?></p>
-            <p class="ticket_deadline">2/7/2022</p>
-            <p class="ticket_tags"> #tech #printer</p>
-            <p class="ticket_department"><?= $ticket->department ?></p>
-        </article>
-    </a>
+            <?php $agent = $ticket->getAgentName($db); ?>
+            <?php if (is_null($agent)) { ?>
+                <p class="ticket_agent">Not assigned</p>
+            <?php } else { ?>
+                <a href="" class="ticket_agent"><p><?= $agent ?></p></a>
+            <?php } ?>
+        </div>
+        <!-- <button class="ticket_destroyer">Delete</button> -->
+    </article>
 <?php } ?>
 
 <?php function output_ticket_card(Ticket $ticket) { ?>
@@ -130,17 +144,26 @@
             <p class="focused_ticket_text"><?= $ticket->body ?></p>
 
             <div class="focused_ticket_images">
+                <div class="thumbnail-container">
+                    <?php foreach ($ticket->getFiles($db) as $file) { ?>
+                        <img id="ticket_image" src="<?= $file ?>" class="ticket_image thumbnail">
+                    <?php } ?>
                 <!-- append images here with php magic -->
                 <!-- <a href="" target="_blank" class="focused_ticket_image" rel="noopener noreferrer"><img src="" alt=""></a> -->
                 <!-- clicking on an image opens it in another tab, might have to juggle the html to show just the picture or smth -->
                 <!-- o "rel="noopener noreferrer"" serve para evitar phishing, bastante útil -->
+                </div>
+                <div class="image-overlay" id="imageOverlay">
+                    <span id="closeButton" class="close-button">&times;</span>
+                    <img src="" class="expanded-image" id="expandedImage">
+                </div>
             </div>
 
             <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
-
+            
             <div class="focused_ticket_info">
-                <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?></p>
-                <p>Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
+                <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?> </p>
+                <p> Status: Assigned to agent <a href=""><?= $ticket->getAgentName($db) ?></a></p> <!-- 
                     use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
                     -->
             </div>
@@ -149,7 +172,26 @@
                 <!-- vão aqui os docs -->
             </div>
 
-            <?php output_comment_section($ticket->getComments($db)); ?>
+            <!-- aqui tem de ter uma função para os comentários aparecerem como o exemplo abaixo -->
+            <!-- 
+                <div class="focused_ticket_comments">
+                    <h4>Discussion</h4>
+
+                    <form action="" class="comment_maker">
+                        <label for="comment_maker_input">Add a comment: </label>
+                        <input type="text" name="comment_maker_input" id="comment_maker_input">
+                        <input type="submit" value="Post">
+                    </form>
+
+                    <article class="focused_ticket_comment">
+                        <div class="focused_ticket_comment_top">
+                            <h5 class="focused_ticket_comment_poster">Adalberto</h5>
+                            <p class="focused_ticket_comment_date">insert date and time here</p>   
+                        </div>
+                        <p class="focused_ticket_comment_text">i love html so much &lt;333333 </p>
+                    </article>
+                </div>
+             -->
         </div>
     </main>
 
