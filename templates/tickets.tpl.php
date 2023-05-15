@@ -34,28 +34,6 @@
     </article>
 <?php } ?>
 
-<?php function output_ticket_card(Ticket $ticket) { ?>
-    <article class="ticket">
-        <a href="" class="ticket_user_img"><img src="Group 1.png" alt="florzinha uau"></a>
-        <div class="ticket_info_top">
-            <div>
-                <a href="placeholder_ticket_info.html" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
-                <p class="ticket_tags"><?php 
-                    $tags = get_tags()
-                ?></p>
-            </div>
-            <p class="ticket_deadline">2/7/2022</p>
-        </div>
-        <div class="ticket_info_bottom">
-            <a href="" class="ticket_user"><p>Carlos</p></a>
-            <p class="ticket_date">25/6/2022</p>
-            <p class="ticket_department">Tech</p>
-            <p class="ticket_status">Assigned</p>
-            <a href="" class="ticket_agent"><p>Frederico</p></a>
-        </div>
-        <!-- <button class="ticket_destroyer">Delete</button> -->
-    </article>
-<?php } ?>
 
 <?php function output_ticket_list($session, $tickets) { ?>
     <main id="ticket_list_main">

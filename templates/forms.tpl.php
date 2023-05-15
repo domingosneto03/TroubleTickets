@@ -59,7 +59,7 @@
         <form action="../actions/action_new_ticket.php" method="post" id="new_ticket_form" enctype="multipart/form-data">
             <div id="title">
                 <label for="ticket_title" id="title_label">Ticket title:</label>
-                <input type="text" name="" id="ticket_title" required maxlength="55">
+                <input type="text" name="title" id="ticket_title" required maxlength="55">
             </div>
             <div id="text">
                 <label for="ticket_text" id="text_label">Ticket description:</label>
