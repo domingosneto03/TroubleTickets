@@ -6,7 +6,7 @@
     $title = "Mango Tickets - Login";
 
     output_header($session, $title);
-    output_sidebar();
+    output_sidebar($session);
     output_login_form();
     output_footer();
 ?>

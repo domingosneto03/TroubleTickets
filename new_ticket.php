@@ -10,7 +10,7 @@
     $title = "Mango Tickets - new Ticket";
 
     output_header($session, $title);
-    output_sidebar();
+    output_sidebar($session);
     output_new_ticket_form();
     output_footer();
 

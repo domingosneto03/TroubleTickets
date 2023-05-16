@@ -15,7 +15,7 @@
     $ticket = Ticket::getTicket($db, (int)$_GET["id"]);
 
     output_header($session, $title);
-    output_sidebar();
+    output_sidebar($session);
     output_full_ticket($session, $ticket);
     output_footer();
     

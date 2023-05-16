@@ -18,7 +18,8 @@ CREATE TABLE user (
     username VARCHAR UNIQUE,
     password VARCHAR,
     email VARCHAR UNIQUE,
-    bio VARCHAR
+    bio VARCHAR,
+    userImage VARCHAR
 );
 
 CREATE TABLE client (

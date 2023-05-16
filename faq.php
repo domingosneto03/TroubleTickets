@@ -13,7 +13,7 @@ $faqs = FAQ::getFaqs($db);
 $title = "Mango Tickets - FAQs";
 
 output_header($session, $title);
-output_sidebar();
+output_sidebar($session);
 output_faq_body($faqs);
 output_footer();
 

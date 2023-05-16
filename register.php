@@ -7,7 +7,7 @@ $session = new Session();
 $title = "Mango Tickets - register user";
 
 output_header($session, $title);
-output_sidebar();
+output_sidebar($session);
 output_register_form();
 output_footer();
 ?>

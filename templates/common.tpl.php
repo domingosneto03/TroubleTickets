@@ -22,19 +22,18 @@
     </head>
     <body>
         <header id="main_header">
-            <a href="template.html"><img src="/images/logo.png" id="logo"></a>
+            <a href="home.php"><img src="/images/logo.png" id="logo"></a>
             <article id="right_side">
                 <a href="login.html"></a>
                 </form>
-                <?php 
-                if ($session->isLoggedIn()) drawLogoutSection($session);
-                else drawLoginSection();
+                <?php if ($session->isLoggedIn()) drawLogoutSection($session);
+                    else drawLoginSection();
                 ?>
             </article>
         </header>
 <?php } ?>
 
-<?php function output_sidebar() { ?>
+<?php function output_sidebar($session) { ?>
     <aside id="side_bar">
         <a href="home.php">
             <span class="material-symbols-outlined">
@@ -46,7 +45,12 @@
                 credit_card
             </span>
         </a>
+        <?php if (isset($_SESSION['id'])) { ?>
         <a href="new_ticket.php">
+        <?php } else {
+            $session->addMessage("error", "You need to log in before you submit a new ticket") ?>
+            <a href="ticket_list.php">
+        <?php } ?>
             <span class="material-symbols-outlined">
                 add_card
             </span>
@@ -80,7 +84,7 @@
 
 <?php function drawLogoutSection(Session $session) { ?>
     <form action="../actions/action_logout.php" method="post" class="logout">
-        <a href="profile.php"><?=$session->getUsername()?></a>
+        <a href=<?= "profile.php?id=" . $session->getId() ?>><?= $session->getUsername() ?></a>
         <button type="submit">Logout</button> 
     </form>
 <?php } ?>

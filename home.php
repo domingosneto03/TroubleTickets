@@ -8,7 +8,7 @@ $session = new Session();
 $title = "Mango tickets - a simpler way of trouble ticketing";
 
 output_header($session, $title);
-output_sidebar(); 
+output_sidebar($session); 
 ?>
 
 <main>

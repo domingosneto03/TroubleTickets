@@ -8,6 +8,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
+    $bio = $_POST['bio'];
 
     $db = getDatabaseConnection();
 
@@ -16,7 +17,7 @@
     if ($user) {
         $session->addMessage('error', 'username already exists!');
     } else {
-        User::register($db, $username, $email, $password);
+        User::register($db, $username, $email, $password, $bio);
         $session->addMessage('success', 'Successfully registered!');
     }
 

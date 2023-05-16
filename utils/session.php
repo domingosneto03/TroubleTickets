@@ -25,6 +25,10 @@
             return isset($_SESSION['username']) ? $_SESSION['username'] : null;
         }
 
+        public function getEmail() : ?string {
+            return isset($_SESSION['email']) ? $_SESSION['email'] : null;
+        }
+
         public function setId(int $id) {
             $_SESSION['id'] = $id;
         }

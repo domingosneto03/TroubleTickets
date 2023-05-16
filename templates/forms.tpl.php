@@ -17,7 +17,7 @@
                     <input type="password" name="password" placeholder="Type your password">
                 </label>
                 <button formaction="actions/action_login.php" formmethod="post">Login</button>
-                <p>Don't have an account? <a href="register.html">Register here</a></p>
+                <p>Don't have an account? <a href="register.php">Register here</a></p>
             </form>
             </section>
     </main>
@@ -27,9 +27,9 @@
     <main>
         <section id="register">
             <h2>Register</h2>
-            <form>
+            <form enctype="multipart/form-data">
                 <label>Username
-                    <input type="text" id="username" name="username" placeholder="Create an username">
+                    <input type="text" id="username" name="username" placeholder="Create a username">
                     <span id="usernameError"></span>
                 </label>
                 <label>E-mail
@@ -42,6 +42,12 @@
                 <label>Confirm Password
                     <input type="password" id="confirmPassword" name="confimPassword" placeholder="Confirm your password">
                     <span id="confirmPasswordError"></span>
+                </label>
+                <label>
+                    <input type="text" name="bio" placeholder="Write a short bio about yourself" max="55">
+                </label>
+                <label>Image
+                    <input type="file" name="userImage" id="user_image_upload">
                 </label>
                 <button formaction="../actions/action_register.php" formmethod="post">Register</button>
             </form>
