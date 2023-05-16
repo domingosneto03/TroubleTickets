@@ -25,5 +25,5 @@
         $session->addMessage('error', 'Wrong password!');
     }
 
-    header('Location: /home.php' );
+    header('Location: /ticket_list.php' );
 ?>
