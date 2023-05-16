@@ -150,7 +150,7 @@ main {
     border-radius: 3px;
 }
 
-.admin_promoter, .agent_promoter {
+.admin_promoter_profile, .agent_promoter_profile {
     background-color: #191919;
     color: white;
     border-radius: 3px;
@@ -444,3 +444,4 @@ main {
     color: #fff;
     cursor: pointer;
 }
+

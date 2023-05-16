@@ -11,11 +11,10 @@ output_header($session, $title);
 output_sidebar($session); 
 ?>
 
-<main>
+<main id="home_main">
     <img src="components/background2.jpg" alt="background">
     <section id="phrase">
         <h2>A Simpler Way of Trouble Ticketing</h2>
-        <p>Etiam mattis convallis orci eu malesuada. Donec odio ex, facilisis ac blandit vel, placerat ut lorem.</p>
         <a href="">
             <button formaction="#" formmethod="post">Visit more</button>
         </a>

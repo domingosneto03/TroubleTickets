@@ -138,7 +138,7 @@
     text-align: justify;
 }
 
-.admin_promoter, .agent_promoter {
+.admin_promoter, .agent_promoter, .admin_promoter_profile, .agent_promoter_profile {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
@@ -345,3 +345,5 @@
 .close-button {
     font-size: 40px;
 }
+
+
