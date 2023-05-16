@@ -22,7 +22,7 @@
     </head>
     <body>
         <header id="main_header">
-            <a href="home.php"><img src="/images/logo.png" id="logo"></a>
+            <a href="ticket_list.php"><img src="/images/logo.png" id="logo"></a>
             <article id="right_side">
                 <?php if ($session->isLoggedIn()) drawLogoutSection($session);
                     else drawLoginSection();
