@@ -14,7 +14,13 @@
 
     $db = getDatabaseConnection();
 
-    Ticket::create_ticket($db, $title, $body, $clientId, $priority, $department, $deadline);
+    try {
+        Ticket::create_ticket($db, $title, $body, $clientId, $priority, $department, $deadline);
+    } catch (PDOException $e) {
+        echo 'Database Error: ' . $e->getMessage();
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
+    }
 
     header('Location: /ticket_list.php');
 ?>

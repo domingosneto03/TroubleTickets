@@ -200,6 +200,7 @@
                 JOIN user
                 ON comment.userId = user.userId
                 WHERE ticketId = ?
+                ORDER BY date DESC
             ');
             $stmt->execute(array($this->id));
             $comments = [];

@@ -62,12 +62,13 @@
             return $comments;
         }
 
-        static function create_comment(PDO $db, string $body, int $ticketId, int $userId) {
+        static function create_comment(PDO $db, string $body, int $userId, int $ticketId) {
+            $date = time();
             $stmt = $db->prepare('
-                INSERT INTO comment (body, date, ticketId, userId)
+                INSERT INTO comment (body, date, userId, ticketId)
                 VALUES (?, ?, ?, ?)
             ');
-            $stmt->execute(array($body, time(), $ticketId, $userId));
+            $stmt->execute(array($body, $date, $userId, $ticketId));
             return $db->lastInsertId();
         }
     }

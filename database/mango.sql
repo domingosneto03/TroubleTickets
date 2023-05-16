@@ -231,7 +231,7 @@ INSERT INTO ticket_department (ticketId, departmentId) VALUES (18, 3);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (19, 1);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (20, 4);
 
-INSERT INTO ticket_file (ticketId, filepath) VALUES (1, "uploads/1/1.JPG");
+INSERT INTO ticket_file (ticketId, filepath) VALUES (1, "uploads/1/1.jpg");
 
 INSERT INTO hashtag (name) VALUES ("tech");
 INSERT INTO hashtag (name) VALUES ("printer");
@@ -242,6 +242,8 @@ INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 2);
 INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 3);
 
 INSERT INTO comment (body, date, userId, ticketId) VALUES ("thanks for the help", 1684235850, 14, 1);
+INSERT INTO comment (body, date, userId, ticketId) VALUES ("this worked for me as well", 1684235980, 5, 1);
+
 
 INSERT into faq (question, answer) VALUES ("What is this website for?", "Anything");
 INSERT into faq (question, answer) VALUES ("Who is this website for?", "Nothing");

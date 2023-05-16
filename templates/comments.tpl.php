@@ -15,12 +15,14 @@
     <div class="focused_ticket_comments">
         <h4>Discussion</h4>
         <!-- comments go from newest at the top to oldest at the bottom -->
-        <form action="" class="comment_maker">
+        <?php if (isset($_SESSION['id'])) { ?>
+        <form action="../actions/action_comment.php" class="comment_maker" method="post">
             <label for="comment_maker_input">Comment: </label>
-            <input type="text" name="comment_maker_input" id="comment_maker_input">
+            <input type="text" name="body" id="comment_maker_input">
+            <input type="hidden" name="ticketId" value="<?= htmlspecialchars($_GET['id']) ?>">
             <input type="submit" value="Post">
         </form>
-        <?php foreach ($comments as $comment) {
+        <?php } foreach ($comments as $comment) {
             output_comment($comment);
         } ?>
     </div>

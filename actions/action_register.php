@@ -14,11 +14,17 @@
 
     $user = User::getUser($db, $username);
 
-    if ($user) {
-        $session->addMessage('error', 'username already exists!');
-    } else {
-        User::register($db, $username, $email, $password, $bio);
-        $session->addMessage('success', 'Successfully registered!');
+    try {
+        if ($user) {
+            $session->addMessage('error', 'username already exists!');
+        } else {
+            User::register($db, $username, $email, $password, $bio);
+            $session->addMessage('success', 'Successfully registered!');
+        }
+    } catch (PDOException $e) {
+        echo 'Database Error: ' . $e->getMessage();
+    } catch (Exception $e) {
+        echo 'Error: ' . $e->getMessage();
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
