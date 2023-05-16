@@ -10,19 +10,18 @@
 ?>
 
 <?php function output_hashtag(Session $session, Hashtag $hashtag) { ?>
-        <div>
-            <a href="" class="ticket_tag">#<?= $hashtag->name; ?></a>
-            <?php  if ($session->isAgent()) { ?>
-            <button>X</button>
-            <?php } ?>
-        </div>
+    <div>
+        <a href="" class="ticket_tag">#<?= $hashtag->name; ?></a>
+        <?php  if ($session->isAgent()) { ?>
+        <button>X</button>
+        <?php } ?>
+    </div>
 <?php  } ?>
 
 <?php function output_hashtag_list(Session $session, array $hashtags) { ?>
-    <div class="outer_tags">
-        <label for="edit_tags">Edit tags</label>
-        <input type="checkbox" name="edit_tags" id="edit_tags">
-        <div class="focused_ticket_tags">
+    <label for="edit_tags">Edit tags</label>
+    <input type="checkbox" name="edit_tags" id="edit_tags">
+    <div class="focused_ticket_tags">
         <?php foreach ($hashtags as $hashtag) {
             output_hashtag($session, $hashtag);
         } ?>

@@ -195,8 +195,10 @@
 
         public function getComments(PDO $db) : array {
             $stmt = $db->prepare('
-                SELECT *
+                SELECT commentId, body, date, ticketId, comment.userId, username
                 FROM comment
+                JOIN user
+                ON comment.userId = user.userId
                 WHERE ticketId = ?
             ');
             $stmt->execute(array($this->id));
@@ -207,7 +209,8 @@
                     $comment['body'],
                     $comment['date'],
                     $comment['ticketId'],
-                    $comment['userId']
+                    $comment['userId'],
+                    $comment['username']
                 );
             }
             return $comments;

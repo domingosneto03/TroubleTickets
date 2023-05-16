@@ -237,17 +237,6 @@ main {
     margin: 0;
 }
 
-.focused_ticket_doc {
-    background-color: #b3b3b3;
-    border-radius: 3px;
-}
-
-.focused_ticket_doc_button {
-    background-color: #333;
-    color: white;
-    border-radius: 3px;
-}
-
 .comment_maker input[type="submit"]{
     background-color: #333;
     color: white;

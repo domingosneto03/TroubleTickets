@@ -414,34 +414,6 @@ main {
     justify-content: space-around;
 }
 
-.focused_ticket_docs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    margin-bottom: 0.4rem;
-}
-
-.focused_ticket_doc {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-}
-
-.focused_ticket_doc_name {
-    margin: 0;
-}
-
-.focused_ticket_doc_button {
-    height: fit-content;
-    padding-top: 0.4rem;
-    padding-bottom: 0.4rem;
-}
-
 .comment_maker {
     display: flex;
     flex-direction: row;

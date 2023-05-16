@@ -24,8 +24,6 @@
         <header id="main_header">
             <a href="home.php"><img src="/images/logo.png" id="logo"></a>
             <article id="right_side">
-                <a href="login.html"></a>
-                </form>
                 <?php if ($session->isLoggedIn()) drawLogoutSection($session);
                     else drawLoginSection();
                 ?>
@@ -60,6 +58,13 @@
                 settings
             </span>
         </a>
+        <?php if ($session->isAdmin()) { ?>
+        <a href="admin_page.html">
+            <span class="material-symbols-outlined">
+                manage_accounts
+            </span>
+        </a>
+        <?php } ?>
     </aside>
 <?php } ?>
 
@@ -80,8 +85,6 @@
 <?php } ?>
 
 <?php function drawLoginSection() { ?>
-    <a href="login.php">
-        <button>Login</button>
-    </a>
+    <a href="login.php" id="login_button">Login</a>
 <?php } ?>
     

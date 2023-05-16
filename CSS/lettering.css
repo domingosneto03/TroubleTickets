@@ -227,18 +227,6 @@
     font-size: 0.8rem;
 }
 
-.focused_ticket_doc_name {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.focused_ticket_doc_button {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: 700;
-    font-size: 0.6rem;
-}
-
 .comment_maker label {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
