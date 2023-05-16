@@ -346,4 +346,8 @@
     font-size: 40px;
 }
 
-
+#login_button {
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+}

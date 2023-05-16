@@ -82,14 +82,14 @@
     outline: none;
 }
 
-#login_button input {
+#login_button {
     border: 1px solid #000;
     border-radius: 3px;
     /* display: none; */
     /* acionar quando estiver logged in, mudar display de #profile_pic */
 }
 
-#login_button input:hover {
+#login_button:hover {
     background-color: #570353;
     color: white;
 }

@@ -129,8 +129,8 @@ body {
     width: 8rem;
 }
 
-#login_button input {
-    height: 32px;
+#login_button {
+    padding: 0.4rem 0.5rem;
 }
 
 #side_bar {
