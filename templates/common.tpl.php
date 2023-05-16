@@ -33,11 +33,6 @@
 
 <?php function output_sidebar($session) { ?>
     <aside id="side_bar">
-        <a href="home.php">
-            <span class="material-symbols-outlined">
-                home
-            </span>
-        </a>
         <a href="ticket_list.php">
             <span class="material-symbols-outlined">
                 credit_card
@@ -56,11 +51,6 @@
         <a href="faq.php">
             <span class="material-symbols-outlined">
                 help_center
-            </span>
-        </a>
-        <a href="">
-            <span class="material-symbols-outlined">
-                mail
             </span>
         </a>
         <a href="">

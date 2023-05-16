@@ -82,14 +82,14 @@
     outline: none;
 }
 
-#login_button input {
+#login_button {
     border: 1px solid #000;
     border-radius: 3px;
     /* display: none; */
     /* acionar quando estiver logged in, mudar display de #profile_pic */
 }
 
-#login_button input:hover {
+#login_button:hover {
     background-color: #570353;
     color: white;
 }
@@ -150,7 +150,7 @@ main {
     border-radius: 3px;
 }
 
-.admin_promoter, .agent_promoter {
+.admin_promoter_profile, .agent_promoter_profile {
     background-color: #191919;
     color: white;
     border-radius: 3px;
@@ -176,6 +176,11 @@ main {
     border: none;
     background-color: rgb(239, 239, 239);
     border-bottom: 1px solid rgb(134, 131, 131);
+    
+}
+
+#login input:focus, #register input:focus {
+    outline: none;
 }
 
 #ticket_info_main a :not(#edit_ticket) {
@@ -433,3 +438,4 @@ main {
     color: #fff;
     cursor: pointer;
 }
+

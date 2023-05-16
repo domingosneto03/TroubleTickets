@@ -129,8 +129,8 @@ body {
     width: 8rem;
 }
 
-#login_button input {
-    height: 32px;
+#login_button {
+    padding: 0.4rem 0.5rem;
 }
 
 #side_bar {
@@ -286,7 +286,7 @@ main {
     align-self: center;
 }
 
-.admin_promoter, .agent_promoter {
+.admin_promoter_profile, .agent_promoter_profile {
     width: 10rem;
     padding: 0.3rem 0;
     margin: 0 auto 0.2rem;
@@ -768,3 +768,6 @@ main {
     top: 20px;
     right: 30px;
 }
+
+
+
