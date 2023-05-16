@@ -30,8 +30,8 @@
 
             <!-- choose which of these to display using php magic -->
             <!-- these options only appear to Admins visiting the page -->
-            <button class="admin_promoter">Promote to Admin</button>
-            <button class="agent_promoter">Promote to Agent</button>
+            <button class="admin_promoter_profile">Promote to Admin</button>
+            <button class="agent_promoter_profile">Promote to Agent</button>
         </article>
     </main>
 <?php } ?>
