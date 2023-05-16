@@ -107,7 +107,7 @@
                 <div>
                     <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
-                    <?php if ($ticket->clientId === $session->getId()) { ?>
+                    <?php if (isset($_SESSION['id']) && $ticket->clientId === $session->getId()) { ?>
                     <a href=<?= "/new_ticket.php?id=" . $_GET['id']; ?> id="edit_ticket">
                         Edit Ticket
                     </a>
@@ -135,8 +135,10 @@
                     <img src="" class="expanded-image" id="expandedImage">
                 </div>
             </div>
-
-            <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
+                
+            <div class="outer_tags">
+                <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
+            </div>
             
             <div class="focused_ticket_info">
                 <p>Ticket created by <a href=""><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?> </p>
@@ -145,30 +147,7 @@
                     -->
             </div>
 
-            <div class="focused_ticket_docs">
-                <!-- vão aqui os docs -->
-            </div>
-
-            <!-- aqui tem de ter uma função para os comentários aparecerem como o exemplo abaixo -->
-            <!-- 
-                <div class="focused_ticket_comments">
-                    <h4>Discussion</h4>
-
-                    <form action="" class="comment_maker">
-                        <label for="comment_maker_input">Add a comment: </label>
-                        <input type="text" name="comment_maker_input" id="comment_maker_input">
-                        <input type="submit" value="Post">
-                    </form>
-
-                    <article class="focused_ticket_comment">
-                        <div class="focused_ticket_comment_top">
-                            <h5 class="focused_ticket_comment_poster">Adalberto</h5>
-                            <p class="focused_ticket_comment_date">insert date and time here</p>   
-                        </div>
-                        <p class="focused_ticket_comment_text">i love html so much &lt;333333 </p>
-                    </article>
-                </div>
-             -->
+            <?php output_comment_section($ticket->getComments($db)) ?>
         </div>
     </main>
 

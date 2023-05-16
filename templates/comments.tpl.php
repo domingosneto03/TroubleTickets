@@ -2,9 +2,11 @@
 
 <?php function output_comment($comment) { ?>
     <article class="focused_ticket_comment">
-        <h5 class="focused_ticket_comment_poster"><?= $comment->userId ?></h5>
+        <div class="focused_ticket_comment_top">
+            <h5 class="focused_ticket_comment_poster"><?= $comment->username ?></h5>
+            <p class="focused_ticket_comment_date"><?= date('d-m-Y H:i', $comment->createdAt) ?></p>
+        </div>
         <p class="focused_ticket_comment_text"><?= $comment->body ?></p>
-        <p class="focused_ticket_comment_date"><?= date('Y-m-d H:i', $comment->createdAt) ?></p>
     </article>
 <?php } ?>
 

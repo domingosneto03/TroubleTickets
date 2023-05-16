@@ -6,20 +6,24 @@
         public string $body;
         public int $ticketId;
         public int $userId;
+        public string $username;
         public int $createdAt;
 
-        public function __construct(int $id, string $body, int $createdAt, int $ticketId, int $userId) {
+        public function __construct(int $id, string $body, int $createdAt, int $ticketId, int $userId, string $username) {
             $this->id = $id;
             $this->body = $body;
             $this->createdAt = $createdAt;
             $this->ticketId = $ticketId;
             $this->userId = $userId;
+            $this->username = $username;
         }
 
         static function getComment(PDO $db, int $id) : Comment {
             $stmt = $db->prepare('
-                SELECT *
+                SELECT commentId, body, date, ticketId, comment.userId, username
                 FROM comment
+                JOIN user
+                ON user.userId = comment.userId 
                 WHERE commentId = ?
             ');
             $stmt->execute(array($id));
@@ -30,14 +34,17 @@
                 $comment['body'],
                 $comment['date'],
                 $comment['ticketId'],
-                $comment['userId']
+                $comment['userId'],
+                $comment['username']
             );
         }
 
         static function getComments(PDO $db, int $ticketId) : array {
             $stmt = $db->prepare('
-                SELECT *
+                SELECT commentId, body, date, ticketId, comment.userId, username
                 FROM comment
+                JOIN user
+                ON user.userId = comment.userId
                 WHERE ticketId = ?
             ');
             $stmt->execute(array($ticketId));
@@ -48,7 +55,8 @@
                     $comment['body'],
                     $comment['date'],
                     $comment['ticketId'],
-                    $comment['userId']
+                    $comment['userId'],
+                    $comment['username']
                 );
             }
             return $comments;
@@ -57,7 +65,7 @@
         static function create_comment(PDO $db, string $body, int $ticketId, int $userId) {
             $stmt = $db->prepare('
                 INSERT INTO comment (body, date, ticketId, userId)
-                VALUES (?, ?, ?)
+                VALUES (?, ?, ?, ?)
             ');
             $stmt->execute(array($body, time(), $ticketId, $userId));
             return $db->lastInsertId();

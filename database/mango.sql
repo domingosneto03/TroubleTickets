@@ -98,26 +98,26 @@ CREATE TABLE comment (
 );
 
 -- 20 users
-INSERT INTO user (username, password, email, bio) VALUES ("charlie", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "c.harlie@gone.com", "I'm a php programmer");
-INSERT INTO user (username, password, email, bio) VALUES ("jenny", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jenny@hotmail.com", "I'm a graphic designer");
-INSERT INTO user (username, password, email, bio) VALUES ("michael", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "michael@gmail.com", "I'm a software engineer");
-INSERT INTO user (username, password, email, bio) VALUES ("david", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "david@yahoo.com", "I'm a web developer");
-INSERT INTO user (username, password, email, bio) VALUES ("jane", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jane@gmail.com", "I'm a marketing specialist");
-INSERT INTO user (username, password, email, bio) VALUES ("peter", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "peter@hotmail.com", "I'm a front-end developer");
-INSERT INTO user (username, password, email, bio) VALUES ("susan", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "susan@yahoo.com", "I'm a content writer");
-INSERT INTO user (username, password, email, bio) VALUES ("mark", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mark@gmail.com", "I'm a project manager");
-INSERT INTO user (username, password, email, bio) VALUES ("mary", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mary@hotmail.com", "I'm a customer support specialist");
-INSERT INTO user (username, password, email, bio) VALUES ("tom", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "tommy@fugu.com", "I am an astronaut");
-INSERT INTO user (username, password, email, bio) VALUES ("john", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "john@gmail.com", "I'm a full-stack developer");
-INSERT INTO user (username, password, email, bio) VALUES ("sarah", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "sarah@yahoo.com", "I'm a UI/UX designer");
-INSERT INTO user (username, password, email, bio) VALUES ("matt", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "matt@hotmail.com", "I'm a software architect");
-INSERT INTO user (username, password, email, bio) VALUES ("emily", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "emily@gmail.com", "I'm a content marketing specialist");
-INSERT INTO user (username, password, email, bio) VALUES ("jack", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jack@yahoo.com", "I'm a data analyst");
-INSERT INTO user (username, password, email, bio) VALUES ("lisa", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "lisa@gmail.com", "I'm a social media manager");
-INSERT INTO user (username, password, email, bio) VALUES ("adam", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "adam@hotmail.com", "I'm a network engineer");
-INSERT INTO user (username, password, email, bio) VALUES ("karen", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "karen@yahoo.com", "I'm a human resources specialist");
-INSERT INTO user (username, password, email, bio) VALUES ("daniel", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "daniel@gmail.com", "I'm a mobile app developer");
-INSERT INTO user (username, password, email, bio) VALUES ("amy", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "amanda@rust.com", "I'm an HR specialist");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("charlie", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "c.harlie@gone.com", "I'm a php programmer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("jenny", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jenny@hotmail.com", "I'm a graphic designer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("michael", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "michael@gmail.com", "I'm a software engineer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("david", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "david@yahoo.com", "I'm a web developer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("jane", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jane@gmail.com", "I'm a marketing specialist", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("peter", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "peter@hotmail.com", "I'm a front-end developer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("susan", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "susan@yahoo.com", "I'm a content writer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("mark", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mark@gmail.com", "I'm a project manager", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("mary", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mary@hotmail.com", "I'm a customer support specialist", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("tom", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "tommy@fugu.com", "I am an astronaut", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("john", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "john@gmail.com", "I'm a full-stack developer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("sarah", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "sarah@yahoo.com", "I'm a UI/UX designer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("matt", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "matt@hotmail.com", "I'm a software architect", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("emily", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "emily@gmail.com", "I'm a content marketing specialist", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("jack", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jack@yahoo.com", "I'm a data analyst", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("lisa", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "lisa@gmail.com", "I'm a social media manager", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("adam", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "adam@hotmail.com", "I'm a network engineer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("karen", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "karen@yahoo.com", "I'm a human resources specialist", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("daniel", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "daniel@gmail.com", "I'm a mobile app developer", "/images/otter.jpeg");
+INSERT INTO user (username, password, email, bio, userImage) VALUES ("amy", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "amanda@rust.com", "I'm an HR specialist", "/images/otter.jpeg");
 
 -- 20 clients
 INSERT INTO client (clientId) VALUES (1);
@@ -232,6 +232,16 @@ INSERT INTO ticket_department (ticketId, departmentId) VALUES (19, 1);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (20, 4);
 
 INSERT INTO ticket_file (ticketId, filepath) VALUES (1, "uploads/1/1.JPG");
+
+INSERT INTO hashtag (name) VALUES ("tech");
+INSERT INTO hashtag (name) VALUES ("printer");
+INSERT INTO hashtag (name) VALUES ("divorce");
+INSERT INTO hashtag (name) VALUES ("animals");
+
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 2);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 3);
+
+INSERT INTO comment (body, date, userId, ticketId) VALUES ("thanks for the help", 1684235850, 14, 1);
 
 INSERT into faq (question, answer) VALUES ("What is this website for?", "Anything");
 INSERT into faq (question, answer) VALUES ("Who is this website for?", "Nothing");
