@@ -41,5 +41,33 @@ main img {
     opacity: 40%;
 }
 
+#main_header {
+    background-color: #020018;
+}
+
+#search_bar input {
+    background-color: #020018;
+    border-bottom: 2px solid rgb(225, 225, 225);
+    color: rgb(225, 225, 225);
+}
+
+#search_bar .material-symbols-outlined {
+    color: rgb(225, 225, 225);
+}
+
+
+#login_button input:hover {
+    background-color: #862143;
+    color: white;
+}
+
+#main_header h1 a{
+    color: #862143;
+}
+
+#main_footer {
+    background-color: #862143;
+}
+
 
 
