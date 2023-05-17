@@ -128,6 +128,29 @@
             $stmt->execute(array(Ticket::$next_id, "CREATION", time(), NULL));
         }
 
+        static function edit_ticket(PDO $db, int $id, string $title, string $body, int $priority, int $department, int $deadline) {
+            $stmt = $db->prepare('
+                UPDATE ticket
+                SET title = ?, body = ?, priority = ?, deadline = ?
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($title, $body, $priority, $deadline, $id));
+
+            $stmt = $db->prepare('
+                UPDATE ticket_department
+                SET departmentId = ?
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($department, $id));
+
+            $stmt = $db->prepare('
+                INSERT into ticket_history (ticketId, type_of_edit, date, old_value)
+                VALUES (?, ?, ?, ?)
+            ');
+            $stmt->execute(array($id, "EDIT", time(), NULL));
+            
+        }
+
         function add_Hashtag(PDO $db, int $ticketId) {
             $stmt = $db->prepare('
                 INSERT into ticket_hash (ticketId, hashtagId)

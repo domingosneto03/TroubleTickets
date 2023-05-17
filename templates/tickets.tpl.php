@@ -120,7 +120,7 @@
                     <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
                     <?php if (isset($_SESSION['id']) && $ticket->clientId === $session->getId()) { ?>
-                    <a href=<?= "/new_ticket.php?id=" . $_GET['id']; ?> id="edit_ticket">
+                    <a href=<?= "/edit_ticket.php?id=" . $_GET['id']; ?> id="edit_ticket">
                         Edit Ticket
                     </a>
                     <?php } ?> <!-- PHP: only visible to the user who created the ticket -->

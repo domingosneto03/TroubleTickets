@@ -55,24 +55,27 @@
     </main>
 <?php } ?>
 
-<?php function output_new_ticket_form() {
+<?php function output_new_ticket_form(?Ticket $ticket = null) {
     global $db; ?>
     <main>
         <div class="top_bar">
-            <h2 class="main_title">New Ticket</h2>
+            <h2 class="main_title"><?php if (!is_null($ticket)) { echo "Edit ticket"; } else { echo "New ticket"; } ?></h2>
         </div>
-
-        <form action="../actions/action_new_ticket.php" method="post" id="new_ticket_form" enctype="multipart/form-data">
+        <?php 
+            $newTicket = "../actions/action_new_ticket.php";
+            $editTicket = "../actions/action_edit_ticket.php";
+        ?>
+        <form action=<?php if (!is_null($ticket)) { echo $editTicket; } else { echo $newTicket; } ?> method="post" id="new_ticket_form" enctype="multipart/form-data">
             <div id="title">
                 <label for="ticket_title" id="title_label">Ticket title:</label>
-                <input type="text" name="title" id="ticket_title" required maxlength="55">
+                <input type="text" name="title" id="ticket_title" required maxlength="55" <?php if (!is_null($ticket)) { ?>value="<?php echo htmlspecialchars($ticket->title, ENT_QUOTES); } ?>">
             </div>
             <div id="text">
                 <label for="ticket_text" id="text_label">Ticket description:</label>
                 <!-- tags go as #tag in the text box, boa sorte para implementar essa merda Ribeiro -->
                 <!-- depois o sql convém ter uma secção de texto composta pelas tags separadas por vírgulas para
                 as poder mostrar depois no ticket -->
-                <textarea name="body" id="ticket_text" cols="30" rows="20" required></textarea>
+                <textarea name="body" id="ticket_text" cols="30" rows="20" required><?php if (!is_null($ticket)) { echo $ticket->body; } ?></textarea>
             </div>
             <label for="ticket_file_upload">Add files/images:</label>
             <input type="file" name="file[]" id="ticket_file_upload" multiple>
@@ -80,21 +83,23 @@
                 <div id="department">
                     <label for="departments">Department:</label>
                     <select name="department" id="departments">
+                        <option value="">Select a department</option>
                         <?php foreach (Department::getAllDepartments($db) as $department) { ?>
-                        <option value="<?= $department->id ?>"><?= $department->name ?></option>
+                        <option value="<?= $department->id ?>" <?php if ($department->id === $ticket->department) { echo "selected"; } ?>><?= $department->name ?></option>
                         <?php } ?>
                     </select>
                 </div>
                 <div id="priority">
                     <label for="priorities">Priority:</label>
                     <select name="priority" id="priorities">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
+                        <option value="3">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="1">High</option>
                     </select>
                 </div>
             </div>
-            <input type="submit" value="Create Ticket" id="sub_button">
+            <input type="hidden" name="id" value="<?php if (!is_null($ticket)) { echo $ticket->id; } ?>">
+            <input type="submit" value="<?php if (!is_null($ticket)) { echo "Confirm"; } else { echo "New Ticket"; } ?>" id="sub_button">
             <a href="ticket_list.html" class="cancel_ticket">Cancel</a>
         </form>
     </main>

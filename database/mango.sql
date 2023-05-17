@@ -56,7 +56,7 @@ CREATE TABLE ticket_hash (
 );
 
 CREATE TABLE ticket_history (
-    ticketId INTEGER PRIMARY KEY REFERENCES ticket,
+    ticketId INTEGER REFERENCES ticket,
     type_of_edit VARCHAR,
     date INTEGER,
     agentId INTEGER REFERENCES agent,
