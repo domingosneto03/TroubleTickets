@@ -68,7 +68,7 @@
 }
 
 #profile_pic {
-    border-radius: 1rem;
+    border-radius: 1.5rem;
 }
 
 #search_bar_id {
@@ -85,8 +85,6 @@
 #login_button {
     border: 1px solid #000;
     border-radius: 3px;
-    /* display: none; */
-    /* acionar quando estiver logged in, mudar display de #profile_pic */
 }
 
 #login_button:hover {

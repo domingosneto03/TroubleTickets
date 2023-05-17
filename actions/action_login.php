@@ -14,6 +14,7 @@
     if ($user) {
         $session->setId($user->id);
         $session->setUsername($user->username);
+        $session->setProfilePic($user->userImage);
         if ($user->isAgent($db)) {
             $session->setAgent();
         }

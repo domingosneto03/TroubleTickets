@@ -95,18 +95,12 @@ body {
 }
 
 #profile_pic {
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
 }
 
 #username {
-    margin: 0;
-    margin-left: 0.5rem;
-}
-
-#profile_pic, #username {
-    display: none;
-    /* toggle with Login button */
+    margin: 0 0.5rem;
 }
 
 #search_bar {
@@ -131,6 +125,12 @@ body {
 
 #login_button {
     padding: 0.4rem 0.5rem;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #side_bar {

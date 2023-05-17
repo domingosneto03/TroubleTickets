@@ -79,7 +79,8 @@
 
 <?php function drawLogoutSection(Session $session) { ?>
     <form action="../actions/action_logout.php" method="post" class="logout">
-        <a href=<?= "profile.php?id=" . $session->getId() ?>><?= $session->getUsername() ?></a>
+        <a href="<?= "profile.php?id=" . $session->getId() ?>"><img src="<?= $session->getProfilePic() ?>" alt="profile_pic" id="profile_pic"></a>
+        <a href="<?= "profile.php?id=" . $session->getId() ?>" id="username"><?= $session->getUsername() ?></a>
         <button type="submit">Logout</button> 
     </form>
 <?php } ?>

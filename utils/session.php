@@ -29,12 +29,20 @@
             return isset($_SESSION['email']) ? $_SESSION['email'] : null;
         }
 
+        public function getProfilePic() : ?string {
+            return isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : null;
+        }
+
         public function setId(int $id) {
             $_SESSION['id'] = $id;
         }
 
         public function setUsername(string $username) {
             $_SESSION['username'] = $username;
+        }
+
+        public function setProfilePic(string $profilePic) {
+            $_SESSION['profile_pic'] = $profilePic;
         }
 
         public function addMessage(string $type, string $text) {
