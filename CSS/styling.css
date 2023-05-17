@@ -437,3 +437,67 @@ main {
     cursor: pointer;
 }
 
+#settings_sidebar nav a.active {
+    border: 1px;
+    border-left: 4px solid #570353;
+    border-radius: 5px;
+    background-color: rgba(175, 170, 170, 0.778);
+}
+
+#settings_sidebar nav a.active:hover {
+    border: 1px; 
+    border-left: 4px solid #570353;
+    border-radius: 5px;
+    background-color: rgba(206, 200, 200, 0.778);
+}
+
+#settings_sidebar nav a {
+    border: 1px ;
+    border-radius: 5px;
+}
+
+#settings_sidebar nav a:hover{
+    border: 1px;
+    border-radius: 5px;
+    background-color: rgba(206, 200, 200, 0.778);
+}
+
+#settings h2 {
+    border-bottom: 1px solid black;
+}
+
+#settings input[type="text"], input[type="password"], input[type="date"], select[name="gender"] {
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+#settings input:focus {
+    outline: none;
+}
+
+#settings .notifications > div {
+    border: 1px solid rgba(175, 170, 170, 0.778);
+    border-radius: 10px;
+}
+
+#settings .account .popup {
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#settings .account .popup .close {
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+#settings .account .popup .close:hover {
+    background-color: rgba(221, 215, 215, 0.778);
+}
+
+#settings .account #new_username {
+    display: none;
+}
+
+#settings .account, #settings .notifications {
+    display: none;
+}
