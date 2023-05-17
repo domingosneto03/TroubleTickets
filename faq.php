@@ -14,7 +14,7 @@ $title = "Mango Tickets - FAQs";
 
 output_header($session, $title);
 output_sidebar($session);
-output_faq_body($faqs);
+output_faq_body($session, $faqs);
 output_footer();
 
 ?>

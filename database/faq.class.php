@@ -17,7 +17,6 @@ class FAQ {
             UPDATE faq SET question = ?, answer = ?
             WHERE faqId = ?
         ');
-
         $stmt->execute(array($this->question, $this->answer, $this->id));
     }
 

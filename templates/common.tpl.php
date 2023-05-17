@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
         <script src="javascript/script.js" defer></script>
+        <script src="javascript/settings.js" defer></script>
+        <script src="javascript/faqs.js" defer></script>
     </head>
     <body>
         <header id="main_header">
