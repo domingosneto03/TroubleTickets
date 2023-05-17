@@ -2,6 +2,8 @@
     declare(strict_types = 1);
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/ticket.class.php");
+    require_once(__DIR__ . "/../database/department.class.php");
+    require_once(__DIR__ . "/../database/hashtag.class.php");
     require_once(__DIR__ . "/comments.tpl.php");
     require_once(__DIR__ . "/hashtag.tpl.php");
 
@@ -20,7 +22,7 @@
         </div>
         <div class="ticket_info_bottom">
             <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user"><p><?= $ticket->getClientName($db) ?></p></a>
-            <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->getCreationDate($db)) ?></p>
+            <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->createdAt ) ?></p>
             <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             <p class="ticket_status"><?= $ticket->status ?></p>
             <?php $agent = $ticket->getAgentName($db); ?>
@@ -55,47 +57,57 @@
                 output_ticket_card($ticket);
             } ?>
             </article>
-            <article id="outer_filters">
-                <label for="my_tickets_button" class="filter_checker">My tickets</label>
-                <input type="checkbox" name="my_tickets" id="my_tickets_button">
-                <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
-                <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
-                <form id="filters">
-                    <label for="orderer">Sort:</label>
-                    <select name="" id="orderer">
-                        <option value="htl_priority">High-Low Priority</option>
-                        <option value="lth_priority">Low-High Priority</option>
-                        <option value="most_recent">Newest</option>
-                        <option value="least_recent">Oldest</option>
-                        <option value="ending_soon">Ending Sooner</option>
-                    </select>
-                    <label for="sel_priority">Priority:</label>
-                    <select name="" id="sel_priority">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                    <label for="sel_department">Department:</label>
-                    <select name="" id="sel_department">
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="C">C</option>
-                    </select>
-                    <label for="sel_tags">Tags:</label>
-                    <select name="" id="sel_tags">
-                        <option value="tech">Tech</option>
-                        <option value="auto">Auto</option>
-                        <option value="health">Health</option>
-                    </select>
-                    <label for="sel_date_start">From:</label>
-                    <input type="date" name="" id="sel_date_start">
-                    <label for="sel_date_end">To:</label>
-                    <input type="date" name="" id="sel_date_end">
-                    <input type="submit" value="Apply" id="submit_sort">
-                </form>
-            </article>
+            <?php output_ticket_filters(); ?>
         </div>
     </main>
+<?php } ?>
+
+<?php function output_ticket_filters() { 
+    global $db; ?>
+    <article id="outer_filters">
+        <label for="my_tickets_button" class="filter_checker">My tickets</label>
+        <input type="checkbox" name="my_tickets" id="my_tickets_button">
+        <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
+        <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
+        <form id="filters" method="post" action="/../actions/action_filter_tickets.php">
+            <label for="orderer">Sort:</label>
+            <select name="ordering" id="orderer">
+                <option value="">Select an option</option>
+                <option value="htl_priority">High-Low Priority</option>
+                <option value="lth_priority">Low-High Priority</option>
+                <option value="most_recent">Newest</option>
+                <option value="least_recent">Oldest</option>
+            </select>
+            <label for="sel_priority">Priority:</label>
+            <select name="filter[priority]" id="sel_priority">
+                <option value="">Select a priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <label for="sel_department">Department:</label>
+            <select name="filter[department]" id="sel_department">
+                <option value="">Select a department</option>
+                <?php $departments = Department::getAllDepartments($db); 
+                    foreach ($departments as $department) { ?>
+                <option value="<?= $department->id ?>"><?= $department->name ?></option>
+                <?php } ?>
+            </select>
+            <label for="sel_tags">Tags:</label>
+            <select name="filter[tag]" id="sel_tags">
+                <option value="">Select a tag</option>
+                <?php $hashtags = Hashtag::getAllTags($db);
+                    foreach ($hashtags as $hashtag) { ?>
+                <option value="<?= $hashtag->id ?>"><?= $hashtag->name ?></option>
+                <?php } ?>
+            </select>
+            <label for="sel_date_start">From:</label>
+            <input type="date" name="date_start" id="sel_date_start">
+            <label for="sel_date_end">To:</label>
+            <input type="date" name="date_end" id="sel_date_end">
+            <input type="submit" value="Apply" id="submit_sort">
+        </form>
+    </article>
 <?php } ?>
 
 <?php function output_full_ticket($session, $ticket) { ?>
@@ -137,7 +149,7 @@
             </div>
             
             <div class="focused_ticket_info">
-                <p>Ticket created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>"><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->getCreationDate($db))?> </p>
+                <p>Ticket created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>"><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->createdAt )?> </p>
                 <p> Status: Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a></p> <!-- 
                     use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
                     -->

@@ -11,7 +11,7 @@
                 <p><?= $user->username ?></p>
                 <?php if ($session->isAdmin()) { ?>
                     <p>Admin</p>
-                <?php } else if ($session->isAgent()) { ?>
+                <?php } elseif ($session->isAgent()) { ?>
                     <p>Agent</p>
                 <?php } else { ?>
                     <p>Client</p>

@@ -41,7 +41,7 @@ CREATE TABLE ticket (
     status VARCHAR,
     assigned INTEGER REFERENCES agent,
     clientId INTEGER REFERENCES client,
-    priority VARCHAR,
+    priority INTEGER,
     deadline INTEGER
 );
 
@@ -160,48 +160,48 @@ INSERT INTO admin (adminId) VALUES (18);
 INSERT INTO admin (adminId) VALUES (20);
 
 -- 20 tickets
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "open", 4, 6, "high", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "open", 10, 18, "medium", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "open", 2, 14, "high", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "open", 6, 8, "medium", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't print", "I'm having trouble printing from my computer", "open", 12, 7, "low", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("New hire setup", "I need a new employee's computer set up with the necessary software and accounts", "open", 14, 2, "high", 1683846000);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Website not loading", "I'm unable to access the company website from my computer", "open", 8, 13, "medium", 1683932400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Password reset", "I've forgotten my password and need it reset", "open", 16, 4, "low", 1683932400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to shared drive", "I need access to a shared drive to retrieve some files", "open", 18, 11, "high", 1683932400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "open", 20, 17, "high", 1684105200);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software update", "I need a software update to fix some bugs and improve performance", "open", 16, 1, "medium", 1684105200);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access company portal", "I'm unable to access the company portal to submit my timesheet", "open", 6, 20, "high", 1684105200);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new monitor", "My monitor is old and malfunctioning, I need a new one", "open", 2, 10, "low", 1684105200);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Printer not working", "I'm unable to print from my computer, even after restarting", "open", 8, 12, "medium", 1684364400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with Excel", "I need assistance with a complex Excel formula for my project", "open", 10, 15, "high", 1684364400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to new project folder", "I need access to a new project folder to store my files", "open", 4, 9, "low", 1684364400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer virus", "I think my computer has a virus and needs to be scanned", "open", 12, 5, "high", 1684364400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new headphones", "My headphones are broken and I need a new pair", "open", 18, 16, "low", 1684450800);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "open", 14, 19, "medium", 1684450800);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "open", 20, 3, "medium", 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "open", 4, 6, 1, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "open", 10, 18, 2, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "open", 2, 14, 1, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "open", 6, 8, 2, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't print", "I'm having trouble printing from my computer", "open", 12, 7, 3, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("New hire setup", "I need a new employee's computer set up with the necessary software and accounts", "open", 14, 2, 1, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Website not loading", "I'm unable to access the company website from my computer", "open", 8, 13, 2, 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Password reset", "I've forgotten my password and need it reset", "open", 16, 4, 3, 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to shared drive", "I need access to a shared drive to retrieve some files", "open", 18, 11, 1, 1683932400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "open", 20, 17, 1, 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software update", "I need a software update to fix some bugs and improve performance", "open", 16, 1, 2, 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access company portal", "I'm unable to access the company portal to submit my timesheet", "open", 6, 20, 1, 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new monitor", "My monitor is old and malfunctioning, I need a new one", "open", 2, 10, 3, 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Printer not working", "I'm unable to print from my computer, even after restarting", "open", 8, 12, 2, 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with Excel", "I need assistance with a complex Excel formula for my project", "open", 10, 15, 1, 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to new project folder", "I need access to a new project folder to store my files", "open", 4, 9, 3, 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer virus", "I think my computer has a virus and needs to be scanned", "open", 12, 5, 1, 1684364400);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new headphones", "My headphones are broken and I need a new pair", "open", 18, 16, 3, 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "open", 14, 19, 2, 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "open", 20, 3, 2, 1684450800);
 
 -- 20 ticket_history
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (1, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (2, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (3, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (4, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (5, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (6, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (7, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (8, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (9, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (10, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (11, "CREATION", 1683727200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (1, "CREATION", 1683552124, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (2, "CREATION", 1683701200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (3, "CREATION", 1683623200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (4, "CREATION", 1683626200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (5, "CREATION", 1683420200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (6, "CREATION", 1683519200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (7, "CREATION", 1683527500, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (8, "CREATION", 1683628000, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (9, "CREATION", 1683721200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (10, "CREATION", 1683527200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (11, "CREATION", 1683627200, null, null);
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (12, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (13, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (14, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (15, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (16, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (17, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (18, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (19, "CREATION", 1683727200, null, null);
-INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (20, "CREATION", 1683727200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (13, "CREATION", 1683629200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (14, "CREATION", 1683621200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (15, "CREATION", 1683722560, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (16, "CREATION", 1683717200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (17, "CREATION", 1683625500, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (18, "CREATION", 1683527301, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (19, "CREATION", 1683567200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (20, "CREATION", 1683621200, null, null);
 
 -- 5 departments
 INSERT INTO department (name) VALUES ("Web");

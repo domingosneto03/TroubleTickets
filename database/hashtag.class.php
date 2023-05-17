@@ -38,6 +38,7 @@
             $stmt = $db->prepare('
                 SELECT *
                 FROM hashtag
+                ORDER BY name ASC
             ');
             $stmt->execute();
             $hashtags = [];

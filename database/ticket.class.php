@@ -8,13 +8,14 @@
         public string $status = "open";
         public ?int $assigned;
         public int $clientId;
-        public string $priority;
+        public int $priority;
         public int $department;
+        public int $createdAt;
         public int $deadline;
 
         static int $next_id = 0;
 
-        public function __construct(int $id, string $title, string $body, ?string $status, ?int $assigned, int $clientId, string $priority, int $department, int $deadline) {
+        public function __construct(int $id, string $title, string $body, ?string $status, ?int $assigned, int $clientId, int $priority, int $department, int $createdAt, int $deadline) {
             $this->id = $id;
             $this->title = $title;
             $this->body = $body;
@@ -24,16 +25,20 @@
             $this->clientId = $clientId;
             $this->priority = $priority;
             $this->department = $department;
+            $this->createdAt = $createdAt;
             $this->deadline = $deadline;
         }
 
         static function getTicket(PDO $db, int $id) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
                 WHERE t.ticketId = ?
+                AND th.type_of_edit = "CREATION"
             ');
             $stmt->execute(array($id));
             $ticket = $stmt->fetch();
@@ -47,16 +52,20 @@
                 $ticket['clientId'],
                 $ticket['priority'],
                 $ticket['department'],
+                $ticket['createdAt'],
                 $ticket['deadline']
             );
         }
 
         static function getTickets(PDO $db) {
             $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, deadline
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
                 FROM ticket t
                 JOIN ticket_department td
                 ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
+                WHERE th.type_of_edit = "CREATION"
             ');
             $stmt->execute();
             $tickets = [];
@@ -70,13 +79,14 @@
                     $ticket['clientId'],
                     $ticket['priority'],
                     $ticket['department'],
+                    $ticket['createdAt'],
                     $ticket['deadline'] 
                 );
             }
             return $tickets;
         }
 
-        static function create_ticket(PDO $db, string $title, string $body, int $clientId, string $priority, int $department, int $deadline) {
+        static function create_ticket(PDO $db, string $title, string $body, int $clientId, int $priority, int $department, int $deadline) {
             $stmt = $db->prepare('
                 INSERT into ticket (title, body, clientId, priority, deadline)
                 VALUES (?, ?, ?, ?, ?)
@@ -145,6 +155,17 @@
             return $tags;
         }
 
+        public function getPriority() : string {
+            switch ($this->priority) {
+                case 1:
+                    return "high";
+                case 2:
+                    return "medium";
+                case 3:
+                    return "low";
+            }
+        }
+
         public function getClientName(PDO $db) : string {
             $stmt = $db->prepare('
                 SELECT username
@@ -168,18 +189,6 @@
                 return $agent['username'];
             else
                 return null;
-        }
-
-        public function getCreationDate(PDO $db) {
-            $stmt = $db->prepare('
-                SELECT date
-                FROM ticket_history
-                WHERE ticketId = ?
-                AND type_of_edit = "CREATION"
-            ');
-            $stmt->execute(array($this->id));
-            $date = $stmt->fetch();
-            return $date['date'];
         }
 
         public function getDepartment(PDO $db) : string {

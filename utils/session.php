@@ -58,7 +58,7 @@
         }
 
         public function isAgent() {
-            return $_SESSION['agent'];
+            return isset($_SESSION['agent']) ? $_SESSION['agent'] : false;
         }
 
         public function setAdmin() {
@@ -66,7 +66,7 @@
         }
 
         public function isAdmin() {
-            return $_SESSION['admin'];
+            return isset($_SESSION['admin']) ? $_SESSION['admin'] : false;
         }
     }
 ?>
