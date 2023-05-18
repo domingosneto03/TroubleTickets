@@ -1,17 +1,21 @@
 <?php
     declare(strict_types = 1);
+    require_once(__DIR__ . '/../database/user.class.php');
+    require_once(__DIR__ . '/../database/connection.php');
+    $db = getDatabaseConnection();
 ?>
 
-<?php function output_profile($session, $user) { ?>
+<?php function output_profile($session, $user) {
+    global $db; ?>
     <main>
         <article id="profile_main">
             <img src="<?= $user->userImage ?>" alt="profile image" id="profile_picture">
 
             <div id="profile_user">
                 <p><?= $user->username ?></p>
-                <?php if ($session->isAdmin()) { ?>
+                <?php if ($user->isAdmin($db)) { ?>
                     <p>Admin</p>
-                <?php } elseif ($session->isAgent()) { ?>
+                <?php } elseif ($user->isAgent($db)) { ?>
                     <p>Agent</p>
                 <?php } else { ?>
                     <p>Client</p>
