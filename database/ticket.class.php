@@ -195,10 +195,12 @@
         public function getPriority() : string {
             switch ($this->priority) {
                 case 1:
-                    return "high";
+                    return "urgent";
                 case 2:
-                    return "medium";
+                    return "high";
                 case 3:
+                    return "medium";
+                case 4:
                     return "low";
             }
         }

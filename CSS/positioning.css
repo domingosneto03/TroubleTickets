@@ -495,6 +495,9 @@ main {
 #outer_filters {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    height: fit-content;
+    top: 2.6rem;
 }
 
 .filter_checker:first-of-type {
@@ -898,4 +901,8 @@ main {
 
 #username {
     margin: 0 0.5rem;
+}
+
+.low, .medium, .high, .urgent {
+    margin: 0 1rem;
 }

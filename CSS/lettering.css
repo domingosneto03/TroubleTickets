@@ -379,3 +379,19 @@
     font-size: 2rem;
     text-align: center;
 }
+
+.low, .medium, .high, .urgent {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.low::before, .medium::before, .high::before, .urgent::before {
+    content: 'Priority: ';
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    text-shadow: none;
+    font-size: 1.2rem;
+}

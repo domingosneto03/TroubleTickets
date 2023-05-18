@@ -291,10 +291,10 @@ main {
     display: none;
 }
 
-#outer_filters {
+/* #outer_filters {
     border: none;
     border-left: 2px solid #333;
-}
+} */
 
 .filter_checker {
     background-color: white;
@@ -316,7 +316,8 @@ main {
 
 #tickets {
     border: none;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid #333;
+    border-right: 2px solid #333;
 }
 
 .ticket a {
@@ -553,5 +554,25 @@ main {
 }
 
 #not_found {
+    color: black;
+}
+
+.low {
+    color: green;
+}
+
+.medium {
+    color: yellow;
+}
+
+.high {
+    color: orange;
+}
+
+.urgent {
+    color: red;
+}
+
+.low::before, .medium::before, .high::before, .urgent::before {
     color: black;
 }

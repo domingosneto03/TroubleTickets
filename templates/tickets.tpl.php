@@ -17,6 +17,7 @@
         <div class="ticket_info_top">
             <div>
                 <a href="<?= "/ticket.php?id=" . $ticket->id ?>" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
+                <p class="<?= $ticket->getPriority() ?>"><?= $ticket->getPriority() ?></p>
             </div>
             <p class="ticket_deadline">Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p>
         </div>
