@@ -181,6 +181,7 @@ INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline)
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new headphones", "My headphones are broken and I need a new pair", "open", 18, 16, 3, 1684450800);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "open", 14, 19, 2, 1684450800);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "open", 20, 3, 2, 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("need help fixing marriage", "my marriage is falling to pieces", "open", 20, 3, 4, 1684450800);
 
 -- 20 ticket_history
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (1, "CREATION", 1683552124, null, null);
@@ -203,6 +204,7 @@ INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VA
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (18, "CREATION", 1683527301, null, null);
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (19, "CREATION", 1683567200, null, null);
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (20, "CREATION", 1683621200, null, null);
+INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (21, "CREATION", 1683621200, null, null);
 
 -- 5 departments
 INSERT INTO department (name) VALUES ("Web");

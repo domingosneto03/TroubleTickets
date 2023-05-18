@@ -558,21 +558,22 @@ main {
 }
 
 .low {
-    color: green;
+    background-color: green;
 }
 
 .medium {
-    color: yellow;
+    background-color: orange;
 }
 
 .high {
-    color: orange;
+    background-color: orangered;
 }
 
 .urgent {
-    color: red;
+    background-color: red;
 }
 
-.low::before, .medium::before, .high::before, .urgent::before {
-    color: black;
+.low, .medium, .high, .urgent {
+    color: white;
+    border-radius: 3px;
 }

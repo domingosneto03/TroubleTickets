@@ -584,19 +584,21 @@ main {
 .ticket_info_bottom {
     grid-column: 2;
     grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .ticket_tags {
-    grid-row: 3;
+    /* grid-row: 3;
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 6; */
     padding-left: 10px;
     margin: 0;
     height: fit-content;
     width: fit-content;
 }
 
-.ticket_department {
+/* .ticket_department {
     grid-column: 2;
     grid-row: 4;
 }
@@ -609,7 +611,7 @@ main {
 .ticket_agent {
     grid-column: 4;
     grid-row: 4;
-}
+} */
 
 .ticket_department, .ticket_agent, .ticket_status, .ticket_date, .ticket_user {
     margin: 0;
@@ -904,5 +906,10 @@ main {
 }
 
 .low, .medium, .high, .urgent {
-    margin: 0 1rem;
+    margin: 0 0.1rem;
+    padding: 0 0.2rem;
+}
+
+.priority {
+    margin-left: 0.5rem;
 }
