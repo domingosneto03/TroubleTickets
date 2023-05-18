@@ -457,6 +457,7 @@ main {
     cursor: pointer;
 }
 
+
 #settings_sidebar nav a.active {
     border: 1px;
     border-left: 4px solid #570353;
@@ -480,6 +481,18 @@ main {
     border: 1px;
     border-radius: 5px;
     background-color: rgba(206, 200, 200, 0.778);
+}
+
+#settings button {
+    border: 1px solid #000;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+}
+
+#settings button:hover {
+    background-color: #570353;
+    color: white;
 }
 
 #settings h2 {
@@ -511,11 +524,16 @@ main {
 }
 
 #settings .account .popup .close:hover {
-    background-color: rgba(221, 215, 215, 0.778);
+    background-color: #570353;
+    color: white;
 }
 
-#settings .account #new_username {
+#settings .account .hide{
     display: none;
+}
+
+#settings .account .show {
+    display: block;
 }
 
 #settings .account, #settings .notifications {

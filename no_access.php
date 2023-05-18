@@ -10,9 +10,13 @@
     output_header($session, $title);
     output_sidebar($session);
 ?>
+<main>
+    <div class="no_access">
+        <h3 id="no_access_title">This page is reserved for admins of the website</h3>
+        <p id="no_access_message">Go back to <a href="/ticket_list.php">home page</a></p>
+    </div>
+</main>
 
-<h3 id="no_access_title">This page is reserved for admins of the website</h3>
-<p id="no_access_message">Go back to <a href="/ticket_list.php">home page</a></p>
 
 <?php
     output_footer();
