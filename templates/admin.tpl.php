@@ -4,22 +4,26 @@
     require_once(__DIR__ . '/../database/connection.php');
     require_once(__DIR__ . '/../database/ticket.class.php');
     require_once(__DIR__ . '/../database/user.class.php');
+    require_once(__DIR__ . '/../database/department.class.php');
     $db = getDatabaseConnection();
 ?>
 
 <?php function output_admin_section(Session $session, $agents, $clients) { ?>
-    <div class="top_bar">
-        <h2 class="main_title">Administrator Management</h2>
-    </div>
+    <main id="admin_main">
+        <div class="top_bar">
+            <h2 class="main_title">Administrator Management</h2>
+        </div>
 
-    <div id="management_main">
-        <?php output_agent_list($agents) ?>
-        <?php output_client_list($clients) ?>
-    </div>
-    <div id="management_right_side">
-        <?php output_admin_options(); ?>
-        <?php output_admin_statistics(); ?>
-    </div>
+        <div id="management_main">
+            <?php output_agent_list($agents) ?>
+            <?php output_client_list($clients) ?>
+    
+            <div id="management_right_side">
+                <?php output_admin_options(); ?>
+                <?php output_admin_statistics(); ?>
+            </div>  
+        </div>
+    </main>
 <?php } ?>
 
 <?php function output_agent_list($agents) { ?>

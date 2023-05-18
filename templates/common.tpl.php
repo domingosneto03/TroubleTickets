@@ -61,7 +61,7 @@
             </span>
         </a>
         <?php if ($session->isAdmin()) { ?>
-        <a href="admin_page.html">
+        <a href="admin_page.php">
             <span class="material-symbols-outlined">
                 manage_accounts
             </span>
