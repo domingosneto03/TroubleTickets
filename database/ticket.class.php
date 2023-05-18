@@ -148,10 +148,24 @@
                 VALUES (?, ?, ?, ?)
             ');
             $stmt->execute(array($id, "EDIT", time(), NULL));
-            
         }
 
-        function add_Hashtag(PDO $db, int $ticketId) {
+        public function closeTicket(PDO $db, int $id) {
+            $stmt = $db->prepare('
+                UPDATE ticket
+                SET status = "CLOSED"
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($id));
+
+            $stmt = $db->prepare('
+                INSERT INTO ticket_history (ticketId, type_of_edit, date, old_value)
+                VALUES (?, ?, ?, ?)
+            ');
+            $stmt->execute(array($id, "CLOSED", time(), null));
+        }
+
+        public function add_Hashtag(PDO $db, int $ticketId) {
             $stmt = $db->prepare('
                 INSERT into ticket_hash (ticketId, hashtagId)
                 VALUES (? ?)
@@ -261,6 +275,62 @@
                 $files[] = $file['filepath'];
             }
             return $files;
+        }
+
+        static function getNewTicketsWeek(PDO $db) : int {
+            $now = time();
+            $weekAgo = time() - 604800;
+            $stmt = $db->prepare('
+                SELECT *
+                FROM ticket_history
+                WHERE type_of_edit = "CREATION"
+                AND date
+                BETWEEN ? AND ?
+            ');
+            $stmt->execute(array($weekAgo, $now));
+            return count($stmt->fetchAll());
+        }
+
+        static function getNewTicketsMonth(PDO $db) : int {
+            $now = time();
+            $monthAgo = time() - 2592000;
+            $stmt = $db->prepare('
+                SELECT *
+                FROM ticket_history
+                WHERE type_of_edit = "CREATION"
+                AND date
+                BETWEEN ? AND ?
+            ');
+            $stmt->execute(array($monthAgo, $now));
+            return count($stmt->fetchAll());
+        }
+
+        static function getClosedTicketsWeek(PDO $db) : int {
+            $now = time();
+            $weekAgo = time() - 604800;
+            $stmt = $db->prepare('
+                SELECT *
+                FROM ticket_history
+                WHERE type_of_edit = "CLOSED"
+                AND date
+                BETWEEN ? AND ?
+            ');
+            $stmt->execute(array($weekAgo, $now));
+            return count($stmt->fetchAll());
+        }
+
+        static function getClosedTicketsMonth(PDO $db) : int {
+            $now = time();
+            $monthAgo = time() - 2592000;
+            $stmt = $db->prepare('
+                SELECT *
+                FROM ticket_history
+                WHERE type_of_edit = "CLOSED"
+                AND date
+                BETWEEN ? AND ?
+            ');
+            $stmt->execute(array($monthAgo, $now));
+            return count($stmt->fetchAll());
         }
  
     }

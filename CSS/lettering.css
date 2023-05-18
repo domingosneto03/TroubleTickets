@@ -23,17 +23,17 @@
     text-decoration: none;
 }
 
-#new_faq_window label {
+.new_faq_window label {
     font-family: 'Oxygen', sans-serif;
     font-weight: 700;
 }
 
-#new_faq_window div > input[type="submit"] {
+.new_faq_window div > input[type="submit"] {
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
 }
 
-#new_faq_window div > input[type="button"] {
+.new_faq_window div > input[type="button"] {
     font-family: 'Oxygen', sans-serif;
     font-weight: 400;
 }

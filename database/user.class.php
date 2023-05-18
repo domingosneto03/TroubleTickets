@@ -7,13 +7,15 @@ class User {
     public string $email;
     public string $bio;
     public string $userImage;
+    public int $dateJoin;
 
-    public function __construct(int $id, string $username, string $email, string $bio, string $userImage) {
+    public function __construct(int $id, string $username, string $email, string $bio, string $userImage, int $dateJoin) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->bio = $bio;
         $this->userImage = $userImage;
+        $this->dateJoin = $dateJoin;
     }
 
     function save(PDO $db) {
@@ -27,7 +29,7 @@ class User {
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
         $stmt = $db->prepare("
-            SELECT userId, username, password, email, bio, userImage
+            SELECT userId, username, password, email, bio, userImage, dateJoin
             FROM user
             WHERE lower(username) = ?
         ");
@@ -40,14 +42,15 @@ class User {
                 $user['username'],
                 $user['email'],
                 $user['bio'],
-                $user['userImage']
+                $user['userImage'],
+                $user['dateJoin']
             );
         } else return null; 
     }
 
     static function getUser(PDO $db, string $username) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage
+            SELECT userId, username, email, bio, userImage, dateJoin
             FROM user
             WHERE username = ?
         ');
@@ -60,14 +63,15 @@ class User {
                 $user['username'],
                 $user['email'],
                 $user['bio'],
-                $user['userImage']
+                $user['userImage'],
+                $user['dateJoin']
             );
         } else return null;
     }
 
     static function getUserById(PDO $db, int $id) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage
+            SELECT userId, username, email, bio, userImage, dateJoin
             FROM user
             WHERE userId = ?
         ');
@@ -80,7 +84,8 @@ class User {
                 $user['username'],
                 $user['email'],
                 $user['bio'],
-                $user['userImage']
+                $user['userImage'],
+                $user['dateJoin']
             );
         } else return null;
     }
@@ -98,8 +103,8 @@ class User {
 
         if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
             $stmt = $db->prepare('
-                INSERT into user (username, password, email, bio, userImage) 
-                VALUES (?, ?, ?, ?, ?)
+                INSERT into user (username, password, email, bio, userImage, dateJoin) 
+                VALUES (?, ?, ?, ?, ?, ?)
             ');
             $options = ['cost' => 12];
             $stmt->execute(array(
@@ -107,7 +112,8 @@ class User {
                 password_hash($password, PASSWORD_DEFAULT, $options),
                 $email,
                 $bio,
-                $dbFilePath
+                $dbFilePath,
+                time()
             ));
         }        
     }
@@ -135,5 +141,31 @@ class User {
         ');
         $stmt->execute(array($this->id));
         return $stmt->fetch() !== false;
+    }
+
+    static function getNewUsersWeek(PDO $db) : int {
+        $now = time();
+        $weekAgo = time() - 604800;
+        $stmt = $db->prepare('
+            SELECT *
+            FROM user
+            WHERE dateJoin
+            BETWEEN ? AND ?
+        ');
+        $stmt->execute(array($weekAgo, $now));
+        return count($stmt->fetchAll());
+    }
+
+    static function getNewUsersMonth(PDO $db) : int {
+        $now = time();
+        $monthAgo = time() - 2592000;
+        $stmt = $db->prepare('
+            SELECT *
+            FROM user
+            WHERE dateJoin
+            BETWEEN ? AND ?
+        ');
+        $stmt->execute(array($monthAgo, $now));
+        return count($stmt->fetchAll());
     }
 } ?>

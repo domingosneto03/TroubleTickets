@@ -23,37 +23,37 @@
     color: white;
 }
 
-#new_faq_window {
+.new_faq_window {
     background-color: #e6e6e6;
     border-radius: 3px;
     border: 2px solid #000;
 }
 
-#new_faq_window textarea {
+.new_faq_window textarea {
     border-radius: 3px;
 }
 
-#new_faq_window input[type="text"] {
+.new_faq_window input[type="text"] {
     border-radius: 3px;
 }
 
-#new_faq_window div > input[type="submit"] {
+.new_faq_window div > input[type="submit"] {
     background-color: #191919;
     color: white;
     border-radius: 3px;
 }
 
-#new_faq_window div > input[type="submit"]:hover {
+.new_faq_window div > input[type="submit"]:hover {
     background-color: #333;
 }
 
-#new_faq_window div > input[type="button"] {
+.new_faq_window div > input[type="button"] {
     background-color: #f00;
     color: white;
     border-radius: 3px;
 }
 
-#new_faq_window div > input[type="button"]:hover {
+.new_faq_window div > input[type="button"]:hover {
     background-color: #ff1a1a;
 }
 

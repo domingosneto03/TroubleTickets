@@ -16,7 +16,7 @@
     display: none;
 }
 
-#new_faq_window {
+.new_faq_window {
     margin: 0.5rem 0;
     padding: 0.4rem;
     display: flex;
@@ -24,27 +24,27 @@
     gap: 0.2rem;
 }
 
-#new_faq_window div {
+.new_faq_window div {
     display: flex;
     flex-direction: row;
     gap: 0.2rem;
 }
 
-#new_faq_window textarea {
+.new_faq_window textarea {
     resize: none;
 }
 
-#new_faq_window div > input[type="submit"] {
+.new_faq_window div > input[type="submit"] {
     width: 7.5rem;
     padding: 0.4rem 0;
 }
 
-#new_faq_window div > input[type="button"] {
+.new_faq_window div > input[type="button"] {
     width: 7.5rem;
     padding: 0.4rem 0;
 }
 
-#new_faq_window div {
+.new_faq_window div {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
