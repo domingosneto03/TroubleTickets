@@ -11,7 +11,7 @@
             <h2>Login</h2>
             <form>
                 <label>Username
-                    <input type="text" name="username" placeholder="Type your username or email">
+                    <input type="text" name="username" placeholder="Type your username or email" autofocus>
                 </label>
                 <label>Password
                     <input type="password" name="password" placeholder="Type your password">

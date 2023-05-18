@@ -107,10 +107,6 @@ body {
     height: 2.2rem;
 }
 
-#username {
-    margin: 0 0.5rem;
-}
-
 #search_bar {
     margin: 0;
     margin-right: 0.5em;
@@ -313,7 +309,7 @@ main {
     display: block;
     padding: 0.5em;
     width: fit-content;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #login button, #register button {
@@ -894,4 +890,8 @@ main {
 #no_access_message {
     text-align: center;
     margin-top: 0;
+}
+
+.logout button {
+    padding: 0.4rem 0.5rem;
 }

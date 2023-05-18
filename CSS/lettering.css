@@ -17,7 +17,7 @@
 .top_bar_button {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-decoration: none;
 }
 
@@ -56,12 +56,6 @@
 
 #right_side a {
     text-decoration: none;
-}
-
-#username {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
 }
 
 #side_bar a {
@@ -252,7 +246,7 @@
 .filter_checker {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-align: center;
 }
 
@@ -364,6 +358,17 @@
 }
 
 .no_access {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
+.logout button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+#submit_sort {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+}

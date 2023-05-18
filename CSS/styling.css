@@ -539,3 +539,15 @@ main {
 #settings .account, #settings .notifications {
     display: none;
 }
+
+.logout button {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 3px;
+}
+
+.logout button:hover {
+    background-color: #570353;
+    color: white;
+}
