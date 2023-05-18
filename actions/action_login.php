@@ -22,9 +22,10 @@
             $session->setAdmin();
         }
         $session->addMessage('success', 'Login successful');
+        header('Location: /ticket_list.php' );
     } else {
         $session->addMessage('error', 'Wrong password!');
+        header('Location: /login.php' );
     }
-
-    header('Location: /ticket_list.php' );
+    
 ?>

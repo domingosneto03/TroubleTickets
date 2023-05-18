@@ -895,3 +895,7 @@ main {
 .logout button {
     padding: 0.4rem 0.5rem;
 }
+
+#username {
+    margin: 0 0.5rem;
+}

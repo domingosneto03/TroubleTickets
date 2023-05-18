@@ -13,7 +13,12 @@ $faqs = FAQ::getFaqs($db);
 $title = "Mango Tickets - FAQs";
 
 output_header($session, $title);
-output_sidebar($session);
+if(isset($_SESSION["id"])){
+    output_sidebar($session);
+}
+else{
+    output_alt_sidebar();
+}
 output_faq_body($session, $faqs);
 output_footer();
 

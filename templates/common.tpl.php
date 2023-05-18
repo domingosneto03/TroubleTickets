@@ -70,6 +70,16 @@
     </aside>
 <?php } ?>
 
+<?php function output_alt_sidebar() { ?>
+    <aside id="side_bar">
+        <a href="faq.php" title="FAQs">
+            <span class="material-symbols-outlined">
+                help_center
+            </span>
+        </a>
+    </aside>
+<?php } ?>
+
 <?php function output_footer() { ?>
     <footer id="main_footer">
             <p>João Ribeiro, Xavier Santos, Domingos Neto @ FEUP</p>
