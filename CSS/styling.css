@@ -284,6 +284,7 @@ main {
 
 #filters input, #filters select {
     border-radius: 3px;
+    width: auto;
 }
 
 #my_tickets_button, #tracked_tickets_button {

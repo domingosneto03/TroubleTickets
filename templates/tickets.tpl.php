@@ -21,7 +21,7 @@
             <p class="ticket_deadline">Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p>
         </div>
         <div class="ticket_info_bottom">
-            <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user"><p><?= $ticket->getClientName($db) ?></p></a>
+            <p class="ticket_user">Created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user"><?= $ticket->getClientName($db) ?></a></p>
             <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->createdAt ) ?></p>
             <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             <p class="ticket_status"><?= $ticket->status ?></p>
@@ -150,9 +150,12 @@
             
             <div class="focused_ticket_info">
                 <p>Ticket created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>"><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->createdAt )?> </p>
-                <p> Status: Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a></p> <!-- 
-                    use php to get status, if assigned use css after "Assigned" to add "to agent Frederico" or smth
-                    -->
+                <p>Status: <?php if ($ticket->status === "open") { 
+                    ?>Open<?php } 
+                    elseif ($ticket->status === "closed") { 
+                    ?>Closed<?php } 
+                    elseif ($ticket->status === "assigned") { 
+                    ?>Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a><?php } ?></p>
             </div>
 
             <?php output_comment_section($ticket->getComments($db)) ?>
