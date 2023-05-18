@@ -372,3 +372,10 @@
     font-weight: 700;
     font-size: 0.8rem;
 }
+
+#not_found {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+}

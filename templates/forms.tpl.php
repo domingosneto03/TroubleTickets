@@ -29,7 +29,7 @@
             <h2>Register</h2>
             <form enctype="multipart/form-data">
                 <label>Username
-                    <input type="text" id="username" name="username" placeholder="Create a username">
+                    <input type="text" id="username" name="username" placeholder="Create a username" autofocus>
                     <span id="usernameError"></span>
                 </label>
                 <label>E-mail

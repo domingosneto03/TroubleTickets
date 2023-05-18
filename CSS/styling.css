@@ -551,3 +551,7 @@ main {
     background-color: #570353;
     color: white;
 }
+
+#not_found {
+    color: black;
+}

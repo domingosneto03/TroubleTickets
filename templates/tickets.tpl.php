@@ -53,6 +53,9 @@
         
         <div id="tickets_main">
             <article id="tickets">
+            <?php if(empty($tickets)) { ?>
+                <p id="not_found">Oops! We could not find any tickets to match your criteria!</p>
+            <?php } ?>
             <?php foreach ($tickets as $ticket) {
                 output_ticket_card($ticket);
             } ?>
