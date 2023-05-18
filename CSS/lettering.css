@@ -351,7 +351,19 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+#settings button {
+    font-family: 'Oxygen', sans-serif;
+}
+
 #settings h2 {
     font: bolder;
+}
+
+#settings .account .popup .close {
+    font-weight: bolder;
+}
+
+.no_access {
+    font-family: 'Oxygen', sans-serif;
 }
 

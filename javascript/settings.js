@@ -15,18 +15,23 @@ yesDelete.addEventListener('click', () => {
     popup.close();
 })
 
-function hidenshow() {
-    var change_username = document.getElementById("change_username");
-    var new_username = document.getElementById("new_username");
-    if(new_username.style.display === "none") {
-        new_username.style.display = "block";
-        change_username.style.display = "none";
-    }
-    else {
-        new_username.style.display = "none";
-        change_username.style.display = "block";
-    }  
-}
+c_user = document.querySelector("#change_username").querySelector("button");
+n_user = document.querySelector("#new_username");
+n_user_btn = document.querySelector("#new_username").querySelector("button");
+
+c_user.addEventListener('click', function() {
+    c_user.classList.remove("show");
+    c_user.classList.add("hide");
+    n_user.classList.remove("hide");
+    n_user.classList.add("show");
+})
+
+n_user_btn.addEventListener('click', function() {
+    n_user.classList.remove("show");
+    n_user.classList.add("hide");
+    c_user.classList.remove("hide");
+    c_user.classList.add("show");
+})
 
 selections = document.querySelector(".selections").querySelectorAll("a");
 
@@ -58,3 +63,15 @@ function notifShow() {
     accountShow.style.display = "none";
     notificationShow.style.display = "block";
 }
+
+notif_active = document.querySelector('.notif_active');
+notif_disabled = document.querySelector('.notif_disabled');
+disable = document.querySelectorAll('.dependent')
+
+notif_disabled.addEventListener('click', function() {
+    disable.forEach(option => option.disabled = true);
+})
+
+notif_active.addEventListener('click', function() {
+    disable.forEach(option => option.disabled = false);
+})

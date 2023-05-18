@@ -90,13 +90,13 @@
                 <div class="account">
                     <h2>Account</h2>
                     <h3>Change Username</h3>
-                    <div id="change_username">
-                        <button onclick="hidenshow()" formaction="#" formmethod="post">Change Username</button>
+                    <div class="show" id="change_username">
+                        <button  formaction="#" formmethod="post">Change Username</button>
                     </div>
-                    <label id="new_username">
+                    <label class="hide" id="new_username">
                         New Username
                         <input type="text" name="username" placeholder="Type your new username">
-                        <button onclick="hidenshow()" formaction="#" formmethod="post">Save</button>
+                        <button  formaction="#" formmethod="post">Save</button>
                     </label>
                     <h3>Change Password</h3>
                     <div id="change_password">
@@ -133,32 +133,32 @@
                     <div>
                         <p>Enable general notifications</p>
                         <form id="notif">
-                            <div><input type="radio" name="notifications" value="activated" checked="checked">Activated</div>
-                            <div><input type="radio" name="notifications" value="deactivated">Deactivated</div>
+                            <div><input class="notif_active" type="radio" name="notifications" value="activated" checked="checked">Activated</div>
+                            <div><input class="notif_disabled" type="radio" name="notifications" value="deactivated">Deactivated</div>
                         </form>  
                     </div>
                     <h3>Created Tickets</h3>
                     <div>
                         <p>Receive an update of every ticket created</p>
                         <form id="notif_create">
-                            <div><input type="radio" name="notif_create" value="activated" checked="checked">Activated</div>
-                            <div><input type="radio" name="notif_create" value="deactivated">Deactivated</div>
+                            <div><input class="dependent" type="radio" name="notif_create" value="activated" checked="checked">Activated</div>
+                            <div><input class="dependent" type="radio" name="notif_create" value="deactivated">Deactivated</div>
                         </form>                        
                     </div>
                     <h3>Received Tickets</h3>
                     <div>
                         <p>Receive a notification of the ticket refeered to you</p>
                         <form id="notif_receive">
-                            <div><input type="radio" name="notif_receive" value="activated" checked="checked">Activated</div>
-                            <div><input type="radio" name="notif_receive" value="deactivated">Deactivated</div>
+                            <div><input class="dependent" type="radio" name="notif_receive" value="activated" checked="checked">Activated</div>
+                            <div><input class="dependent" type="radio" name="notif_receive" value="deactivated">Deactivated</div>
                         </form>  
                     </div>
                     <h3>Comments</h3>
                     <div>
                         <p>Receive an update of comments of tickets</p>
                         <form id="notif_comments">
-                            <div><input type="radio" name="notif_comments" value="activated" checked="checked">Activated</div>
-                            <div><input type="radio" name="notif_comments" value="deactivated">Deactivated</div>
+                            <div><input class="dependent" type="radio" name="notif_comments" value="activated" checked="checked">Activated</div>
+                            <div><input class="dependent" type="radio" name="notif_comments" value="deactivated">Deactivated</div>
                         </form>
                     </div>
                 </div>

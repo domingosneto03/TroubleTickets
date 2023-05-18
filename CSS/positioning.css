@@ -803,23 +803,11 @@ main {
     gap: 1em;
 }
 
-#settings_sidebar nav a.active {
-    padding-bottom: 5px;
-}
-
-#settings_sidebar nav a.active:hover {
-    padding-bottom: 5px;
-}
-
 #settings_sidebar nav a {
     padding: 0.2rem 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-#settings_sidebar nav a:hover{
-    padding-bottom: 5px;
 }
 
 #settings {
@@ -887,12 +875,23 @@ main {
 
 #settings .account .popup .close {
     width: 25px;
+    padding-bottom: 4px;
 }
 
 #settings .account .popup h3 {
     margin-top: 0;
 }
 
-#admin_body {
-    max-height: 100vh;
+.no_access {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#no_access_title {
+    text-align: center;
+}
+
+#no_access_message {
+    text-align: center;
+    margin-top: 0;
 }
