@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap');
 
 .faq_faq {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .faq_faq h3 {
@@ -17,29 +15,29 @@
 }
 
 .top_bar_button {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
     text-decoration: none;
 }
 
 .new_faq_window label {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
 }
 
 .new_faq_window div > input[type="submit"] {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
 }
 
 .new_faq_window div > input[type="button"] {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
 }
 
 #main_header h1 {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.8em;
     text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
@@ -51,7 +49,7 @@
 }
 
 #right_side {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 15px;
 }
@@ -61,13 +59,13 @@
 }
 
 #username {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
 }
 
 #side_bar a {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     text-decoration: none;
 }
@@ -77,19 +75,19 @@
 }
 
 #main_footer {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 0.8rem;
 }
 
 .main_title {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.7em;
 }
 
 #new_ticket_form {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #sub_button {
@@ -100,20 +98,20 @@
 .cancel_ticket {
     text-decoration: none;
     text-align: center;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
 }
 
 #profile_editor_button {
     text-decoration: none;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
     text-align: center;
 }
 
 #profile_user p {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     text-align: center;
@@ -133,13 +131,13 @@
 }
 
 #bio p {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     text-align: center;
 }
 
 .admin_promoter, .agent_promoter, .admin_promoter_profile, .agent_promoter_profile {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
 }
@@ -151,7 +149,7 @@
 #login label, #register label {
     text-align: left;
     font-size: medium;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #login h2, #register h2{
@@ -159,18 +157,18 @@
 }
 
 #login p {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 15px;
 }
 
 #ticket_info_main h3 {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.5em;
 }
 
 #ticket_info_main p {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1.1em;
 }
@@ -188,13 +186,13 @@
 }
 
 .outer_tags label {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
 }
 
 .focused_ticket_tags {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-style: italic;
 }
@@ -204,55 +202,55 @@
 }
 
 .focused_ticket_comments h4 {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.4rem;
 }
 
 .focused_ticket_comment_poster {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1rem;
 }
 
 .focused_ticket_comment_text {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
 
 .focused_ticket_comment_date {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 0.8rem;
 }
 
 .comment_maker label {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.7rem;
 }
 
 .comment_maker input[type="submit"]{
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
 }
 
 #edit_ticket {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
     text-decoration: none;
 }
 
 #filters {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
 }
 
 .filter_checker {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
     text-align: center;
@@ -269,17 +267,17 @@
 .ticket_title {
     font-weight: 700;
     font-size: 30px;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .ticket_deadline {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
 
 .ticket_tags {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 13px;
     font-style: italic;
@@ -287,7 +285,7 @@
 
 .ticket_department, .ticket_agent, .ticket_status, .ticket_date, .ticket_user {
     text-align: center;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -295,17 +293,17 @@
 .ticket article :not(.ticket_text, .ticket_title, .ticket_tags, .ticket_user_img, .ticket_destroyer) {
     font-weight: 700;
     font-size: 13px;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .ticket_destroyer {
     font-weight: 700;
     font-size: 13px;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #management_main {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
 }
 
@@ -335,7 +333,7 @@
 }
 
 #login_button {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 0.8rem;
 }

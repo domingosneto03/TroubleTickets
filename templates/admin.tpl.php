@@ -28,50 +28,19 @@
 
 <?php function output_agent_list($agents) { ?>
     <div id="agent_list">
-        <!-- lista de agentes, dá para fazer scroll, iupi iupi -->
-        <p>Top 5 best rated Agents of the last month</p>
+        <!-- a mesma cena mas para clientes -->
+        <p>Agents</p>
         <div>
-            <!-- aqui sim vai a lista de agentes -->
+            <?php foreach ($agents as $agent) { ?>
+            <!-- aqui sim vai a lista de clientes -->
             <article class="agent_list_item">
-                <a href="" class="agent_list_item_img"><img src="Group 1.png" alt=""></a>
-                <a href="">
-                    <p class="agent_list_item_name">Frederico</p>
+                <a href="<?php "/profile.php?id=" . $agent->id; ?>" class="agent_list_item_img"><img src="<?= $agent->userImage ?>" alt="profile_pic"></a><!-- perfil do gajo -->
+                <a href="<?php "/profile.php?id=" . $agent->id; ?>" class="agent_list_item_name">
+                    <?= $agent->username; ?>
                 </a>
-                <p class="agent_list_item_rating">4.5/5</p>
                 <button class="admin_promoter">Promote to Admin</button>
             </article>
-            <article class="agent_list_item">
-                <a href="" class="agent_list_item_img"><img src="Group 1.png" alt=""></a>
-                <a href="">
-                    <p class="agent_list_item_name">Frederico</p>
-                </a>
-                <p class="agent_list_item_rating">4.5/5</p>
-                <button class="admin_promoter">Promote to Admin</button>
-            </article>
-            <article class="agent_list_item">
-                <a href="" class="agent_list_item_img"><img src="Group 1.png" alt=""></a>
-                <a href="">
-                    <p class="agent_list_item_name">Frederico</p>
-                </a>
-                <p class="agent_list_item_rating">4.5/5</p>
-                <button class="admin_promoter">Promote to Admin</button>
-            </article>
-            <article class="agent_list_item">
-                <a href="" class="agent_list_item_img"><img src="Group 1.png" alt=""></a>
-                <a href="">
-                    <p class="agent_list_item_name">Frederico</p>
-                </a>
-                <p class="agent_list_item_rating">4.5/5</p>
-                <button class="admin_promoter">Promote to Admin</button>
-            </article>
-            <article class="agent_list_item">
-                <a href="" class="agent_list_item_img"><img src="Group 1.png" alt=""></a>
-                <a href="">
-                    <p class="agent_list_item_name">Frederico</p>
-                </a>
-                <p class="agent_list_item_rating">4.5/5</p>
-                <button class="admin_promoter">Promote to Admin</button>
-            </article>
+            <?php } ?>
         </div>
     </div>
 <?php } ?>
@@ -79,16 +48,15 @@
 <?php function output_client_list($clients) { ?>
     <div id="client_list">
         <!-- a mesma cena mas para clientes -->
-        <p>Top 5 best rated Clients of the last month</p>
+        <p>Clients</p>
         <div>
             <?php foreach ($clients as $client) { ?>
             <!-- aqui sim vai a lista de clientes -->
             <article class="client_list_item">
                 <a href="<?php "/profile.php?id=" . $client->id; ?>" class="client_list_item_img"><img src="<?= $client->userImage ?>" alt="profile_pic"></a><!-- perfil do gajo -->
                 <a href="<?php "/profile.php?id=" . $client->id; ?>" class="client_list_item_name">
-                    <p><?= $client->username; ?></p>
+                    <?= $client->username; ?>
                 </a>
-                <p class="client_list_item_rating"><?= $client->rating ?>/5</p>
                 <button class="agent_promoter">Promote to Agent</button>
                 <button class="admin_promoter">Promote to Admin</button>
             </article>

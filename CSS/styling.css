@@ -9,6 +9,7 @@
 .top_bar {
     border: none;
     border-bottom: 2px solid #191919;
+    background-color: #e6e6e6;
 }
 
 .top_bar_button {
@@ -275,11 +276,6 @@ main {
 
 #ticket_list_main {
     background-color: #e6e6e6;
-}
-
-.top_bar {
-    border: none;
-    border-bottom: 2px solid #191919;
 }
 
 #filters {
