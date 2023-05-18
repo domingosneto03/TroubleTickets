@@ -22,16 +22,16 @@
                 <p><?= $user->bio ?></p>
             </div>
             
-            <?php if (isset($_SESSION['id'])) { ?>
+            <?php if (isset($_SESSION['id']) && $_SESSION['id'] === $user->id) { ?>
             <a href="" id="profile_editor_button">
                 Edit profile
             </a>
             <?php } ?>
 
-            <!-- choose which of these to display using php magic -->
-            <!-- these options only appear to Admins visiting the page -->
+            <?php if ($session->isAdmin()) { ?>
             <button class="admin_promoter_profile">Promote to Admin</button>
             <button class="agent_promoter_profile">Promote to Agent</button>
+            <?php } ?>
         </article>
     </main>
 <?php } ?>

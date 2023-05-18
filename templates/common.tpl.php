@@ -35,13 +35,13 @@
 
 <?php function output_sidebar($session) { ?>
     <aside id="side_bar">
-        <a href="ticket_list.php">
+        <a href="ticket_list.php" title="Ticket List">
             <span class="material-symbols-outlined">
                 credit_card
             </span>
         </a>
         <?php if (isset($_SESSION['id'])) { ?>
-        <a href="new_ticket.php">
+        <a href="new_ticket.php" title="New Ticket">
         <?php } else {
             $session->addMessage("error", "You need to log in before you submit a new ticket") ?>
             <a href="ticket_list.php">
@@ -50,12 +50,12 @@
                 add_card
             </span>
         </a>
-        <a href="faq.php">
+        <a href="faq.php" title="FAQs">
             <span class="material-symbols-outlined">
                 help_center
             </span>
         </a>
-        <a href="">
+        <a href="" title="Settings">
             <span class="material-symbols-outlined">
                 settings
             </span>
