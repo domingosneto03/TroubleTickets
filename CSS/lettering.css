@@ -195,6 +195,12 @@
     text-decoration: none;
 }
 
+.focused_ticket_tags div button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
 .focused_ticket_comments h4 {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
@@ -400,4 +406,10 @@
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.3rem;
+}
+
+#tag_adder {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
 }

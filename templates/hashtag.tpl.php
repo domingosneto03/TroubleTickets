@@ -13,7 +13,7 @@
     <div>
         <a href="" class="ticket_tag">#<?= $hashtag->name; ?></a>
         <?php  if ($session->isAgent()) { ?>
-        <button>X</button>
+        <button>x</button>
         <?php } ?>
     </div>
 <?php  } ?>
@@ -25,7 +25,7 @@
         <?php foreach ($hashtags as $hashtag) {
             output_hashtag($session, $hashtag);
         } ?>
-        <input name="tags" list="tag_list">
+        <input name="tags" list="tag_list" placeholder="Choose tag(s)">
         <datalist id="tag_list">
             <?php
                 global $db; 

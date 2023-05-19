@@ -13,6 +13,7 @@
     position: sticky;
     top: 0rem;
     height: 2.4rem;
+    padding-bottom: 0.3rem;
 }
 
 .new_faq_hidden {
@@ -393,6 +394,7 @@ main {
     flex-direction: row;
     align-content: center;
     gap: 0.3rem;
+    flex-wrap: wrap;
 }
 
 .focused_ticket_comments h4 {
@@ -497,7 +499,7 @@ main {
     flex-direction: column;
     position: sticky;
     height: fit-content;
-    top: 2.6rem;
+    top: 3rem;
 }
 
 .filter_checker:first-of-type {
