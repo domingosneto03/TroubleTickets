@@ -395,3 +395,9 @@
 .ticket_info_bottom * {
     text-align: center;
 }
+
+.error_message {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+}

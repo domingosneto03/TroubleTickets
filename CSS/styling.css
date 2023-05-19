@@ -577,3 +577,7 @@ main {
     color: white;
     border-radius: 3px;
 }
+
+.error_message {
+    color: red;
+}
