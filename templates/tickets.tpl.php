@@ -70,11 +70,15 @@
 <?php function output_ticket_filters($session) { 
     global $db; ?>
     <article id="outer_filters">
-        <label for="my_tickets_button" class="filter_checker">My tickets</label>
-        <input type="checkbox" name="my_tickets" id="my_tickets_button">
+        <form method="post" action="../actions/action_my_tickets.php">
+            <label for="my_tickets_button" class="filter_checker">My tickets</label>
+            <input type="submit" name="my_tickets" id="my_tickets_button">
+        </form>
         <?php  if ($session->isAgent() || $session->isAdmin()) { ?>
-        <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
-        <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
+        <form method="post" action="../actions/action_tracked_tickets.php">
+            <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
+            <input type="submit" name="tracked_tickets" id="tracked_tickets_button">
+        </form>
         <?php } ?>
         <form id="filters" method="post" action="/../actions/action_filter_tickets.php">
             <label for="orderer">Sort:</label>

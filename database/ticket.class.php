@@ -164,7 +164,67 @@
                 );
             }
             return $tickets;
-        } 
+        }
+        
+        static function getMyTickets(PDO $db, int $userId) {
+            $stmt = $db->prepare('
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline  
+                FROM ticket t
+                JOIN ticket_department td
+                ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
+                WHERE th.type_of_edit = "CREATION"
+                AND clientId = ?
+            ');
+            $stmt->execute(array($userId));
+            $tickets = [];
+            while ($ticket = $stmt->fetch()) {
+                $tickets[] = new Ticket(
+                    $ticket['ticketId'],
+                    $ticket['title'],
+                    $ticket['body'],
+                    $ticket['status'],
+                    $ticket['assigned'],
+                    $ticket['clientId'],
+                    $ticket['priority'],
+                    $ticket['department'],
+                    $ticket['createdAt'],
+                    $ticket['deadline']
+                );
+            }
+            return $tickets;
+        }
+
+        static function getTrackedTickets(PDO $db, int $agentId) {
+            $stmt = $db->prepare('
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline  
+                FROM ticket t
+                JOIN ticket_department td
+                ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
+                WHERE th.type_of_edit = "CREATION"
+                AND assigned = ?
+            ');
+            $stmt->execute(array($agentId));
+            $tickets = [];
+            while ($ticket = $stmt->fetch()) {
+                $tickets[] = new Ticket(
+                    $ticket['ticketId'],
+                    $ticket['title'],
+                    $ticket['body'],
+                    $ticket['status'],
+                    $ticket['assigned'],
+                    $ticket['clientId'],
+                    $ticket['priority'],
+                    $ticket['department'],
+                    $ticket['createdAt'],
+                    $ticket['deadline']
+                );
+            }
+            return $tickets;
+        }
 
         static function create_ticket(PDO $db, string $title, string $body, int $clientId, int $priority, int $department, int $deadline) {
             $stmt = $db->prepare('
