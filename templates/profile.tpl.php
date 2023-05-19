@@ -33,7 +33,12 @@
             <?php } ?>
 
             <?php if ($session->isAdmin()) { ?>
-            <button class="admin_promoter_profile">Promote to Admin</button>
+                <?php 
+                    if (! $user->isAdmin($db)) { ?>
+                        <button class="admin_promoter_profile">Promote to Admin</button>
+                    <?php }    
+                ?>
+            
             <?php 
                 if ($user->isAgent($db) || $user->isAdmin($db)){}
                 
