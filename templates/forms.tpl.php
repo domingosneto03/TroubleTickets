@@ -3,12 +3,18 @@
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/department.class.php");
     $db = getDatabaseConnection();
+    $session = new Session();
 ?>
 
-<?php function output_login_form() { ?>
+<?php function output_login_form($session) { ?>
     <main>
         <section id="login">
             <h2>Login</h2>
+            <?php 
+                if (end($session->getMessages())['type'] == 'error'){
+                    ?> <p class="error_message">Invalid Credentials! Please try again.</p> <?php
+                }
+            ?>
             <form>
                 <label>Username
                     <input type="text" name="username" placeholder="Type your username or email" autofocus>

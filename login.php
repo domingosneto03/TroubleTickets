@@ -7,6 +7,6 @@
 
     output_header($session, $title);
     output_alt_sidebar();
-    output_login_form();
+    output_login_form($session);
     output_footer();
 ?>
