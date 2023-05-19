@@ -35,33 +35,27 @@
 
             <?php if ($session->isAdmin()) { ?>
                 <?php 
-                    if (! $user->isAdmin($db)) { ?>
+                    if ($user->isAgent($db) && ! $user->isAdmin($db)) { ?>
                         <form action="/../actions/action_promote_to_admin.php" method="post">
                             <input type="hidden" name="id" value="<?= $user->id ?>">
                             <button type="submit" class="admin_promoter_profile">Promote to Admin</button>
                         </form>
                     <?php }    
                 ?>
-            
-            <?php 
-                if ($user->isAgent($db) || $user->isAdmin($db)){}
-                
-                else { ?>
-                    <form action="/../actions/action_promote_to_agent.php" method="post" class="agent_promotion">
-                        <button class="agent_promoter_profile">Promote to Agent</button>
-                        <select name="department" class="department_selector">
-                            <option value="" selected>Choose department</option>
-                            <?php foreach(Department::getAllDepartments($db) as $dep) { ?> 
-                                <option value="<?= $dep->id ?>"> <?= $dep->name ?> </option>
-                            <?php } ?>
-                        </select>
-                        <input type="hidden" name="id" value="<?= $user->id ?>">
-                        <button type="submit" class="agent_promoter_profile">Promote</button>
-                    </form>
-                    
-                <?php }
-            ?>
-            
+                <?php
+                    if(! $user->isAgent($db) && ! $user->isAdmin($db)) { ?>
+                        <form action="/../actions/action_promote_to_agent.php" method="post" class="agent_promotion">
+                            <select name="department" class="department_selector">
+                                <option value="" selected>Choose department</option>
+                                <?php foreach(Department::getAllDepartments($db) as $dep) { ?> 
+                                    <option value="<?= $dep->id ?>"> <?= $dep->name ?> </option>
+                                <?php } ?>
+                            </select>
+                            <input type="hidden" name="id" value="<?= $user->id ?>">
+                            <button type="submit" class="agent_promoter_profile">Promote</button>
+                        </form>
+                    <?php }
+                ?>
             <?php } ?>
         </article>
     </main>

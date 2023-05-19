@@ -404,17 +404,6 @@ main {
     border-radius: 3px;
 }
 
-.agent_promoter, .admin_promoter {
-    border-radius: 3px;
-    background-color: white;
-    color: black;
-}
-
-.agent_promoter:hover, .admin_promoter:hover {
-    background-color: #570353;
-    color: white;
-}
-
 #manage_buttons label {
     background-color: white;
     border-radius: 3px;
@@ -615,4 +604,11 @@ main {
     outline: none;
     border-bottom: 1px solid black;
     background-color: #e6e6e6;
+}
+
+#add_department {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: #c3c3c3;
 }

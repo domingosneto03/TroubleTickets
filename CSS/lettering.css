@@ -130,7 +130,7 @@
     text-align: center;
 }
 
-.admin_promoter, .agent_promoter, .admin_promoter_profile, .agent_promoter_profile {
+.admin_promoter_profile, .agent_promoter_profile {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
@@ -418,4 +418,16 @@
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+}
+
+.agent_list_item_department {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.agent_list_item_name, .client_list_item_name {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
 }

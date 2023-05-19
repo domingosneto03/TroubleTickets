@@ -662,10 +662,6 @@ main {
     width: inherit;
 }
 
-#agent_list div, #client_list div {
-    overflow-y: auto;
-}
-
 .client_list_item, .agent_list_item {
     padding: 5px;
     padding-right: 0;
@@ -696,20 +692,27 @@ main {
     grid-column-start: 2;
     grid-column-end: 4;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-content: center;
     flex-wrap: wrap;
+    margin-left: 0.5rem;
 }
 
-.agent_list_item .admin_promoter {
+.agent_list_item_department {
     column-span: all;
     grid-column-start: 2;
     grid-column-end: 4;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-left: 0.5rem;
 }
 
-.agent_promoter, .admin_promoter {
-    margin: 5px;
-    margin-bottom: 0;
+.agent_list_item_department p {
+    margin: 0;
 }
 
 #management_right_side {

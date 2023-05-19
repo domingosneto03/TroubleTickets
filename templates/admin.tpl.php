@@ -38,7 +38,10 @@
                 <a href="<?php "/profile.php?id=" . $agent->id; ?>" class="agent_list_item_name">
                     <?= $agent->username; ?>
                 </a>
-                <button class="admin_promoter">Promote to Admin</button>
+                <div class="agent_list_item_department">
+                    <p>Department:&nbsp</p>
+                    <p> <?= $agent->department ?> </p>
+                </div>
             </article>
             <?php } ?>
         </div>
@@ -57,8 +60,6 @@
                 <a href="<?php "/profile.php?id=" . $client->id; ?>" class="client_list_item_name">
                     <?= $client->username; ?>
                 </a>
-                <button class="agent_promoter" href="">Promote to Agent</button>
-                <button class="admin_promoter">Promote to Admin</button>
             </article>
             <?php } ?>
         </div>
@@ -78,8 +79,7 @@
                 <?php } ?>
             </ul>
             <form action="">
-                <label for="add_department">Add department</label>
-                <input type="text" name="add_department" id="add_department" maxlength="15">
+                <input type="text" name="add_department" id="add_department" maxlength="15" placeholder="Add department name">
                 <input type="submit" value="Add">
             </form>
         </div>
@@ -94,8 +94,7 @@
                 <li class="status_list_admin_item">Closed</li>
             </ul>
             <form action="">
-                <label for="add_status">Add status</label>
-                <input type="text" name="add_status" id="add_status" maxlength="15">
+                <input type="text" name="add_status" id="add_status" maxlength="15" placeholder="Enter department name">
                 <input type="submit" value="Add status">
             </form>
         </div>
