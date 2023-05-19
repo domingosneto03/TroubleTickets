@@ -719,7 +719,7 @@ main {
     justify-content: flex-start;
     height: fit-content;
     position: sticky;
-    top: 2.8rem;
+    top: 3.2rem;
 }
 
 #manage_buttons label {
@@ -914,4 +914,17 @@ main {
 
 .priority {
     margin-left: 0.5rem;
+}
+
+#profile_main form * {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.agent_promotion select {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.2rem;
+    width: 11rem;
 }

@@ -413,3 +413,9 @@
     font-weight: 700;
     font-size: 0.7rem;
 }
+
+.agent_promotion select {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}

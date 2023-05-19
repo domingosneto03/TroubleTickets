@@ -154,6 +154,16 @@ class User {
         return $stmt->fetch() !== false;
     }
 
+    public function makeAdmin(PDO $db) {
+        $stmt = $db->prepare('INSERT INTO admin (adminId) VALUES (?)');
+        $stmt->execute(array($this->id));
+    }
+
+    public function makeAgent(PDO $db, int $departmentId) {
+        $stmt = $db->prepare('INSERT INTO agent (agentId, departmentId) VALUES (?, ?)');
+        $stmt->execute(array($this->id, $departmentId));
+    }
+
     public function getDepartment(PDO $db) : string {
         $stmt = $db->prepare('
             SELECT name

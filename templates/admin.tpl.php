@@ -57,7 +57,7 @@
                 <a href="<?php "/profile.php?id=" . $client->id; ?>" class="client_list_item_name">
                     <?= $client->username; ?>
                 </a>
-                <button class="agent_promoter">Promote to Agent</button>
+                <button class="agent_promoter" href="">Promote to Agent</button>
                 <button class="admin_promoter">Promote to Admin</button>
             </article>
             <?php } ?>
