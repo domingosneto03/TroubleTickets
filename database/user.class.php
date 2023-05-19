@@ -8,14 +8,19 @@ class User {
     public string $bio;
     public string $userImage;
     public int $dateJoin;
+    public int $department;
 
-    public function __construct(int $id, string $username, string $email, string $bio, string $userImage, int $dateJoin) {
+    public function __construct(int $id, string $username, string $email, string $bio, string $userImage, int $dateJoin, ?int $department) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
         $this->bio = $bio;
         $this->userImage = $userImage;
         $this->dateJoin = $dateJoin;
+        if ($department === null)
+            $this->department = 0;
+        else
+            $this->department = $department;
     }
 
     function save(PDO $db) {
@@ -29,8 +34,9 @@ class User {
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
         $stmt = $db->prepare("
-            SELECT userId, username, password, email, bio, userImage, dateJoin
+            SELECT userId, username, password, email, bio, userImage, dateJoin, departmentId
             FROM user
+            LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE lower(username) = ?
         ");
         $stmt->execute(array(strtolower($username)));
@@ -43,15 +49,17 @@ class User {
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
-                $user['dateJoin']
+                $user['dateJoin'],
+                $user['departmentId']
             );
         } else return null; 
     }
 
     static function getUser(PDO $db, string $username) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage, dateJoin
+            SELECT userId, username, email, bio, userImage, dateJoin, departmentId
             FROM user
+            LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE username = ?
         ');
         $stmt->execute(array($username));
@@ -64,15 +72,17 @@ class User {
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
-                $user['dateJoin']
+                $user['dateJoin'],
+                $user['departmentId']
             );
         } else return null;
     }
 
     static function getUserById(PDO $db, int $id) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage, dateJoin
+            SELECT userId, username, email, bio, userImage, dateJoin, departmentId
             FROM user
+            LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE userId = ?
         ');
         $stmt->execute(array($id));
@@ -85,7 +95,8 @@ class User {
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
-                $user['dateJoin']
+                $user['dateJoin'],
+                $user['departmentId']
             );
         } else return null;
     }
@@ -118,7 +129,7 @@ class User {
         }        
     }
 
-    function delete(PDO $db) {
+    public function delete(PDO $db) {
         $stmt = $db->prepare("DELETE FROM user WHERE userId = ?");
         $stmt->execute(array($this->id));
     }
@@ -133,7 +144,7 @@ class User {
         return $stmt->fetch() !== false;
     }
 
-    function isAdmin(PDO $db) : bool {
+    public function isAdmin(PDO $db) : bool {
         $stmt = $db->prepare('
             SELECT *
             FROM admin
@@ -141,6 +152,16 @@ class User {
         ');
         $stmt->execute(array($this->id));
         return $stmt->fetch() !== false;
+    }
+
+    public function getDepartment(PDO $db) : string {
+        $stmt = $db->prepare('
+            SELECT name
+            FROM department
+            WHERE departmentId = ?
+        ');
+        $stmt->execute(array($this->department));
+        return $stmt->fetch()['departmentName'];
     }
 
     static function getNewUsersWeek(PDO $db) : int {

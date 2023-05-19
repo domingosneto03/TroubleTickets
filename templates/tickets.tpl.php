@@ -62,18 +62,20 @@
                 output_ticket_card($ticket);
             } ?>
             </article>
-            <?php output_ticket_filters(); ?>
+            <?php output_ticket_filters($session); ?>
         </div>
     </main>
 <?php } ?>
 
-<?php function output_ticket_filters() { 
+<?php function output_ticket_filters($session) { 
     global $db; ?>
     <article id="outer_filters">
         <label for="my_tickets_button" class="filter_checker">My tickets</label>
         <input type="checkbox" name="my_tickets" id="my_tickets_button">
+        <?php  if ($session->isAgent() || $session->isAdmin()) { ?>
         <label for="tracked_tickets_button" class="filter_checker">Tracked tickets</label>
         <input type="checkbox" name="tracked_tickets" id="tracked_tickets_button">
+        <?php } ?>
         <form id="filters" method="post" action="/../actions/action_filter_tickets.php">
             <label for="orderer">Sort:</label>
             <select name="ordering" id="orderer">
