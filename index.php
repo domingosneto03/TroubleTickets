@@ -1,3 +1,3 @@
 <?php
-header('Location: /ticket_list.php');
+header('Location: /login.php');
 ?>

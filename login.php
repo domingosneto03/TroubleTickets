@@ -6,7 +6,12 @@
     $title = "Mango Tickets - Login";
 
     output_header($session, $title);
-    output_alt_sidebar();
+    if(isset($_SESSION['id'])){
+        output_sidebar($session);
+    }
+    else{
+        output_alt_sidebar();
+    }
     output_login_form($session);
     output_footer();
 ?>
