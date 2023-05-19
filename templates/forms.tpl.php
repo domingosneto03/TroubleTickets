@@ -3,7 +3,7 @@
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/department.class.php");
     $db = getDatabaseConnection();
-    $session = new Session();
+
 ?>
 
 <?php function output_login_form($session) { ?>
@@ -12,7 +12,7 @@
             <h2>Login</h2>
             <?php 
                 if (end($session->getMessages())['type'] == 'error'){
-                    ?> <p class="error_message">Invalid Credentials! Please try again.</p> <?php
+                 ?> <p class="error_message">Invalid Credentials! Please try again.</p> <?php
                 }
             ?>
             <form>
