@@ -163,7 +163,7 @@ INSERT INTO admin (adminId) VALUES (18);
 INSERT INTO admin (adminId) VALUES (20);
 
 -- 20 tickets
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "open", 4, 6, 1, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "closed", 4, 6, 1, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "open", 10, 18, 2, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "open", 2, 14, 1, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "open", 6, 8, 2, 1683846000);
@@ -172,7 +172,7 @@ INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline)
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Website not loading", "I'm unable to access the company website from my computer", "open", 8, 13, 2, 1683932400);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Password reset", "I've forgotten my password and need it reset", "open", 16, 4, 3, 1683932400);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need access to shared drive", "I need access to a shared drive to retrieve some files", "open", 18, 11, 1, 1683932400);
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "open", 20, 17, 1, 1684105200);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer won't start", "My computer won't turn on and I need it fixed urgently", "closed", 20, 17, 1, 1684105200);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software update", "I need a software update to fix some bugs and improve performance", "open", 16, 1, 2, 1684105200);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access company portal", "I'm unable to access the company portal to submit my timesheet", "open", 6, 20, 1, 1684105200);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need new monitor", "My monitor is old and malfunctioning, I need a new one", "open", 2, 10, 3, 1684105200);
@@ -184,6 +184,8 @@ INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline)
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't access shared printer", "I'm unable to access the shared printer on the network", "open", 14, 19, 2, 1684450800);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need help with PowerPoint", "I need help formatting a presentation in PowerPoint", "open", 20, 3, 2, 1684450800);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("need help fixing marriage", "my marriage is falling to pieces", "open", 20, 3, 4, 1684450800);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("need help fixing marriage", "my marriage is falling to pieces", "open", 20, 3, 4, 1684450802);
+
 
 -- 20 ticket_history
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (1, "CREATION", 1683552124, null, null);
@@ -228,6 +230,7 @@ INSERT INTO ticket_department (ticketId, departmentId) VALUES (17, 5);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (18, 3);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (19, 1);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (20, 4);
+INSERT INTO ticket_department (ticketId, departmentId) VALUES (21, 3);
 
 INSERT INTO ticket_file (ticketId, filepath) VALUES (1, "uploads/1/1.jpg");
 

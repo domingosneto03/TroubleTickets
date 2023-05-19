@@ -91,6 +91,7 @@
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
+                <option value="urgent">Urgent</option>
             </select>
             <label for="sel_department">Department:</label>
             <select name="filter[department]" id="sel_department">
@@ -152,7 +153,7 @@
             </div>
                 
             <div class="outer_tags">
-                <?php output_hashtag_list($session, $ticket->getHashtags($db)); ?>
+                <?php output_hashtag_list($session, $ticket); ?>
             </div>
             
             <div class="focused_ticket_info">
@@ -165,7 +166,7 @@
                     ?>Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a><?php } ?></p>
             </div>
 
-            <?php output_comment_section($ticket->getComments($db)) ?>
+            <?php output_comment_section($session, $ticket) ?>
         </div>
     </main>
 

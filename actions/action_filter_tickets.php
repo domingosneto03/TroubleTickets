@@ -5,19 +5,23 @@
 
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/ticket.class.php");
+    require_once(__DIR__ . "/../database/user.class.php");
     $db = getDatabaseConnection();
 
+    $user = User::getUserById($db, $_SESSION['id']);
     $filters = isset($_POST['filter']) ? $_POST['filter'] : array();
     $conditions = array();
 
     if ($filters['priority'] !== "") {
         $priority = $filters['priority'];
-        if ($priority === "high") {
+        if ($priority === "urgent") {
             $conditions[] = "priority = 1";
-        } elseif ($priority === "medium") {
+        } elseif ($priority === "high") {
             $conditions[] = "priority = 2";
-        } elseif ($priority === "low") {
+        } elseif ($priority === "medium") {
             $conditions[] = "priority = 3";
+        } elseif ($priority === "low") {
+            $conditions[] = "priority = 4";
         }
     }
 
@@ -43,48 +47,36 @@
         $conditions[] = "createdAt <= '$date_end'";
     }
 
-    $whereClause = 'WHERE th.type_of_edit = "CREATION" ';
+    $filter = ' AND ';
     if (!empty($conditions)) {
-        $whereClause .= ' AND ' . implode(' AND ', $conditions);
+        $filter .= implode(' AND ', $conditions);
+    } else {
+        $filter = null;
     }
 
+    $order = '';
     if ($_POST['ordering'] !== ""){
         if ($_POST['ordering'] === "htl_priority")
-            $whereClause .= " ORDER BY priority DESC";
+            $order = " ORDER BY priority ASC";
         elseif ($_POST['ordering'] === "lth_priority")
-            $whereClause .= " ORDER BY priority ASC";
+            $order = " ORDER BY priority DESC";
         elseif ($_POST['ordering'] === "most_recent")
-            $whereClause .= " ORDER BY createdAt DESC";
+            $order = " ORDER BY createdAt DESC";
         elseif ($_POST['ordering'] === "least_recent")
-            $whereClause .= " ORDER BY createdAt ASC";
+            $order = " ORDER BY createdAt ASC";
+    } else {
+        $order = null;
     }
 
-    $query = "SELECT t.ticketId, title, body, status, assigned, clientId, `priority`, td.departmentId AS department, th.date AS createdAt, deadline
-              FROM ticket t
-              JOIN ticket_department td
-              ON t.ticketId = td.ticketId
-              JOIN ticket_history th
-              ON t.ticketId = th.ticketId " . $whereClause;
-
-    $stmt = $db->prepare($query);
-    $stmt->execute();
     $tickets = array();
-    while ($ticket = $stmt->fetch()) {
-        $tickets[] = new Ticket(
-            $ticket['ticketId'],
-            $ticket['title'],
-            $ticket['body'],
-            $ticket['status'],
-            $ticket['assigned'],
-            $ticket['clientId'],
-            $ticket['priority'],
-            $ticket['department'],
-            $ticket['createdAt'],
-            $ticket['deadline']
-        );
+    if ($session->isAdmin()) {
+        $tickets = Ticket::getTickets($db, $filter, $order);
+    } elseif ($session->isAgent()) {
+        $tickets = Ticket::getAgentTickets($db, $_SESSION['id'], $user->department, $filter, $order);
+    } else {
+        $tickets = Ticket::getClientTickets($db, $_SESSION['id'], $filter, $order);
     }
-
+    
     $_SESSION['filtered_tickets'] = $tickets;
-
     header('Location: /ticket_list.php');
 ?>

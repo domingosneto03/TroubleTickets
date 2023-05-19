@@ -16,13 +16,13 @@
     output_sidebar($session);
 
     if (isset($_SESSION['filtered_tickets'])) {
-        output_ticket_list($session, $_SESSION['filtered_tickets']);
-    } elseif (!$session->isAdmin() && !$session->isAgent()) {
-        output_ticket_list($session, Ticket::getClientTickets($db, $user->id));
+        output_ticket_list($session, $_SESSION['filtered_tickets']); 
+    } elseif ($session->isAdmin()) {
+        output_ticket_list($session, Ticket::getTickets($db, null, null));
     } elseif ($session->isAgent()) {
-        output_ticket_list($session, Ticket::getAgentTickets($db, $user->id, $user->department));
+        output_ticket_list($session, Ticket::getAgentTickets($db, $user->id, $user->department, null, null));
     } else {
-        output_ticket_list($session, Ticket::getTickets($db));
+        output_ticket_list($session, Ticket::getClientTickets($db, $user->id, null, null));
     }
     unset($_SESSION['filtered_tickets']);
 

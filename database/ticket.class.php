@@ -57,16 +57,19 @@
             );
         }
 
-        static function getTickets(PDO $db) {
-            $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
-                FROM ticket t
-                JOIN ticket_department td
-                ON t.ticketId = td.ticketId
-                JOIN ticket_history th
-                ON t.ticketId = th.ticketId
-                WHERE th.type_of_edit = "CREATION"
-            ');
+        static function getTickets(PDO $db, ?string $filter, ?string $order) {
+            $query = 'SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
+            FROM ticket t
+            JOIN ticket_department td
+            ON t.ticketId = td.ticketId
+            JOIN ticket_history th
+            ON t.ticketId = th.ticketId
+            WHERE th.type_of_edit = "CREATION"';
+            if ($filter !== null)
+                $query .= $filter;
+            if ($order !== null)
+                $query .= $order;
+            $stmt = $db->prepare($query);
             $stmt->execute();
             $tickets = [];
             while ($ticket = $stmt->fetch()) {
@@ -86,17 +89,22 @@
             return $tickets;
         }
 
-        static function getClientTickets(PDO $db, int $clientId) {
-            $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
-                FROM ticket t
-                JOIN ticket_department td
-                ON t.ticketId = td.ticketId
-                JOIN ticket_history th
-                ON t.ticketId = th.ticketId
-                WHERE th.type_of_edit = "CREATION"
-                AND clientId = ?
-            ');
+        static function getClientTickets(PDO $db, int $clientId, ?string $filter, ?string $order) {
+            $query = 'SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
+            FROM ticket t
+            JOIN ticket_department td
+            ON t.ticketId = td.ticketId
+            JOIN ticket_history th
+            ON t.ticketId = th.ticketId
+            WHERE th.type_of_edit = "CREATION"
+            AND clientId = ?';
+
+            if ($filter !== null)
+                $query .= $filter;
+            if ($order !== null)
+                $query .= $order;
+
+            $stmt = $db->prepare($query);
             $stmt->execute(array($clientId));
             $tickets = [];
             while ($ticket = $stmt->fetch()) {
@@ -116,20 +124,30 @@
             return $tickets;
         }
 
-        static function getAgentTickets(PDO $db, int $agentId, int $departmentId) {
-            $stmt = $db->prepare('
-                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date AS createdAt, deadline
-                FROM ticket t
-                JOIN ticket_department td
-                ON t.ticketId = td.ticketId
-                JOIN ticket_history th
-                ON t.ticketId = th.ticketId
-                WHERE th.type_of_edit = "CREATION"
-                AND clientId = ? 
-                OR td.departmentId = ?
-                ORDER BY department DESC
-            ');
-            $stmt->execute(array($agentId, $departmentId));
+        static function getAgentTickets(PDO $db, int $agentId, int $departmentId, ?string $filter, ?string $order) {
+            $query = 'SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date AS createdAt, deadline
+            FROM ticket t
+            JOIN ticket_department td
+            ON t.ticketId = td.ticketId
+            JOIN ticket_history th
+            ON t.ticketId = th.ticketId
+            WHERE th.type_of_edit = "CREATION"
+            AND departmentId = ?';
+            $or = ' OR clientId = ' . $agentId;
+            $depOrder = ' ORDER BY department DESC';
+
+            if ($filter !== null)
+                $query .= $filter;
+            else 
+                $query .= $or;
+
+            if ($order !== null)
+                $query .= $order;
+            else 
+                $query .= $depOrder;
+            
+            $stmt = $db->prepare($query);
+            $stmt->execute(array($departmentId));
             $tickets = [];
             while ($ticket = $stmt->fetch()) {
                 $tickets[] = new Ticket(
@@ -215,7 +233,7 @@
         public function closeTicket(PDO $db, int $id) {
             $stmt = $db->prepare('
                 UPDATE ticket
-                SET status = "CLOSED"
+                SET status = "closed"
                 WHERE ticketId = ?
             ');
             $stmt->execute(array($id));
@@ -224,7 +242,7 @@
                 INSERT INTO ticket_history (ticketId, type_of_edit, date, old_value)
                 VALUES (?, ?, ?, ?)
             ');
-            $stmt->execute(array($id, "CLOSED", time(), null));
+            $stmt->execute(array($id, "closed", time(), null));
         }
 
         public function add_Hashtag(PDO $db, int $ticketId) {
@@ -375,7 +393,7 @@
             $stmt = $db->prepare('
                 SELECT *
                 FROM ticket_history
-                WHERE type_of_edit = "CLOSED"
+                WHERE type_of_edit = "closed"
                 AND date
                 BETWEEN ? AND ?
             ');
@@ -389,7 +407,7 @@
             $stmt = $db->prepare('
                 SELECT *
                 FROM ticket_history
-                WHERE type_of_edit = "CLOSED"
+                WHERE type_of_edit = "closed"
                 AND date
                 BETWEEN ? AND ?
             ');

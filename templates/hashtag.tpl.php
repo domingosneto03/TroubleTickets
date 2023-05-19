@@ -5,6 +5,7 @@
 
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/hashtag.class.php");
+    require_once(__DIR__ . "/../database/ticket.class.php");
 
     $db = getDatabaseConnection();
 ?>
@@ -18,17 +19,19 @@
     </div>
 <?php  } ?>
 
-<?php function output_hashtag_list(Session $session, array $hashtags) { ?>
+<?php function output_hashtag_list(Session $session, Ticket $ticket) {
+    global $db; ?>
+    <?php if($ticket->status !== "closed") { ?>
     <label for="edit_tags">Edit tags</label>
     <input type="checkbox" name="edit_tags" id="edit_tags">
+    <?php } ?>
     <div class="focused_ticket_tags">
-        <?php foreach ($hashtags as $hashtag) {
+        <?php foreach ($ticket->getHashtags($db) as $hashtag) {
             output_hashtag($session, $hashtag);
         } ?>
         <input name="tags" list="tag_list" placeholder="Choose tag(s)">
         <datalist id="tag_list">
             <?php
-                global $db; 
                 foreach (Hashtag::getAllTags($db) as $hashtag) { ?>
                 <option value="<?= $hashtag->name; ?>">
             <?php } ?>
