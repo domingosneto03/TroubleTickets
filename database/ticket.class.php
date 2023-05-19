@@ -86,6 +86,68 @@
             return $tickets;
         }
 
+        static function getClientTickets(PDO $db, int $clientId) {
+            $stmt = $db->prepare('
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date as createdAt, deadline
+                FROM ticket t
+                JOIN ticket_department td
+                ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
+                WHERE th.type_of_edit = "CREATION"
+                AND clientId = ?
+            ');
+            $stmt->execute(array($clientId));
+            $tickets = [];
+            while ($ticket = $stmt->fetch()) {
+                $tickets[] = new Ticket(
+                    $ticket['ticketId'],
+                    $ticket['title'],
+                    $ticket['body'],
+                    $ticket['status'],
+                    $ticket['assigned'],
+                    $ticket['clientId'],
+                    $ticket['priority'],
+                    $ticket['department'],
+                    $ticket['createdAt'],
+                    $ticket['deadline']
+                );
+            }
+            return $tickets;
+        }
+
+        static function getAgentTickets(PDO $db, int $agentId, int $departmentId) {
+            $stmt = $db->prepare('
+                SELECT t.ticketId, title, body, status, assigned, clientId, priority, td.departmentId AS department, th.date AS createdAt, deadline
+                FROM ticket t
+                JOIN ticket_department td
+                ON t.ticketId = td.ticketId
+                JOIN ticket_history th
+                ON t.ticketId = th.ticketId
+                WHERE th.type_of_edit = "CREATION"
+                AND clientId = ? 
+                OR td.departmentId = ?
+                ORDER BY department DESC
+            ');
+            $stmt->execute(array($agentId, $departmentId));
+            $tickets = [];
+            while ($ticket = $stmt->fetch()) {
+                $tickets[] = new Ticket(
+                    $ticket['ticketId'],
+                    $ticket['title'],
+                    $ticket['body'],
+                    $ticket['status'],
+                    $ticket['assigned'],
+                    $ticket['clientId'],
+                    $ticket['priority'],
+                    $ticket['department'],
+                    $ticket['createdAt'],
+                    $ticket['deadline']
+                );
+            }
+            return $tickets;
+        } 
+
         static function create_ticket(PDO $db, string $title, string $body, int $clientId, int $priority, int $department, int $deadline) {
             $stmt = $db->prepare('
                 INSERT into ticket (title, body, clientId, priority, deadline)

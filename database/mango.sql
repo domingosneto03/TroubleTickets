@@ -2,14 +2,13 @@ DROP TABLE comment;
 DROP TABLE faq;
 DROP TABLE ticket_file;
 DROP TABLE ticket_department;
-DROP TABLE agent_department;
-DROP TABLE department;
 DROP TABLE ticket_history;
 DROP TABLE ticket_hash;
 DROP TABLE hashtag;
 DROP TABLE ticket;
 DROP TABLE admin;
 DROP TABLE agent;
+DROP TABLE department;
 DROP TABLE client;
 DROP TABLE user;
 
@@ -27,8 +26,14 @@ CREATE TABLE client (
     clientId INTEGER PRIMARY KEY REFERENCES user
 );
 
+CREATE TABLE department (
+    departmentId INTEGER PRIMARY KEY,
+    name VARCHAR
+);
+
 CREATE TABLE agent (
-    agentId INTEGER PRIMARY KEY REFERENCES user
+    agentId INTEGER PRIMARY KEY REFERENCES user,
+    departmentId INTEGER REFERENCES department
 );
 
 CREATE TABLE admin (
@@ -62,16 +67,6 @@ CREATE TABLE ticket_history (
     date INTEGER,
     agentId INTEGER REFERENCES agent,
     old_value VARCHAR
-);
-
-CREATE TABLE department (
-    departmentId INTEGER PRIMARY KEY,
-    name VARCHAR
-);
-
-CREATE TABLE agent_department (
-    agentId INTEGER REFERENCES agent,
-    departmentId INTEGER REFERENCES department
 );
 
 CREATE TABLE ticket_department (
@@ -142,17 +137,24 @@ INSERT INTO client (clientId) VALUES (18);
 INSERT INTO client (clientId) VALUES (19);
 INSERT INTO client (clientId) VALUES (20);
 
+-- 5 departments
+INSERT INTO department (name) VALUES ("Web");
+INSERT INTO department (name) VALUES ("Hardware");
+INSERT INTO department (name) VALUES ("Security");
+INSERT INTO department (name) VALUES ("Sound");
+INSERT INTO department (name) VALUES ("Installation");
+
 -- 10 agents
-INSERT INTO agent (agentId) VALUES (2);
-INSERT INTO agent (agentId) VALUES (4);
-INSERT INTO agent (agentId) VALUES (6);
-INSERT INTO agent (agentId) VALUES (8);
-INSERT INTO agent (agentId) VALUES (10);
-INSERT INTO agent (agentId) VALUES (12);
-INSERT INTO agent (agentId) VALUES (14);
-INSERT INTO agent (agentId) VALUES (16);
-INSERT INTO agent (agentId) VALUES (18);
-INSERT INTO agent (agentId) VALUES (20);
+INSERT INTO agent (agentId, departmentId) VALUES (2, 1);
+INSERT INTO agent (agentId, departmentId) VALUES (4, 2);
+INSERT INTO agent (agentId, departmentId) VALUES (6, 3);
+INSERT INTO agent (agentId, departmentId) VALUES (8, 4);
+INSERT INTO agent (agentId, departmentId) VALUES (10, 5);
+INSERT INTO agent (agentId, departmentId) VALUES (12, 1);
+INSERT INTO agent (agentId, departmentId) VALUES (14, 2);
+INSERT INTO agent (agentId, departmentId) VALUES (16, 3);
+INSERT INTO agent (agentId, departmentId) VALUES (18, 4);
+INSERT INTO agent (agentId, departmentId) VALUES (20, 5);
 
 -- 4 admin
 INSERT INTO admin (adminId) VALUES (8);
@@ -205,13 +207,6 @@ INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VA
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (19, "CREATION", 1683567200, null, null);
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (20, "CREATION", 1683621200, null, null);
 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value) VALUES (21, "CREATION", 1683621200, null, null);
-
--- 5 departments
-INSERT INTO department (name) VALUES ("Web");
-INSERT INTO department (name) VALUES ("Hardware");
-INSERT INTO department (name) VALUES ("Security");
-INSERT INTO department (name) VALUES ("Sound");
-INSERT INTO department (name) VALUES ("Installation");
 
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (1, 4);
 INSERT INTO ticket_department (ticketId, departmentId) VALUES (2, 1);

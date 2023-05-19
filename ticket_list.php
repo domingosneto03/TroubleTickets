@@ -1,5 +1,6 @@
 <?php
     require_once(__DIR__ . "/database/ticket.class.php");
+    require_once(__DIR__ . "/database/user.class.php");
     require_once(__DIR__ . "/utils/session.php");
     $session = new Session();
 
@@ -8,14 +9,18 @@
     require_once(__DIR__ . "/templates/tickets.tpl.php");
 
     $db = getDatabaseConnection();
-
     $title = "MangoTickets - Ticket List";
+    $user = User::getUserById($db, $_SESSION['id']);
 
     output_header($session, $title);
     output_sidebar($session);
 
     if (isset($_SESSION['filtered_tickets'])) {
         output_ticket_list($session, $_SESSION['filtered_tickets']);
+    } elseif (!$session->isAdmin() && !$session->isAgent()) {
+        output_ticket_list($session, Ticket::getClientTickets($db, $user->id));
+    } elseif ($session->isAgent()) {
+        output_ticket_list($session, Ticket::getAgentTickets($db, $user->id, $user->department));
     } else {
         output_ticket_list($session, Ticket::getTickets($db));
     }
