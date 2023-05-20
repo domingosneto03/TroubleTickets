@@ -5,6 +5,11 @@
 
 .faq_faq_header a {
     color: black;
+    display: none;
+}
+
+.faq_faq:hover a {
+    display: inline;
 }
 
 .top_bar {
