@@ -21,6 +21,11 @@
                 <?php } else { ?>
                     <p>Client</p>
                 <?php } ?>
+                <?php 
+                    if ($user->isAgent($db)) { ?>
+                        <p class="agent_profile_dep"> departamento </p>
+                    <?php }
+                ?>
                 <p><?= $user->email ?></p>
             </div>
             <div id="bio">

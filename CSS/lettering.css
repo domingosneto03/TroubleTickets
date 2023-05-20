@@ -4,6 +4,12 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+#profile_user .agent_profile_dep {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 .faq_faq h3 {
     font-weight: 700;
     font-size: 1.5rem;
@@ -441,3 +447,4 @@
     font-weight: 700;
     font-size: 0.7rem;
 }
+
