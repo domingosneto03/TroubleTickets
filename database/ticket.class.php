@@ -305,6 +305,21 @@
             $stmt->execute(array($id, "closed", time(), null));
         }
 
+        public function openTicket(PDO $db) {
+            $stmt = $db->prepare('
+                UPDATE ticket
+                SET status = "open"
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($this->id));
+
+            $stmt = $db->prepare('
+                INSERT INTO ticket_history (ticketId, type_of_edit, date, old_value)
+                VALUES (?, ?, ?, ?)
+            ');
+            $stmt->execute(array($this->id, "open", time(), null));
+        }
+
         public function add_Hashtag(PDO $db, int $ticketId) {
             $stmt = $db->prepare('
                 INSERT into ticket_hash (ticketId, hashtagId)
