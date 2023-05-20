@@ -23,7 +23,7 @@
                 <?php } ?>
                 <?php 
                     if ($user->isAgent($db)) { ?>
-                        <p class="agent_profile_dep"> departamento </p>
+                        <p class="agent_profile_dep"> <?= $user->getDepartment($db) ?> </p>
                     <?php }
                 ?>
                 <p><?= $user->email ?></p>

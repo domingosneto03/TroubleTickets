@@ -171,7 +171,7 @@ class User {
             WHERE departmentId = ?
         ');
         $stmt->execute(array($this->department));
-        return $stmt->fetch()['departmentName'];
+        return $stmt->fetch()['name'];
     }
 
     static function getNewUsersWeek(PDO $db) : int {
