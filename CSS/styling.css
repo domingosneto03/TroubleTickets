@@ -1,9 +1,10 @@
 .faq_faq {
-    border-top: 3px solid #570353;
+    border: 2px solid black;
+    border-radius: 3px;
 }
 
-.faq_faq:last-child {
-    border-bottom: 3px solid #570353;
+.faq_faq_header a {
+    color: black;
 }
 
 .top_bar {

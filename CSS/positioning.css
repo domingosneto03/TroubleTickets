@@ -1,9 +1,32 @@
 .faq_faq h3 {
     padding-left: 1rem;
+    margin: 0.4rem 0;
 }
 
 .faq_faq p {
     padding-left: 1.2rem;
+    margin: 0 0 0.3rem;
+}
+
+.faq_faq {
+    margin-bottom: 0.5rem;
+}
+
+.faq_faq:first-of-type {
+    margin-top: 0.4rem;
+}
+
+.faq_faq_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.faq_faq_header a {
+    height: min-content;
+    margin-left: 0.2rem;
 }
 
 .top_bar {
@@ -363,7 +386,7 @@ main {
 
 .outer_tags {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
 

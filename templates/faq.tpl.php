@@ -28,7 +28,10 @@
 
 <?php function output_faq(FAQ $faq) { ?>
     <article class="faq_faq">
-        <h3><?= $faq->question() ?></h3>
+        <div class="faq_faq_header">
+            <h3><?= $faq->question() ?></h3>
+            <a href="#<?= $faq->question() ?>" class="material-symbols-outlined">share</a>
+        </div>
         <p><?= $faq->answer() ?></p>
     </article>    
 <?php } ?>
