@@ -21,10 +21,7 @@
 
 <?php function output_hashtag_list(Session $session, Ticket $ticket) {
     global $db; ?>
-    <?php if($ticket->status !== "closed") { ?>
-    <label for="edit_tags">Edit tags</label>
-    <input type="checkbox" name="edit_tags" id="edit_tags">
-    <?php } ?>
+    
     <div class="focused_ticket_tags">
         <?php foreach ($ticket->getHashtags($db) as $hashtag) {
             output_hashtag($session, $hashtag);
@@ -38,4 +35,8 @@
         </datalist>
         <button id="tag_adder">Add tag</button>
     </div>
+    <?php if($ticket->status !== "closed") { ?>
+    <label for="edit_tags">Edit tags</label>
+    <input type="checkbox" name="edit_tags" id="edit_tags">
+    <?php } ?>
 <?php } ?>

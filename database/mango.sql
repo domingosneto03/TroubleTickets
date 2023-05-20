@@ -163,7 +163,7 @@ INSERT INTO admin (adminId) VALUES (18);
 INSERT INTO admin (adminId) VALUES (20);
 
 -- 20 tickets
-INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "closed", 4, 6, 1, 1683846000);
+INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Can't connect to VPN", "I'm having trouble connecting to the company VPN from home", "open", 4, 6, 1, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Computer is slow", "My computer has been running very slowly lately and it's affecting my work", "open", 10, 18, 2, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Email not working", "I can't seem to send or receive emails from my account", "open", 2, 14, 1, 1683846000);
 INSERT INTO ticket (title, body, status, assigned, clientId, priority, deadline) VALUES ("Need software installed", "I need a specific software installed on my computer to complete a project", "open", 6, 8, 2, 1683846000);

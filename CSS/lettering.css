@@ -240,7 +240,7 @@
 #edit_ticket {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     text-decoration: none;
 }
 
@@ -430,4 +430,10 @@
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
+}
+
+#ticket_closer {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
 }

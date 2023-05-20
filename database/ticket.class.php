@@ -474,7 +474,7 @@
             $stmt->execute(array($monthAgo, $now));
             return count($stmt->fetchAll());
         }
- 
+
     }
 
 

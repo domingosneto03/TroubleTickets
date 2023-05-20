@@ -363,7 +363,7 @@ main {
 
 .outer_tags {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -509,7 +509,9 @@ main {
 .filter_checker {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
-    margin-left: 0.2rem;
+    /* margin-left: 0.2rem; */
+    width: 100%;
+    display: block;
 }
 
 #filters :not(label) {
@@ -930,4 +932,17 @@ main {
     margin-right: auto;
     margin-bottom: 0.2rem;
     width: 11rem;
+}
+
+#outer_filters form {
+    height: fit-content;
+    padding: 0.3rem 0.2rem;
+}
+
+#outer_filters form:first-of-type {
+    padding-bottom: 0;
+}
+
+#ticket_closer {
+    padding: 0.3rem 0.4rem;
 }

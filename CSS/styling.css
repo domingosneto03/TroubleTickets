@@ -612,3 +612,15 @@ main {
     border-bottom: 1px solid black;
     background-color: #c3c3c3;
 }
+
+#ticket_closer {
+    border-radius: 3px;
+    background-color: #fff;
+    color: red;
+    border-color: red;
+}
+
+#ticket_closer:hover {
+    background-color: red;
+    color: white;
+}
