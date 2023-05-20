@@ -4,6 +4,7 @@
     require_once(__DIR__ . "/../database/ticket.class.php");
     require_once(__DIR__ . "/../database/department.class.php");
     require_once(__DIR__ . "/../database/hashtag.class.php");
+    require_once(__DIR__ . "/../database/user.class.php");
     require_once(__DIR__ . "/comments.tpl.php");
     require_once(__DIR__ . "/hashtag.tpl.php");
 
@@ -128,6 +129,7 @@
         <div id="ticket_info_main">
             <div class="top_bar_info">
                 <h3><?= $ticket->title ?></h3>
+                <p><?= $ticket->getDepartment($db) ?></p>
                 <div>
                     <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
@@ -147,7 +149,24 @@
                             </form>
                         <?php }
                     ?>
-                    
+                    <?php 
+                        if (($session->isAdmin() || ($session->isAgent() && User::getUserById($db, $session->getId())->department==$ticket->department)) && $ticket->status=="open") { ?>
+                            <form action="/../actions/action_change_ticket_department.php" method="post">
+                                <input type="hidden" name="ticket_id" value="<?= $ticket->id ?>">
+                                <select name="new_department" id="new_department">
+                                    <option value="">Choose a new Department</option>
+                                    <?php 
+                                        foreach (Department::getAllDepartments($db) as $dep){
+                                            if ($dep->id != $ticket->department) { ?>
+                                                <option value="<?= $dep->id ?>"><?= $dep->name ?></option>
+                                            <?php }
+                                        }
+                                    ?>
+                                </select>
+                                <button type="submit" id="dep_changer">Change department</button>
+                            </form>
+                        <?php }
+                    ?>
                 </div>
             </div>
 

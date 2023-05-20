@@ -475,6 +475,15 @@
             return count($stmt->fetchAll());
         }
 
+        public function changeTicketDepartment(PDO $db, int $departmentId) {
+            $stmt = $db->prepare('
+                UPDATE ticket_department
+                SET departmentId = ?
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($departmentId, $this->id));
+        }
+
     }
 
 
