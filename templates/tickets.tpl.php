@@ -140,7 +140,7 @@
                     <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
                     <!-- not really sure how to do this -->
                     <?php
-                        if (($session->isAdmin() || ($session->isAgent() && $ticket->$assigned==$session->getId()) || ($session->getId()==$ticket->clientId)) && $ticket->status != "closed") { ?>
+                        if (($session->isAdmin() || ($session->getId()==($ticket->clientId || $ticket->$assigned))) && $ticket->status != "closed") { ?>
                             <form action="/../actions/action_close_ticket.php" method="post">
                                 <input type="hidden" value="<?= $ticket->id ?>" name="ticket_id">
                                 <button type="submit" id="ticket_closer">Close Ticket</button>
