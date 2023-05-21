@@ -10,7 +10,9 @@
 
     $user = User::getUserById($db, $_POST['id']);
     $dep = $_POST['department'];
-    $user->makeAgent($db, $dep);
-
+    if($dep != '') {
+        $user->makeAgent($db, $dep);
+    }
+    
     header("Location: " . $_SERVER["HTTP_REFERER"]);
 ?>
