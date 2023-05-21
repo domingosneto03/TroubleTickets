@@ -37,24 +37,23 @@
                             ?> <p class="error_message">This password is too short. Please try another one.</p> <?php  
                         }
                     ?>
-                <h3>Name</h3>
-                <form action="/../actions/action_add_name.php" method="post">
-                    <input type="text" name="actualName" id="actualName" value="<?= User::getUserById($db, $session->getId())->actualName ?>">
-                    <button type="submit">Save</button>
-                </form>
-                <h3>Date of Birth</h3>
-                <label>
-                    <input type="date" name="birthday">
-                    <button formaction="actions/action_add_birth.php" formmethod="post">Save</button>
-                </label>
-                <h3>Gender</h3>
-                <label>
-                    <select name="gender">
-                        <option value="male" formaction="actions/action_add_gender.php">Male</option>
-                        <option value="female" formaction="actions/action_add_gender.php">Female</option>
-                        <option value="no" formaction="actions/action_add_gender.php">Prefer not to say</option>
-                    </select>
-                </label>
+                <div>
+                    <h3>Name</h3>
+                    <form action="/../actions/action_add_name.php" method="post">
+                        <input type="text" name="actualName" id="actualName" value="<?= User::getUserById($db, $session->getId())->actualName ?>">
+                        <button type="submit">Save</button>
+                    </form>
+                    <h3>Date of Birth</h3>
+                    <form action="/../actions/action_add_birth.php" method="post">
+                        <input type="date" name="birthDate">
+                        <button type="submit">Save</button>
+                    </form>
+                    <h3>Gender</h3>
+                    <form action="/../actions/action_add_gender" method="post">
+                        <input type="text" value="<?= User::getUserById($db, $session->getId())->gender ?>" name="gender">
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
             </div>
             <div class="account">
                 <h2>Account</h2>
