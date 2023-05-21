@@ -300,7 +300,7 @@
 
             $stmt = $db->prepare('
                 INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value)
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?)
             ');
             $stmt->execute(array($id, "closed", time(), $agentId, null));
         }

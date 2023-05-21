@@ -10,7 +10,7 @@
 
     $ticket = Ticket::getTicket($db, $_POST['ticket_id']);
 
-    $ticket->closeTicket($db, $_POST['ticket_id']);
+    $ticket->closeTicket($db, $_POST['ticket_id'], $session->getId());
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);
 ?>
