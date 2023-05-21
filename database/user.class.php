@@ -101,6 +101,18 @@ class User {
         } else return null;
     }
 
+    static function getPassword(PDO $db, string $username) : string {
+        $stmt = $db->prepare('
+            SELECT password
+            FROM user
+            LEFT OUTER JOIN agent ON agent.agentId = user.userId
+            WHERE username = ?
+        ');
+        $stmt->execute(array($username));
+        $password = $stmt->fetch()['password'];
+        return $password;
+    }
+
     static function register(PDO $db, string $username, string $email, string $password, string $bio) {
         $targetDir = __DIR__ . "/../images/user/" . $username . "/";
         $filename = $_FILES['userImage']['name'];

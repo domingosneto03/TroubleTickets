@@ -432,7 +432,7 @@
     font-size: 1.3rem;
 }
 
-#register .error_message {
+#register .error_message, #settings .error_message {
     font-size: 1em;
 }
 
