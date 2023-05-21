@@ -406,6 +406,10 @@ main {
     justify-content: space-between;
 }
 
+.outer_tags p {
+    margin: 0;
+}
+
 .outer_tags label {
     padding-left: 0.3rem;
     padding-right: 0.3rem;

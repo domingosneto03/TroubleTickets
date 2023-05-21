@@ -12,7 +12,7 @@
 
 <?php function output_hashtag(Session $session, Hashtag $hashtag, int $ticketId) { ?>
     <div id="<?= "tag_" . $hashtag->id ?>">
-        <a href="" class="ticket_tag">#<?= $hashtag->name; ?></a>
+        <p class="ticket_tag">#<?= $hashtag->name; ?></p>
         <?php  if ($session->isAgent()) { ?>
         <button class="x_button" data-tag="<?= $hashtag->id ?>" data-ticket="<?= $ticketId ?>">x</button>
         <?php } ?>
