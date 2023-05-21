@@ -11,7 +11,6 @@ DROP TABLE agent;
 DROP TABLE department;
 DROP TABLE client;
 DROP TABLE user;
-DROP TABLE personal;
 
 CREATE TABLE user (
     userId INTEGER PRIMARY KEY,
@@ -97,14 +96,6 @@ CREATE TABLE comment (
     date INTEGER,
     userId INTEGER REFERENCES user,
     ticketId INTEGER REFERENCES ticket
-);
-
-CREATE TABLE personal (
-    personalId INTEGER PRIMARY KEY,
-    name VARCHAR,
-    birth INTEGER,
-    gender VARCHAR,
-    userId INTEGER REFERENCES user
 );
 
 -- 20 users

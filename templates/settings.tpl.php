@@ -2,12 +2,14 @@
     declare(strict_types = 1);
     require_once(__DIR__ . "/../utils/session.php");
     require_once(__DIR__ . "/../database/connection.php");
+    require_once(__DIR__ . "/../database/user.class.php");
+
     $db = getDatabaseConnection();
     $session = new Session();
-
 ?>
 
-<?php function output_settings($session) { ?>
+<?php function output_settings($session) { 
+    global $db; ?>
     <main id="settings_main">
         <aside id="settings_sidebar">
             <nav class="selections">
@@ -37,10 +39,10 @@
                     ?>
                 <form>
                     <h3>Name</h3>
-                    <label>
-                        <input type="text" name="name" placeholder="Your name">
-                        <button formaction="actions/action_add_name.php" formmethod="post">Save</button>
-                    </label>
+                    <form action="/../actions/action_add_name.php" method="post">
+                        <input type="text" name="actualName" id="actualName" value="<?= User::getUserById($db, $session->getId())->actualName ?>">
+                        <button type="submit">Save</button>
+                    </form>
                     <h3>Date of Birth</h3>
                     <label>
                         <input type="date" name="birthday">

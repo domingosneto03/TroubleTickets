@@ -36,7 +36,7 @@
             </div>
             
             <?php if (isset($_SESSION['id']) && $_SESSION['id'] === $user->id) { ?>
-            <a href="" id="profile_editor_button">
+            <a href="/settings.php" id="profile_editor_button">
                 Edit profile
             </a>
             <?php } ?>
