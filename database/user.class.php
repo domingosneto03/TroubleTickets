@@ -231,12 +231,29 @@ class User {
     }
 
     public function changeActualName(PDO $db, string $actualName) {
-        $stmt = $db->prepare('UPDATE user SET actualName = ? WHERE userId = ?');
+        $stmt = $db->prepare('
+            UPDATE user 
+            SET actualName = ? 
+            WHERE userId = ?
+        ');
         $stmt->execute(array($actualName, $this->id));
     }
 
+    public function changeGender(PDO $db, string $gender) {
+        $stmt = $db->prepare('
+            UPDATE user
+            SET gender = ?
+            WHERE userId = ?
+        ');
+        $stmt->execute(array($gender, $this->id));
+    }
+  
     public function changeBirthDate(PDO $db, string $birthDate) {
-        $stmt = $db->prepare('UPDATE user SET birthDate = ? WHERE userId = ?');
+        $stmt = $db->prepare('
+          UPDATE user
+          SET birthDate = ?
+          WHERE userId = ?
+        ');
         $stmt->execute(array(strtotime($birthDate), $this->id));
     }
 } ?>
