@@ -26,7 +26,15 @@
         <div class="ticket_info_bottom">
             <p class="ticket_user">Created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user"><?= $ticket->getClientName($db) ?></a></p>
             <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->createdAt ) ?></p>
-            <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
+            <?php 
+                if ($ticket->getDepartment($db) != NULL) {
+                    ?> <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p> <?php
+                }
+                else {
+                    ?> <p class="ticket_department">No department</p> <?php 
+                }
+            ?>
+            
             <p class="ticket_status"><?= $ticket->status ?></p>
             <?php $agent = $ticket->getAgentName($db); ?>
             <?php if (is_null($agent)) { ?>
@@ -136,14 +144,11 @@
                 <div>
                     <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
-                    <?php if (isset($_SESSION['id']) && $ticket->clientId === $session->getId()) { ?>
+                    <?php if ((isset($_SESSION['id']) && $ticket->clientId === $session->getId()) && $ticket->status != "closed") { ?>
                     <a href=<?= "/edit_ticket.php?id=" . $_GET['id']; ?> id="edit_ticket">
                         Edit Ticket
                     </a>
-                    <?php } ?> <!-- PHP: only visible to the user who created the ticket -->
-                    <!-- takes the user to the new_ticket.html but with the fields already filled with the ticket's info -->
-                    <!-- and instead of "Create ticket" it has two buttons: "Save" and "Cancel" -->
-                    <!-- not really sure how to do this -->
+                    <?php } ?>
                     <?php
                         if (($session->isAdmin() || ($session->getId()==($ticket->clientId || $ticket->$assigned))) && $ticket->status != "closed") { ?>
                             <form action="/../actions/action_close_ticket.php" method="post">
@@ -153,7 +158,7 @@
                         <?php }
                     ?>
                     <?php 
-                        if (($session->isAdmin() || ($session->isAgent() && User::getUserById($db, $session->getId())->department==$ticket->department)) && $ticket->status!="assigned") { ?>
+                        if (($session->isAdmin() || ($session->isAgent() && User::getUserById($db, $session->getId())->department==$ticket->department)) && $ticket->status!="closed") { ?>
                             <form action="/../actions/action_change_ticket_department.php" method="post">
                                 <input type="hidden" name="ticket_id" value="<?= $ticket->id ?>">
                                 <select name="new_department" id="new_department">

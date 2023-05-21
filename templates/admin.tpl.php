@@ -84,7 +84,7 @@
             </form>
         </div>
 
-        <label for="manage_statuses_button">Create New Status</label>
+        <!-- <label for="manage_statuses_button">Create New Status</label>
         <input type="checkbox" name="manage_statuses_button" id="manage_statuses_button">
         <div>
             <p>Statuses</p>
@@ -97,7 +97,7 @@
                 <input type="text" name="add_status" id="add_status" maxlength="15" placeholder="Enter department name">
                 <input type="submit" value="Add status">
             </form>
-        </div>
+        </div> -->
     </div>
 <?php } ?>
 

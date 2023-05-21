@@ -9,13 +9,13 @@
         public ?int $assigned;
         public int $clientId;
         public int $priority;
-        public int $department;
+        public ?int $department;
         public int $createdAt;
         public int $deadline;
 
         static int $next_id = 0;
 
-        public function __construct(int $id, string $title, string $body, ?string $status, ?int $assigned, int $clientId, int $priority, int $department, int $createdAt, int $deadline) {
+        public function __construct(int $id, string $title, string $body, ?string $status, ?int $assigned, int $clientId, int $priority, ?int $department, int $createdAt, int $deadline) {
             $this->id = $id;
             $this->title = $title;
             $this->body = $body;
@@ -226,7 +226,7 @@
             return $tickets;
         }
 
-        static function create_ticket(PDO $db, string $title, string $body, int $clientId, int $priority, int $department, int $deadline) {
+        static function create_ticket(PDO $db, string $title, string $body, int $clientId, int $priority, ?int $department, int $deadline) {
             $stmt = $db->prepare('
                 INSERT into ticket (title, body, clientId, priority, deadline)
                 VALUES (?, ?, ?, ?, ?)

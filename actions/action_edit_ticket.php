@@ -12,6 +12,19 @@
     $department = (int)$_POST['department'];
     $deadline = time();
 
+    if ($priority == 4) {
+        $deadline = $deadline + 10*24*60*60;
+    }
+    elseif ($priority == 3) {
+        $deadline = $deadline + 5*24*60*60;
+    }
+    elseif ($priority == 2) {
+        $deadline = $deadline + 3*24*60*60;
+    }
+    else {
+        $deadline = $deadline + 24*60*60;
+    }
+
     $db = getDatabaseConnection();
 
     try {

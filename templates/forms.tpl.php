@@ -87,9 +87,6 @@
             </div>
             <div id="text">
                 <label for="ticket_text" id="text_label">Ticket description:</label>
-                <!-- tags go as #tag in the text box, boa sorte para implementar essa merda Ribeiro -->
-                <!-- depois o sql convém ter uma secção de texto composta pelas tags separadas por vírgulas para
-                as poder mostrar depois no ticket -->
                 <textarea name="body" id="ticket_text" cols="30" rows="20" required><?php if (!is_null($ticket)) { echo $ticket->body; } ?></textarea>
             </div>
             <label for="ticket_file_upload">Add files/images:</label>
@@ -107,15 +104,16 @@
                 <div id="priority">
                     <label for="priorities">Priority:</label>
                     <select name="priority" id="priorities">
-                        <option value="3">Low</option>
-                        <option value="2">Medium</option>
-                        <option value="1">High</option>
+                        <option value="4">Low</option>
+                        <option value="3">Medium</option>
+                        <option value="2">High</option>
+                        <option value="1">Urgent</option>
                     </select>
                 </div>
             </div>
             <input type="hidden" name="id" value="<?php if (!is_null($ticket)) { echo $ticket->id; } ?>">
             <input type="submit" value="<?php if (!is_null($ticket)) { echo "Confirm"; } else { echo "New Ticket"; } ?>" id="sub_button">
-            <a href="ticket_list.html" class="cancel_ticket">Cancel</a>
+            <a href="/../ticket_list.php" class="cancel_ticket">Cancel</a>
         </form>
     </main>
 
