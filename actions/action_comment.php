@@ -9,16 +9,18 @@
     $body = $_POST['body'];
     $userId = $_SESSION['id'];
     $ticketId = (int)$_POST['ticketId'];
+    if ($body != '') {
+        try {
+            $db = getDatabaseConnection();
+            Comment::create_comment($db, $body, $userId, $ticketId);
 
-    try {
-        $db = getDatabaseConnection();
-        Comment::create_comment($db, $body, $userId, $ticketId);
-
-    } catch (PDOException $e) {
-        echo 'Database Error: ' . $e->getMessage();
-    } catch (Exception $e) {
-        echo 'Error: ' . $e->getMessage();
+        } catch (PDOException $e) {
+            echo 'Database Error: ' . $e->getMessage();
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
     }
+    
     
     header('Location: /ticket.php?id=' . $ticketId);
 ?>
