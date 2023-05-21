@@ -25,6 +25,22 @@
             );
         }
 
+        static function getHashtagId(PDO $db, string $hashtag) : int {
+            $stmt = $db->prepare('
+                SELECT hashtagId
+                FROM hashtag
+                WHERE name = ? 
+            ');
+            $stmt->execute(array($hashtag));
+            $row = $stmt->fetch();
+
+            if ($row !== false && isset($row['hashtagId'])) {
+                return (int)$row['hashtagId'];
+            } else {
+                return 0;
+            }
+        }
+
         static function create_hashtag(PDO $db, string $name) {
             $stmt = $db->prepare('
                 INSERT INTO hashtag (name)

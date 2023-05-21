@@ -10,11 +10,11 @@
     $db = getDatabaseConnection();
 ?>
 
-<?php function output_hashtag(Session $session, Hashtag $hashtag) { ?>
-    <div>
+<?php function output_hashtag(Session $session, Hashtag $hashtag, int $ticketId) { ?>
+    <div id="<?= "tag_" . $hashtag->id ?>">
         <a href="" class="ticket_tag">#<?= $hashtag->name; ?></a>
         <?php  if ($session->isAgent()) { ?>
-        <button>x</button>
+        <button class="x_button" data-tag="<?= $hashtag->id ?>" data-ticket="<?= $ticketId ?>">x</button>
         <?php } ?>
     </div>
 <?php  } ?>
@@ -25,18 +25,18 @@
     <label for="edit_tags">Edit tags</label>
     <input type="checkbox" name="edit_tags" id="edit_tags">
     <?php } ?>
-    <div class="focused_ticket_tags">
+    <div class="focused_ticket_tags" id="tag_container">
         <?php foreach ($ticket->getHashtags($db) as $hashtag) {
-            output_hashtag($session, $hashtag);
+            output_hashtag($session, $hashtag, $ticket->id);
         } ?>
-        <input name="tags" list="tag_list" placeholder="Choose tag(s)">
+        <input id="tag_input" type="text" name="tags" list="tag_list" placeholder="Choose tag(s)">
         <datalist id="tag_list">
             <?php
                 foreach (Hashtag::getAllTags($db) as $hashtag) { ?>
                 <option value="<?= $hashtag->name; ?>">
             <?php } ?>
         </datalist>
-        <button id="tag_adder">Add tag</button>
+        <button id="tag_adder" data-ticket="<?= $ticket->id ?>">Add tag</button>
     </div>
     
 <?php } ?>
