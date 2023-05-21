@@ -234,4 +234,9 @@ class User {
         $stmt = $db->prepare('UPDATE user SET actualName = ? WHERE userId = ?');
         $stmt->execute(array($actualName, $this->id));
     }
+
+    public function changeBirthDate(PDO $db, string $birthDate) {
+        $stmt = $db->prepare('UPDATE user SET birthDate = ? WHERE userId = ?');
+        $stmt->execute(array(strtotime($birthDate), $this->id));
+    }
 } ?>
