@@ -33,7 +33,7 @@
         <datalist id="tag_list">
             <?php
                 foreach (Hashtag::getAllTags($db) as $hashtag) { ?>
-                <option value="<?= $hashtag->name; ?>">
+                <option value="<?= $hashtag->name; ?>"><?= $hashtag->name; ?></option>
             <?php } ?>
         </datalist>
         <button id="tag_adder" data-ticket="<?= $ticket->id ?>">Add tag</button>

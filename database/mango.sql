@@ -140,6 +140,7 @@ INSERT INTO client (clientId) VALUES (19);
 INSERT INTO client (clientId) VALUES (20);
 
 -- 5 departments
+INSERT INTO department (name) VALUES ("None");
 INSERT INTO department (name) VALUES ("Web");
 INSERT INTO department (name) VALUES ("Hardware");
 INSERT INTO department (name) VALUES ("Security");

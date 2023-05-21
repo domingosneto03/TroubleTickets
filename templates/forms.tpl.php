@@ -95,9 +95,11 @@
                 <div id="department">
                     <label for="departments">Department:</label>
                     <select name="department" id="departments">
-                        <option value="">Select a department</option>
-                        <?php foreach (Department::getAllDepartments($db) as $department) { ?>
-                        <option value="<?= $department->id ?>" <?php if ($department->id === $ticket->department) { echo "selected"; } ?>><?= $department->name ?></option>
+                        <option value="1">Select a department</option>
+                        <?php foreach (Department::getAllDepartments($db) as $department) { 
+                            if ($department->id != 1) { ?>
+                                <option value="<?= $department->id ?>" <?php if ($department->id === $ticket->department) { echo "selected"; } ?>><?= $department->name ?></option>
+                            <?php } ?>
                         <?php } ?>
                     </select>
                 </div>

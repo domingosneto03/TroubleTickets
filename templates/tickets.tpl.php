@@ -26,14 +26,8 @@
         <div class="ticket_info_bottom">
             <p class="ticket_user">Created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user"><?= $ticket->getClientName($db) ?></a></p>
             <p class="ticket_date">Created at <?=  date("d-m-Y", $ticket->createdAt ) ?></p>
-            <?php 
-                if ($ticket->getDepartment($db) != NULL) {
-                    ?> <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p> <?php
-                }
-                else {
-                    ?> <p class="ticket_department">No department</p> <?php 
-                }
-            ?>
+            
+            <p class="ticket_department"><?= $ticket->getDepartment($db) ?></p>
             
             <p class="ticket_status"><?= $ticket->status ?></p>
             <?php $agent = $ticket->getAgentName($db); ?>
