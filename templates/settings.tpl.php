@@ -69,8 +69,9 @@
                 <h3>Change Password</h3>
                 <div id="change_password">
                     <form>
-                        Old Password
-                        <input type="password" name="old_password" placeholder="Type your old password">
+                        <label>
+                            Old Password
+                            <input type="password" name="old_password" placeholder="Type your old password">
                         </label>
                         <label>
                             New Password
@@ -80,8 +81,8 @@
                             Confirm Password 
                             <input type="password" name="confirmPassword" placeholder="Confirm your password">
                         </label>
-                        <button formaction="/../actions/action_change_password.php" formmethod="post">Update Password</button>
-                    </form>
+                        <button formaction="actions/action_change_password.php" formmethod="post">Update Password</button>
+                    </form> 
                 </div>
             </div>
         </section>

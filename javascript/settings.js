@@ -1,20 +1,3 @@
-const popup = document.querySelector('.popup');
-const openPop = document.querySelector('.open');
-const closePop = document.querySelector('.close');
-const yesDelete = document.querySelector('.delete');
-
-openPop.addEventListener('click', () => {
-    popup.showModal();
-})
-
-closePop.addEventListener('click', () => {
-    popup.close();
-})
-
-yesDelete.addEventListener('click', () => {
-    popup.close();
-})
-
 c_user = document.querySelector("#change_username").querySelector("button");
 n_user = document.querySelector("#new_username");
 n_user_btn = document.querySelector("#new_username").querySelector("button");
