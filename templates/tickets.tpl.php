@@ -12,9 +12,10 @@
 ?>
 
 <?php function output_ticket_card(Ticket $ticket) {
-    global $db; ?>
+    global $db; 
+    $user = User::getUserById($db, $ticket->clientId);?>
     <article class="ticket">
-        <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user_img"><img src="Group 1.png" alt="florzinha uau"></a>
+        <a href="<?= "/profile.php?id=" . $ticket->clientId ?>" class="ticket_user_img"><img src="<?= $user->userImage ?>" alt="florzinha uau"></a>
         <div class="ticket_info_top">
             <div>
                 <a href="<?= "/ticket.php?id=" . $ticket->id ?>" class="ticket_title"><h4><?= $ticket->title ?></h4></a> <!-- link para o ticket -->
