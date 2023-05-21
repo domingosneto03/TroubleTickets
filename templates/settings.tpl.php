@@ -49,7 +49,7 @@
                         <button type="submit">Save</button>
                     </form>
                     <h3>Gender</h3>
-                    <form action="/../actions/action_add_gender" method="post">
+                    <form action="/../actions/action_add_gender.php" method="post">
                         <input type="text" value="<?= User::getUserById($db, $session->getId())->gender ?>" name="gender">
                         <button type="submit">Save</button>
                     </form>
