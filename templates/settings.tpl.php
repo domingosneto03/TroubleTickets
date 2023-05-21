@@ -81,8 +81,8 @@
                             Confirm Password 
                             <input type="password" name="confirmPassword" placeholder="Confirm your password">
                         </label>
-                        <button formaction="/../actions/action_change_password.php" formmethod="post">Update Password</button>
-                    </form>
+                        <button formaction="actions/action_change_password.php" formmethod="post">Update Password</button>
+                    </form> 
                 </div>
             </div>
         </section>
