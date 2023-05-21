@@ -418,6 +418,14 @@
     font-size: 1.3rem;
 }
 
+#register .error_message {
+    font-size: 1em;
+}
+
+.required {
+    font-size: 0.8rem;
+}
+
 #tag_adder {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;

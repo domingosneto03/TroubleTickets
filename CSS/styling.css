@@ -605,6 +605,10 @@ main {
     color: red;
 }
 
+.required {
+    color: red;
+}
+
 .agent_promotion select {
     border: none;
     outline: none;

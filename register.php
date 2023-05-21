@@ -8,6 +8,6 @@ $title = "Mango Tickets - register user";
 
 output_header($session, $title);
 output_sidebar($session);
-output_register_form();
+output_register_form($session);
 output_footer();
 ?>

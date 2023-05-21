@@ -29,24 +29,33 @@
     </main>
 <?php } ?>
 
-<?php function output_register_form() { ?>
+<?php function output_register_form($session) { ?>
     <main>
         <section id="register">
             <h2>Register</h2>
+            <?php 
+                if (end($session->getMessages())['text'] == 'username already exists!'){
+                    ?> <p class="error_message">Username already exists! Please choose another one.</p> <?php
+                } else if(end($session->getMessages())['text'] == 'passwords do not match') {
+                    ?> <p class="error_message">Passwords don't match!</p> <?php  
+                } else if(end($session->getMessages())['text'] == 'password is too short') {
+                    ?> <p class="error_message">This password is too short. Please try another one.</p> <?php  
+                }
+            ?>
             <form enctype="multipart/form-data">
-                <label>Username
-                    <input type="text" id="username" name="username" placeholder="Create a username" autofocus>
+                <label>Username <span class="required">*</span>
+                    <input type="text" id="username" name="username" placeholder="Create a username" autofocus required>
                     <span id="usernameError"></span>
                 </label>
-                <label>E-mail
-                    <input type="email" name="email" placeholder="Type your email">
+                <label>E-mail <span class="required">*</span>
+                    <input type="email" name="email" placeholder="Type your email" required>
                 </label>
-                <label>Password
-                    <input type="password" id="password" name="password" placeholder="Create your password">
+                <label>Password <span class="required">*</span>
+                    <input type="password" id="password" name="password" placeholder="Create your password" required>
                     <span id="passwordError"></span>
                 </label>
-                <label>Confirm Password
-                    <input type="password" id="confirmPassword" name="confimPassword" placeholder="Confirm your password">
+                <label>Confirm Password <span class="required">*</span>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
                     <span id="confirmPasswordError"></span>
                 </label>
                 <label>

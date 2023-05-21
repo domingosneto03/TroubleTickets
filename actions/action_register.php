@@ -7,6 +7,7 @@
 
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $confirm = $_POST['confirmPassword'];
     $email = $_POST['email'];
     $bio = $_POST['bio'];
 
@@ -14,12 +15,25 @@
 
     $user = User::getUser($db, $username);
 
+
     try {
         if ($user) {
             $session->addMessage('error', 'username already exists!');
+            header('Location: /register.php' );
         } else {
-            User::register($db, $username, $email, $password, $bio);
-            $session->addMessage('success', 'Successfully registered!');
+            if((strlen($password)>=1 and strlen($password)<=3) or (strlen($confirm)>=1 and strlen($confirm)<=3)) {
+                $session->addMessage('error', 'password is too short');
+                header('Location: /register.php' );
+            } else if(strlen($password)>3 or strlen($confirm)>3){
+                if ($password != $confirm) {
+                $session->addMessage('error', 'passwords do not match');
+                header('Location: /register.php' );
+            }
+            } else {
+                User::register($db, $username, $email, $password, $bio);
+                $session->addMessage('success', 'Successfully registered!');
+                header('Location: /ticket_list.php' );
+            }     
         }
     } catch (PDOException $e) {
         echo 'Database Error: ' . $e->getMessage();
