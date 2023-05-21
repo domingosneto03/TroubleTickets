@@ -1,12 +1,3 @@
-const popup = document.querySelector('.popup');
-const openPop = document.querySelector('.open');
-const closePop = document.querySelector('.close');
-const yesDelete = document.querySelector('.delete');
-
-const infoShow = document.querySelector(".personal_info");
-const accountShow = document.querySelector(".account");
-const notificationShow = document.querySelector(".notifications");
-
 openPop.addEventListener('click', () => {
     popup.showModal();
 })
