@@ -25,7 +25,11 @@
     </head>
     <body>
         <header id="main_header">
-            <a href="ticket_list.php"><img src="/images/logo.png" id="logo"></a>
+            <?php if($session->isLoggedIn()) { ?>
+                <a href="ticket_list.php"><img src="/images/logo.png" id="logo"></a>
+            <?php  } else { ?>
+                <a href="login.php"><img src="/images/logo.png" id="logo"></a>
+                <?php } ?>
             <article id="right_side">
                 <?php if ($session->isLoggedIn()) drawLogoutSection($session);
                     else drawLoginSection();
@@ -56,7 +60,7 @@
                 help_center
             </span>
         </a>
-        <a href="" title="Settings">
+        <a href="settings.php" title="Settings">
             <span class="material-symbols-outlined">
                 settings
             </span>

@@ -7,7 +7,12 @@ $session = new Session();
 $title = "Mango Tickets - register user";
 
 output_header($session, $title);
-output_sidebar($session);
+if($session->isLoggedIn()){
+    output_sidebar($session);
+}
+else{
+    output_alt_sidebar();
+}
 output_register_form($session);
 output_footer();
 ?>
