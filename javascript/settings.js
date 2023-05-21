@@ -1,14 +1,6 @@
-openPop.addEventListener('click', () => {
-    popup.showModal();
-})
-
-closePop.addEventListener('click', () => {
-    popup.close();
-})
-
-yesDelete.addEventListener('click', () => {
-    popup.close();
-})
+const infoShow = document.querySelector(".personal_info");
+const accountShow = document.querySelector(".account");
+const notificationShow = document.querySelector(".notifications");
 
 const c_user = document.querySelector("#change_username").querySelector("button");
 const n_user = document.querySelector("#new_username");
