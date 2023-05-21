@@ -265,4 +265,14 @@ class User {
         ');
         $stmt->execute(array($username, $this->id));
     }
+
+    public function changePassword(PDO $db, string $password) {
+        $options = ['cost' => 12];
+        $stmt = $db->prepare('
+          UPDATE user
+          SET password = ?
+          WHERE userId = ?
+        ');
+        $stmt->execute(array(password_hash($password, PASSWORD_DEFAULT, $options), $this->id));
+    }
 } ?>

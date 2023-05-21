@@ -3,6 +3,10 @@ const openPop = document.querySelector('.open');
 const closePop = document.querySelector('.close');
 const yesDelete = document.querySelector('.delete');
 
+const infoShow = document.querySelector(".personal_info");
+const accountShow = document.querySelector(".account");
+const notificationShow = document.querySelector(".notifications");
+
 openPop.addEventListener('click', () => {
     popup.showModal();
 })
@@ -15,9 +19,9 @@ yesDelete.addEventListener('click', () => {
     popup.close();
 })
 
-c_user = document.querySelector("#change_username").querySelector("button");
-n_user = document.querySelector("#new_username");
-n_user_btn = document.querySelector("#new_username").querySelector("button");
+const c_user = document.querySelector("#change_username").querySelector("button");
+const n_user = document.querySelector("#new_username");
+const n_user_btn = document.querySelector("#new_username").querySelector("button");
 
 c_user.addEventListener('click', function() {
     c_user.classList.remove("show");
@@ -33,7 +37,7 @@ n_user_btn.addEventListener('click', function() {
     c_user.classList.add("show");
 })
 
-selections = document.querySelector(".selections").querySelectorAll("a");
+const selections = document.querySelector(".selections").querySelectorAll("a");
 
 selections.forEach(element => {
     element.addEventListener('click', function() {
@@ -41,10 +45,6 @@ selections.forEach(element => {
         this.classList.add("active");
     })
 });
-
-infoShow = document.querySelector(".personal_info");
-accountShow = document.querySelector(".account");
-notificationShow = document.querySelector(".notifications");
 
 function piShow() {
     infoShow.style.display = "block";
@@ -64,9 +64,9 @@ function notifShow() {
     notificationShow.style.display = "block";
 }
 
-notif_active = document.querySelector('.notif_active');
-notif_disabled = document.querySelector('.notif_disabled');
-disable = document.querySelectorAll('.dependent')
+const notif_active = document.querySelector('.notif_active');
+const notif_disabled = document.querySelector('.notif_disabled');
+const disable = document.querySelectorAll('.dependent')
 
 notif_disabled.addEventListener('click', function() {
     disable.forEach(option => option.disabled = true);

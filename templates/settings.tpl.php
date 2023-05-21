@@ -69,8 +69,9 @@
                 <h3>Change Password</h3>
                 <div id="change_password">
                     <form>
-                        Old Password
-                        <input type="password" name="old_password" placeholder="Type your old password">
+                        <label>
+                            Old Password
+                            <input type="password" name="old_password" placeholder="Type your old password">
                         </label>
                         <label>
                             New Password
