@@ -229,4 +229,9 @@ class User {
         $stmt->execute(array($monthAgo, $now));
         return count($stmt->fetchAll());
     }
+
+    public function changeActualName(PDO $db, string $actualName) {
+        $stmt = $db->prepare('UPDATE user SET actualName = ? WHERE userId = ?');
+        $stmt->execute(array($actualName, $this->id));
+    }
 } ?>
