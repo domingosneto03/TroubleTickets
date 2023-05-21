@@ -5,10 +5,13 @@
     $db = getDatabaseConnection();
 ?>
 
-<?php function output_comment(Comment $comment) { ?>
+<?php function output_comment(Comment $comment) { 
+    global $db; ?>
     <article class="focused_ticket_comment">
+        <a href="<?= "profile.php?id=" . $comment->userId ?>"><img src="<?= User::getUserById($db, $comment->userId)->userImage ?>" alt="comment_pfp" class="comment_pfp"></a>
+        
         <div class="focused_ticket_comment_top">
-            <h5 class="focused_ticket_comment_poster"><?= $comment->username ?></h5>
+            <a class="focused_ticket_comment_poster" href="<?= "profile.php?id=" . $comment->userId ?>"><?= $comment->username ?></a>
             <p class="focused_ticket_comment_date"><?= date('d-m-Y H:i', $comment->createdAt) ?></p>
         </div>
         <p class="focused_ticket_comment_text"><?= $comment->body ?></p>

@@ -427,15 +427,34 @@ main {
 
 .focused_ticket_comment {
     padding: 0.4rem;
+    display: grid;
+    grid-template-columns: 3rem auto;
+    grid-template-rows: 1.5rem 1.5rem;
+}
+
+.focused_ticket_comment > a {
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0.1rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.comment_pfp {
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0.1rem;
 }
 
 .focused_ticket_comment_poster {
     margin: 0;
+    padding-left: 0.3rem;
 }
 
 .focused_ticket_comment_text {
     margin: 0;
-    padding-left: 1rem;
+    padding-left: 0.3rem;
 }
 
 .top_bar_button {

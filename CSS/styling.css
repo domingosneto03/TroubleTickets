@@ -649,3 +649,11 @@ main {
     background-color: #570353;
     color: white;
 }
+
+.focused_ticket_comment_poster {
+    color: black;
+}
+
+.comment_pfp {
+    border-radius: 3px;
+}

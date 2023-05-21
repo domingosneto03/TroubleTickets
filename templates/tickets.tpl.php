@@ -128,8 +128,11 @@
     <main>
         <div id="ticket_info_main">
             <div class="top_bar_info">
-                <h3><?= $ticket->title ?></h3>
-                <p><?= $ticket->getDepartment($db) ?></p>
+                <div>
+                    <h3><?= $ticket->title ?></h3>
+                    <p><?= $ticket->getDepartment($db) ?></p>
+                </div>
+                
                 <div>
                     <p>Deadline: <?= date("d-m-Y", $ticket->deadline) ?></p> <!--change to color red if already due, yellow if due in 2/3 days idk-->
 
