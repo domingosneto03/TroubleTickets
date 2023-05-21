@@ -390,25 +390,25 @@
 
         public function getClientName(PDO $db) : string {
             $stmt = $db->prepare('
-                SELECT username
+                SELECT actualName
                 FROM user
                 WHERE userId = ?
             ');
             $stmt->execute(array($this->clientId));
             $client = $stmt->fetch();
-            return $client['username'];
+            return $client['actualName'];
         }
 
         public function getAgentName(PDO $db) : ?string {
             $stmt = $db->prepare('
-                SELECT username
+                SELECT actualName
                 FROM user
                 WHERE userId = ?
             ');
             $stmt->execute(array($this->assigned));
             $agent = $stmt->fetch();
             if ($agent)
-                return $agent['username'];
+                return $agent['actualName'];
             else
                 return null;
         }

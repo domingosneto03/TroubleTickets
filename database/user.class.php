@@ -4,15 +4,21 @@ declare(strict_types = 1);
 class User {
     public int $id;
     public string $username;
+    public string $actualName;
+    public int $birthDate;
+    public string $gender;
     public string $email;
     public string $bio;
     public string $userImage;
     public int $dateJoin;
     public int $department;
 
-    public function __construct(int $id, string $username, string $email, string $bio, string $userImage, int $dateJoin, ?int $department) {
+    public function __construct(int $id, string $username, string $actualName, int $birthDate, string $gender, string $email, string $bio, string $userImage, int $dateJoin, ?int $department) {
         $this->id = $id;
         $this->username = $username;
+        $this->actualName = $actualName;
+        $this->birthDate = $birthDate;
+        $this->gender = $gender;
         $this->email = $email;
         $this->bio = $bio;
         $this->userImage = $userImage;
@@ -34,7 +40,7 @@ class User {
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
         $stmt = $db->prepare("
-            SELECT userId, username, password, email, bio, userImage, dateJoin, departmentId
+            SELECT userId, username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin, departmentId
             FROM user
             LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE lower(username) = ?
@@ -46,6 +52,9 @@ class User {
             return new User(
                 $user['userId'],
                 $user['username'],
+                $user['actualName'],
+                $user['birthDate'],
+                $user['gender'],
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
@@ -57,7 +66,7 @@ class User {
 
     static function getUser(PDO $db, string $username) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage, dateJoin, departmentId
+            SELECT userId, username, actualName, birthDate, gender, email, bio, userImage, dateJoin, departmentId
             FROM user
             LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE username = ?
@@ -69,6 +78,9 @@ class User {
             return new User(
                 $user['userId'],
                 $user['username'],
+                $user['actualName'],
+                $user['birthDate'],
+                $user['gender'],
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
@@ -80,7 +92,7 @@ class User {
 
     static function getUserById(PDO $db, int $id) : ?User {
         $stmt = $db->prepare('
-            SELECT userId, username, email, bio, userImage, dateJoin, departmentId
+            SELECT userId, username, actualName, birthDate, gender, email, bio, userImage, dateJoin, departmentId
             FROM user
             LEFT OUTER JOIN agent ON agent.agentId = user.userId
             WHERE userId = ?
@@ -92,6 +104,9 @@ class User {
             return new User(
                 $user['userId'],
                 $user['username'],
+                $user['actualName'],
+                $user['birthDate'],
+                $user['gender'],
                 $user['email'],
                 $user['bio'],
                 $user['userImage'],
@@ -113,7 +128,7 @@ class User {
         return $password;
     }
 
-    static function register(PDO $db, string $username, string $email, string $password, string $bio) {
+    static function register(PDO $db, string $username, string $actualName, int $birthDate, string $gender, string $email, string $password, string $bio) {
         $targetDir = __DIR__ . "/../images/user/" . $username . "/";
         $filename = $_FILES['userImage']['name'];
         $fileTmpPath = $_FILES['userImage']['tmp_name'];
@@ -126,12 +141,15 @@ class User {
 
         if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
             $stmt = $db->prepare('
-                INSERT into user (username, password, email, bio, userImage, dateJoin) 
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT into user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ');
             $options = ['cost' => 12];
             $stmt->execute(array(
                 $username,
+                $actualName,
+                $birthDate,
+                $gender,
                 password_hash($password, PASSWORD_DEFAULT, $options),
                 $email,
                 $bio,

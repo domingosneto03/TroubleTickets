@@ -47,6 +47,15 @@
                     <input type="text" id="username" name="username" placeholder="Create a username" autofocus required>
                     <span id="usernameError"></span>
                 </label>
+                <label>Name <span class="required">*</span>
+                    <input type="text" id="actualName" name="actualName" placeholder="Your real name" required>
+                </label>
+                <label>Birth Date <span class="required">*</span>
+                    <input type="date" name="birthDate" id="birthDate" required>
+                </label>
+                <label>Gender <span class="required">*</span>
+                    <input type="text" name="gender" id="gender" required>
+                </label>
                 <label>E-mail <span class="required">*</span>
                     <input type="email" name="email" placeholder="Type your email" required>
                 </label>

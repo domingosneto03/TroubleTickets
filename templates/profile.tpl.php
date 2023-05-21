@@ -13,6 +13,7 @@
             <img src="<?= $user->userImage ?>" alt="profile image" id="profile_picture">
 
             <div id="profile_user">
+                <p><?= $user->actualName ?></p>
                 <p><?= $user->username ?></p>
                 <?php if ($user->isAdmin($db)) { ?>
                     <p>Admin</p>
@@ -30,6 +31,8 @@
             </div>
             <div id="bio">
                 <p><?= $user->bio ?></p>
+                <p>Gender: <?= $user->gender ?></p>
+                <p>Born on: <?= date("d/m", $user->birthDate) ?></p>
             </div>
             
             <?php if (isset($_SESSION['id']) && $_SESSION['id'] === $user->id) { ?>

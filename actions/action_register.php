@@ -6,6 +6,9 @@
     require_once(__DIR__ . "/../database/user.class.php");
 
     $username = $_POST['username'];
+    $actualName = $_POST['actualName'];
+    $birthDate = (int) $_POST['birthDate'];
+    $gender = $_POST['gender'];
     $password = $_POST['password'];
     $confirm = $_POST['confirmPassword'];
     $email = $_POST['email'];
@@ -30,7 +33,7 @@
                     header('Location: /register.php' );
                 } else {
                     try { 
-                        User::register($db, $username, $email, $password, $bio);
+                        User::register($db, $username, $actualName, $birthDate, $gender, $email, $password, $bio);
                         $session->addMessage('success', 'Successfully registered!');
                         header('Location: /ticket_list.php' );
                     } catch (PDOException $e) {

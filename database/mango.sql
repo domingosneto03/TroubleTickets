@@ -16,6 +16,9 @@ DROP TABLE personal;
 CREATE TABLE user (
     userId INTEGER PRIMARY KEY,
     username VARCHAR UNIQUE,
+    actualName VARCHAR,
+    birthDate INTEGER,
+    gender VARCHAR,
     password VARCHAR,
     email VARCHAR UNIQUE,
     bio VARCHAR,
@@ -105,26 +108,26 @@ CREATE TABLE personal (
 );
 
 -- 20 users
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("charlie", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "c.harlie@gone.com", "I'm a php programmer", "/images/otter.jpeg", 1680017779);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("jenny", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jenny@hotmail.com", "I'm a graphic designer", "/images/otter.jpeg", 1681749271);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("michael", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "michael@gmail.com", "I'm a software engineer", "/images/otter.jpeg", 1681665071);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("david", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "david@yahoo.com", "I'm a web developer", "/images/otter.jpeg", 1677415142);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("jane", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jane@gmail.com", "I'm a marketing specialist", "/images/otter.jpeg", 1682843501);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("peter", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "peter@hotmail.com", "I'm a front-end developer", "/images/otter.jpeg", 1682490932);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("susan", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "susan@yahoo.com", "I'm a content writer", "/images/otter.jpeg", 1677359372);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("mark", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mark@gmail.com", "I'm a project manager", "/images/otter.jpeg", 1673524028);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("mary", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mary@hotmail.com", "I'm a customer support specialist", "/images/otter.jpeg", 1677649032);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("tom", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "tommy@fugu.com", "I am an astronaut", "/images/otter.jpeg", 1682255882);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("john", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "john@gmail.com", "I'm a full-stack developer", "/images/otter.jpeg", 1683838876);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("sarah", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "sarah@yahoo.com", "I'm a UI/UX designer", "/images/otter.jpeg", 1681821365);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("matt", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "matt@hotmail.com", "I'm a software architect", "/images/otter.jpeg", 1682269127);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("emily", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "emily@gmail.com", "I'm a content marketing specialist", "/images/otter.jpeg", 1680581226);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("jack", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jack@yahoo.com", "I'm a data analyst", "/images/otter.jpeg", 1675234102);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("lisa", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "lisa@gmail.com", "I'm a social media manager", "/images/otter.jpeg", 1676827872);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("adam", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "adam@hotmail.com", "I'm a network engineer", "/images/otter.jpeg", 1676577316);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("karen", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "karen@yahoo.com", "I'm a human resources specialist", "/images/otter.jpeg", 1673654279);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("daniel", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "daniel@gmail.com", "I'm a mobile app developer", "/images/otter.jpeg", 1673092347);
-INSERT INTO user (username, password, email, bio, userImage, dateJoin) VALUES ("amy", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "amanda@rust.com", "I'm an HR specialist", "/images/otter.jpeg", 1683620901);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("charlie", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "c.harlie@gone.com", "I'm a php programmer", "/images/otter.jpeg", 1680017779);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("jenny", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jenny@hotmail.com", "I'm a graphic designer", "/images/otter.jpeg", 1681749271);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("michael", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "michael@gmail.com", "I'm a software engineer", "/images/otter.jpeg", 1681665071);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("david", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "david@yahoo.com", "I'm a web developer", "/images/otter.jpeg", 1677415142);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("jane", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jane@gmail.com", "I'm a marketing specialist", "/images/otter.jpeg", 1682843501);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("peter", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "peter@hotmail.com", "I'm a front-end developer", "/images/otter.jpeg", 1682490932);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("susan", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "susan@yahoo.com", "I'm a content writer", "/images/otter.jpeg", 1677359372);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("mark", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mark@gmail.com", "I'm a project manager", "/images/otter.jpeg", 1673524028);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("mary", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "mary@hotmail.com", "I'm a customer support specialist", "/images/otter.jpeg", 1677649032);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("tom", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "tommy@fugu.com", "I am an astronaut", "/images/otter.jpeg", 1682255882);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("john", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "john@gmail.com", "I'm a full-stack developer", "/images/otter.jpeg", 1683838876);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("sarah", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "sarah@yahoo.com", "I'm a UI/UX designer", "/images/otter.jpeg", 1681821365);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("matt", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "matt@hotmail.com", "I'm a software architect", "/images/otter.jpeg", 1682269127);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("emily", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "emily@gmail.com", "I'm a content marketing specialist", "/images/otter.jpeg", 1680581226);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("jack", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "jack@yahoo.com", "I'm a data analyst", "/images/otter.jpeg", 1675234102);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("lisa", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "lisa@gmail.com", "I'm a social media manager", "/images/otter.jpeg", 1676827872);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("adam", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "adam@hotmail.com", "I'm a network engineer", "/images/otter.jpeg", 1676577316);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("karen", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "karen@yahoo.com", "I'm a human resources specialist", "/images/otter.jpeg", 1673654279);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("daniel", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "daniel@gmail.com", "I'm a mobile app developer", "/images/otter.jpeg", 1673092347);
+INSERT INTO user (username, actualName, birthDate, gender, password, email, bio, userImage, dateJoin) VALUES ("amy", "Carlitos", 1680017779, "macho", "$2y$10$7RW/fO2rYT4isr.RY/eUF.uIohmP2g/GR4kE9sS9AE6t/dVcvn1oK", "amanda@rust.com", "I'm an HR specialist", "/images/otter.jpeg", 1683620901);
 
 -- 20 clients
 INSERT INTO client (clientId) VALUES (1);

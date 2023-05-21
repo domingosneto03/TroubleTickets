@@ -51,7 +51,7 @@
 
         public function getAllAgentsOfDepartment(PDO $db) {
             $stmt = $db->prepare('
-                SELECT u.userId, u.username, u.email, u.bio, u.userImage, u.dateJoin, a.departmentId
+                SELECT u.userId, u.username, u.actualName, u.birthDate, u.gender, u.email, u.bio, u.userImage, u.dateJoin, a.departmentId
                 FROM user u JOIN agent a
                 ON u.userId = a.agentId
                 WHERE a.departmentId = ?
@@ -62,6 +62,9 @@
                 $agents[] = new User(
                     $agent['userId'],
                     $agent['username'],
+                    $agent['actualName'],
+                    $agent['birthDate'],
+                    $agent['gender'],
                     $agent['email'],
                     $agent['bio'],
                     $agent['userImage'],
