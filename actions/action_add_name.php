@@ -5,6 +5,7 @@
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/user.class.php");
 
+
     $db = getDatabaseConnection();
 
     $actualName = $_POST['actualName'];
@@ -19,6 +20,6 @@
     catch (Exception $e) {
         echo 'error is' . $e;
     }
-
     header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 ?>

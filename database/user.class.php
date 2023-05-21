@@ -133,7 +133,7 @@ class User {
         $filename = $_FILES['userImage']['name'];
         $fileTmpPath = $_FILES['userImage']['tmp_name'];
         $targetFilePath = $targetDir . $filename;
-        $dbFilePath = "images/" . $username . "/" . $filename;
+        $dbFilePath = "images/user/" . $username . "/" . $filename;
 
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
