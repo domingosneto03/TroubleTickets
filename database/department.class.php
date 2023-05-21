@@ -10,6 +10,13 @@
             $this->name = $name;
         }
 
+        static function createDepartment(PDO $db, string $name) {
+            $stmt = $db->prepare('
+                INSERT INTO department (name) VALUES (?)
+            ');
+            $stmt->execute(array($name));
+        }
+
         static function getDepartment(PDO $db, int $id) {
             $stmt = $db->prepare('
                 SELECT *

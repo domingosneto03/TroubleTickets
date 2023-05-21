@@ -75,10 +75,12 @@
             <p>Departments</p>
             <ul class="department_list_admin">
                 <?php  foreach(Department::getAllDepartments($db) as $department) { ?>
-                <li class="department_list_admin_item"><?= $department->name ?></li>
+                    <?php if ($department->name != "None") {
+                        ?> <li class="department_list_admin_item"><?= $department->name ?></li> <?php 
+                    } ?>
                 <?php } ?>
             </ul>
-            <form action="">
+            <form action="/../actions/action_add_department.php" method="post">
                 <input type="text" name="add_department" id="add_department" maxlength="15" placeholder="Add department name">
                 <input type="submit" value="Add">
             </form>
