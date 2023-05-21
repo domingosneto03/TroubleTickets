@@ -256,4 +256,13 @@ class User {
         ');
         $stmt->execute(array(strtotime($birthDate), $this->id));
     }
+
+    public function changeUsername(PDO $db, string $username) {
+        $stmt = $db->prepare('
+          UPDATE user
+          SET username = ?
+          WHERE userId = ?
+        ');
+        $stmt->execute(array($username, $this->id));
+    }
 } ?>

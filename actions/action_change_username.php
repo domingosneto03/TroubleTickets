@@ -6,19 +6,20 @@
     require_once(__DIR__ . "/../database/connection.php");
     require_once(__DIR__ . "/../database/user.class.php");
 
-    $username = $session->getUsername();
     $newusername = $_POST['new_username'];
 
     $db = getDatabaseConnection();
-
-    $user = User::getUser($db, $username);
+    $user = User::getUserById($db, $session->getId());
+    $maybe_user = User::getUser($db, $newusername);
 
     try {
-        if ($user) {
+        if ($maybe_user) {
             $session->addMessage('error', 'username already exists!');
             header('Location: /settings.php' );
-        } else {
-            $username = $newusername;
+        } 
+        else {
+            $user->changeUsername($db, $newusername);
+            $session->setUsername($newusername);
             $session->addMessage('success', 'Username updated!');
             header('Location: /settings.php' );
         }

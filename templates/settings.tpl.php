@@ -61,17 +61,16 @@
                 <div class="show" id="change_username">
                     <button>Change Username</button>
                 </div>
-                <label class="hide" id="new_username">
+                <form class="hide" id="new_username">
                     New Username
-                    <input type="text" name="new_username" placeholder="Type your new username">
+                    <input type="text" name="new_username" value="<?= User::getUserById($db, $session->getId())->username ?>">
                     <button  formaction="actions/action_change_username.php" formmethod="post">Save</button>
-                </label>
+                </form>
                 <h3>Change Password</h3>
                 <div id="change_password">
                     <form>
-                        <label>
-                            Old Password
-                            <input type="password" name="old_password" placeholder="Type your old password">
+                        Old Password
+                        <input type="password" name="old_password" placeholder="Type your old password">
                         </label>
                         <label>
                             New Password
@@ -81,19 +80,9 @@
                             Confirm Password 
                             <input type="password" name="confirmPassword" placeholder="Confirm your password">
                         </label>
-                        <button formaction="actions/action_change_password.php" formmethod="post">Update Password</button>
-                    </form> 
+                        <button formaction="/../actions/action_change_password.php" formmethod="post">Update Password</button>
+                    </form>
                 </div>
-                <h3>Delete Account</h3>
-                <div id="delete_account">
-                    <button class="open">Delete Account</button>
-                </div>
-                <dialog class="popup" id="delete_popup">
-                    <div id="close_button"><button class="close" >&times;</button></div>
-                    <h3>Are you sure?</h3>
-                    <p>If you delete your acount, you will not be able to recover it</p>
-                    <button class="delete" formaction="actions/action_delete_account.php" formmethod="post">Yes, delete my account</button>
-                </dialog>  
             </div>
         </section>
     </main>

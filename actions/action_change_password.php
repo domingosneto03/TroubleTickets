@@ -15,23 +15,15 @@
     $password = User::getPassword($db, $username);
 
     try {
-        if($password != $old_password) {
-            $session->addMessage('error', 'old password do not match');
+        if(($password !== $old_password || strlen($new_password) < 7 ) || $new_password != $confirm) {
+            $session->addMessage('error', 'old password does not match');
             header('Location: /settings.php' );
-        } else {
-            if((strlen($new_password)>=1 and strlen($new_password)<=2) or (strlen($confirm)>=1 and strlen($confirm)<=2)) {
-                $session->addMessage('error', 'password is too short');
-                header('Location: /settings.php' );
-            } else if(strlen($new_password)>3 or strlen($confirm)>3){
-                if ($new_password != $confirm) {
-                $session->addMessage('error', 'passwords do not match');
-                header('Location: /settings.php' );
-            }
-            } else {
+        } 
+        else {
+            
                 $password = $new_password;
                 $session->addMessage('success', 'Password updated!');
                 header('Location: /settings.php' );
-            }  
         }
     } catch (PDOException $e) {
         echo 'Database Error: ' . $e->getMessage();
