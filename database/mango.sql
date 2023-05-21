@@ -58,7 +58,9 @@ CREATE TABLE hashtag (
 
 CREATE TABLE ticket_hash (
     ticketId INTEGER REFERENCES ticket,
-    hashtagId INTEGER REFERENCES hashtag
+    hashtagId INTEGER REFERENCES hashtag,
+    CONSTRAINT unique_ticket_hash 
+    UNIQUE (ticketId, hashtagId)
 );
 
 CREATE TABLE ticket_history (
@@ -239,8 +241,27 @@ INSERT INTO hashtag (name) VALUES ("printer");
 INSERT INTO hashtag (name) VALUES ("divorce");
 INSERT INTO hashtag (name) VALUES ("animals");
 
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 1);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (2, 4);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (2, 1);
 INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 2);
-INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (1, 3);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (2, 2);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (3, 3);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (3, 4);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (4, 1);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (4, 2);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (5, 3);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (5, 4);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (6, 1);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (7, 1);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (8, 3);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (9, 4);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (10, 2);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (10, 3);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (11, 1);
+INSERT INTO ticket_hash (ticketId, hashtagId) VALUES (13, 4);
+
+
 
 INSERT INTO comment (body, date, userId, ticketId) VALUES ("thanks for the help", 1684235850, 14, 1);
 INSERT INTO comment (body, date, userId, ticketId) VALUES ("this worked for me as well", 1684235980, 5, 1);

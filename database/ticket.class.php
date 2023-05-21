@@ -290,7 +290,7 @@
             $stmt->execute(array($id, "EDIT", time(), NULL));
         }
 
-        public function closeTicket(PDO $db, int $id) {
+        public function closeTicket(PDO $db, int $id, int $agentId) {
             $stmt = $db->prepare('
                 UPDATE ticket
                 SET status = "closed"
@@ -299,10 +299,10 @@
             $stmt->execute(array($id));
 
             $stmt = $db->prepare('
-                INSERT INTO ticket_history (ticketId, type_of_edit, date, old_value)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value)
+                VALUES (?, ?, ?, ?, ?)
             ');
-            $stmt->execute(array($id, "closed", time(), null));
+            $stmt->execute(array($id, "closed", time(), $agentId, null));
         }
 
         public function openTicket(PDO $db) {
@@ -320,12 +320,40 @@
             $stmt->execute(array($this->id, "open", time(), null));
         }
 
-        public function add_Hashtag(PDO $db, int $ticketId) {
+        public function hasHashtag(PDO $db, string $hashtag) : bool {
             $stmt = $db->prepare('
-                INSERT into ticket_hash (ticketId, hashtagId)
-                VALUES (? ?)
+                SELECT h.hashtagId
+                FROM hashtag h
+                JOIN ticket_hash th
+                ON h.hashtagId = th.hashtagId
+                WHERE ticketId = ?
+                AND name = ? 
             ');
-            $stmt->execute(array($ticketId, $this->id));
+            $stmt->execute(array($this->id, $hashtag));
+            return $stmt->fetch() !== false;
+        }
+
+        public function add_hashtag(PDO $db, int $hashtagId, int $agentId) {
+            $stmt = $db->prepare('
+                INSERT INTO ticket_hash (ticketId, hashtagId)
+                VALUES (?, ?)
+            ');
+            $stmt->execute(array($this->id, $hashtagId));
+
+            $stmt = $db->prepare('
+                INSERT INTO ticket_history (ticketId, type_of_edit, date, agentId, old_value)
+                VALUES (?, ?, ?, ?, ?)
+            ');
+            $stmt->execute(array($this->id, $hashtagId, time(), $agentId, null));
+        }
+
+        public function remove_hashtag(PDO $db, int $tagId) {
+            $stmt = $db->prepare('
+                DELETE FROM ticket_hash
+                WHERE ticketId = ?
+                AND hashtagId = ?
+            ');
+            $stmt->execute(array($this->id, $tagId));
         }
 
         public function getHashtags(PDO $db) {

@@ -21,6 +21,7 @@
         <script src="javascript/script.js" defer></script>
         <script src="javascript/settings.js" defer></script>
         <script src="javascript/faqs.js" defer></script>
+        <script src="javascript/tags.js" defer></script>
     </head>
     <body>
         <header id="main_header">
