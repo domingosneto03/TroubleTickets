@@ -153,7 +153,7 @@
                         <?php }
                     ?>
                     <?php 
-                        if (($session->isAdmin() || ($session->isAgent() && User::getUserById($db, $session->getId())->department==$ticket->department)) && $ticket->status=="open") { ?>
+                        if (($session->isAdmin() || ($session->isAgent() && User::getUserById($db, $session->getId())->department==$ticket->department)) && $ticket->status!="assigned") { ?>
                             <form action="/../actions/action_change_ticket_department.php" method="post">
                                 <input type="hidden" name="ticket_id" value="<?= $ticket->id ?>">
                                 <select name="new_department" id="new_department">
@@ -193,12 +193,37 @@
             
             <div class="focused_ticket_info">
                 <p>Ticket created by <a href="<?= "/profile.php?id=" . $ticket->clientId ?>"><?= $ticket->getClientName($db) ?></a> on <?= date("d-m-Y", $ticket->createdAt )?> </p>
-                <p>Status: <?php if ($ticket->status === "open") { 
-                    ?>Open<?php } 
-                    elseif ($ticket->status === "closed") { 
-                    ?>Closed<?php } 
-                    elseif ($ticket->status === "assigned") { 
-                    ?>Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a><?php } ?></p>
+                
+                <div>
+                    <p>Status: <?php if ($ticket->status === "open") { 
+                        ?>Open<?php } 
+                        elseif ($ticket->status === "closed") { 
+                        ?>Closed<?php } 
+                        else/* if ($ticket->status === "assigned") */ { 
+                        ?>Assigned to agent <a href="<?= "/profile.php?id=" . $ticket->assigned ?>"><?= $ticket->getAgentName($db) ?></a><?php } ?>
+                    </p>
+
+                    <?php if (($ticket->status == "open" || $ticket->assigned == $session->getId()) && (User::getUserById($db, $session->getId())->department == $ticket->department || $session->isAdmin())) { ?>
+                        <form action="/../actions/action_assign_ticket.php" method="post">
+                            <input type="hidden" name="ticket_id" value="<?= $ticket->id ?>">
+                            <select name="agent_to_assign" id="agent_to_assign">
+                                <option value="">Choose Agent</option>
+                                <?php 
+                                    foreach(Department::getDepartment($db, $ticket->department)->getAllAgentsOfDepartment($db) as $list_agent) {
+                                        if ($list_agent->id == $session->getId()) {
+                                            ?> <option value=" <?= $list_agent->id ?> ">Myself</option> <?php
+                                        }
+                                        else {
+                                            ?> <option value=" <?= $list_agent->id ?> "><?= $list_agent->username ?></option> <?php
+                                        }
+                                    }
+                                ?>
+                            </select>
+                            <button type="submit">Assign</button>
+                        </form>
+                    <?php } ?>
+                </div>
+                
             </div>
 
             <?php output_comment_section($session, $ticket) ?>

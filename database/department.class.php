@@ -41,6 +41,29 @@
             }
             return $departments;
         }
+
+        public function getAllAgentsOfDepartment(PDO $db) {
+            $stmt = $db->prepare('
+                SELECT u.userId, u.username, u.email, u.bio, u.userImage, u.dateJoin, a.departmentId
+                FROM user u JOIN agent a
+                ON u.userId = a.agentId
+                WHERE a.departmentId = ?
+            ');
+            $stmt->execute(array($this->id));
+            $agents = [];
+            while($agent = $stmt->fetch()) {
+                $agents[] = new User(
+                    $agent['userId'],
+                    $agent['username'],
+                    $agent['email'],
+                    $agent['bio'],
+                    $agent['userImage'],
+                    $agent['dateJoin'],
+                    $agent['departmentId']
+                );
+            }
+            return $agents;
+        }
     }
 
 ?>

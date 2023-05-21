@@ -22,7 +22,7 @@
                     <p>Client</p>
                 <?php } ?>
                 <?php 
-                    if ($user->isAgent($db)) { ?>
+                    if ($user->isAgent($db) || $user->isAdmin($db)) { ?>
                         <p class="agent_profile_dep"> <?= $user->getDepartment($db) ?> </p>
                     <?php }
                 ?>

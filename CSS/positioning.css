@@ -384,6 +384,22 @@ main {
     justify-content: space-between;
 }
 
+.focused_ticket_info div {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.focused_ticket_info div form {
+    height: fit-content;
+}
+
+.focused_ticket_info div form button {
+    padding: 0.1rem 0.2rem;
+}
+
 .outer_tags {
     display: flex;
     flex-direction: row-reverse;

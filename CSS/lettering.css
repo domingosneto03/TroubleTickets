@@ -189,6 +189,12 @@
     font-size: 0.8em;
 }
 
+.focused_ticket_info div form select, .focused_ticket_info div form button {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
 .outer_tags label {
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 700;

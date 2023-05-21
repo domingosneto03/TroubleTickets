@@ -499,6 +499,20 @@
             $stmt->execute(array($departmentId, $this->id));
         }
 
+        public function assignTicket(PDO $db, int $userId) {
+            $stmt = $db->prepare('
+                UPDATE ticket
+                SET assigned = ?
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($userId, $this->id));
+            $stmt = $db->prepare('
+                UPDATE ticket
+                SET status = "assigned"
+                WHERE ticketId = ?
+            ');
+            $stmt->execute(array($this->id));
+        }
     }
 
 
