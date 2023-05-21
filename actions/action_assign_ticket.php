@@ -8,8 +8,9 @@
     $db = getDatabaseConnection();
 
     $ticket = Ticket::getTicket($db, $_POST['ticket_id']);
-
-    $ticket->assignTicket($db, $_POST['agent_to_assign']);
+    if ($_POST['agent_to_assign'] != '') {
+        $ticket->assignTicket($db, $_POST['agent_to_assign']);
+    }
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);
 

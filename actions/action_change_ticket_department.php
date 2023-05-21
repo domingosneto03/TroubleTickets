@@ -9,8 +9,10 @@
 
     $ticket = Ticket::getTicket($db, $_POST['ticket_id']);
 
-    $ticket->changeTicketDepartment($db, $_POST['new_department']);
-    $ticket->openTicket($db);
+    if ($_POST['new_department'] != '') {
+        $ticket->changeTicketDepartment($db, $_POST['new_department']);
+        $ticket->openTicket($db);
+    }
 
     $user = User::getUserById($db, $session->getId());
 
