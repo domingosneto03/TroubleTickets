@@ -144,7 +144,7 @@
                     </a>
                     <?php } ?>
                     <?php
-                        if (($session->isAdmin() || ($session->getId()==($ticket->clientId || $ticket->$assigned))) && $ticket->status != "closed") { ?>
+                        if (($session->isAdmin() || ($session->getId()==($ticket->clientId || $ticket->assigned))) && $ticket->status != "closed") { ?>
                             <form action="/../actions/action_close_ticket.php" method="post">
                                 <input type="hidden" value="<?= $ticket->id ?>" name="ticket_id">
                                 <button type="submit" id="ticket_closer">Close Ticket</button>

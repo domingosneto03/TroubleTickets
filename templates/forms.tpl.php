@@ -34,11 +34,11 @@
         <section id="register">
             <h2>Register</h2>
             <?php 
-                if (end($session->getMessages())['text'] == 'username already exists!'){
+                if ($session->getMessages()['text'] == 'username already exists!'){
                     ?> <p class="error_message">Username already exists! Please choose another one.</p> <?php
-                } else if(end($session->getMessages())['text'] == 'passwords do not match') {
+                } else if($session->getMessages()['text'] == 'passwords do not match') {
                     ?> <p class="error_message">Passwords don't match!</p> <?php  
-                } else if(end($session->getMessages())['text'] == 'password is too short') {
+                } else if($session->getMessages()['text'] == 'password is too short') {
                     ?> <p class="error_message">This password is too short. Please try another one.</p> <?php  
                 }
             ?>
@@ -64,7 +64,7 @@
                 <label>Image
                     <input type="file" name="userImage" id="user_image_upload">
                 </label>
-                <button formaction="../actions/action_register.php" formmethod="post">Register</button>
+                <button formaction="/actions/action_register.php" formmethod="post">Register</button>
             </form>
         </section>
     </main>
