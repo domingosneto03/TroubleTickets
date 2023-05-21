@@ -12,7 +12,7 @@
 
     try {
         if($user) {
-            User::delete($db);
+            $user->delete($db);
             $session->addMessage('success', 'Account deleted');
             header('Location: /login.php' );
         }
